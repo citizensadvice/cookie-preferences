@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency 'rails', '>= 7.0.8'
+  spec.add_dependency 'view_component', ['>= 2.0.0', '< 4.0']
 end
