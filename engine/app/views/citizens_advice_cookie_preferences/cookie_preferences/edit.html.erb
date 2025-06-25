@@ -3,8 +3,17 @@
 <h2>Additional cookie settings</h2>
 <p>These cookies are optional and are only set with your consent. You can manage your preferences at any time through our</p>
 
-<!-- TODO: Don't use the form builder because we won't be able to test it -->
 <%= form_for @cookie_preferences, method: :patch do |form| %>
-  <%= form.cads_collection_radio_buttons :analytics, collection: @cookie_preferences.analytics_options, value_method: :id, text_method: :name, required: true, label: "" %>
-  <%= form.cads_button "Save changes" %>
+  <div class="cads-form-field">
+    <div class="cads-form-field__content cads-form-group cads-form-group--radio">
+      <%= form.collection_radio_buttons :analytics, @cookie_preferences.analytics_options, :id, :name, required: true, label: "" do |b| %>
+        <div class="cads-form-group__item">
+          <%= b.radio_button(class: "cads-form-group__input") %>
+          <%= b.label(class: "cads-form-group__label") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form.button "Save changes", class: "cads-button cads-button__primary" %>
 <% end %>

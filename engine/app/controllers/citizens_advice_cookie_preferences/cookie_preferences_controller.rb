@@ -19,7 +19,7 @@ module CitizensAdviceCookiePreferences
         analytics: prefs_from_form["analytics"],
       )
 
-      cookies[:citizens_advice_cookie_preferences_cookie_preference] = @cookie_preferences.serializable_hash if @cookie_preferences.valid?
+      cookies[:cookie_preference] = @cookie_preferences.serializable_hash if @cookie_preferences.valid?
 
       render :edit
     end
@@ -27,11 +27,11 @@ module CitizensAdviceCookiePreferences
     private
 
     def prefs_from_form
-      params.fetch(:citizens_advice_cookie_preferences_cookie_preference).permit(:analytics)
+      params.fetch(:cookie_preference).permit(:analytics)
     end
 
     def prefs_from_cookie
-      JSON.parse(cookies[:citizens_advice_cookie_preferences_cookie_preference]) || DEFAULT_PREFERENCES
+      JSON.parse(cookies[:cookie_preference]) || DEFAULT_PREFERENCES
     end
   end
 end
