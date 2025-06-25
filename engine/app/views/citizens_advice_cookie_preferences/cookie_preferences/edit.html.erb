@@ -1,0 +1,10 @@
+<h1 class="cads-page-title">Your cookie settings</h1>
+<p>Cookies are files saved on your phone, tablet or computer when you visit a website.</p>
+<h2>Additional cookie settings</h2>
+<p>These cookies are optional and are only set with your consent. You can manage your preferences at any time through our</p>
+
+<!-- TODO: Don't use the form builder because we won't be able to test it -->
+<%= form_for @cookie_preferences, method: :patch do |form| %>
+  <%= form.cads_collection_radio_buttons :analytics, collection: @cookie_preferences.analytics_options, value_method: :id, text_method: :name, required: true, label: "" %>
+  <%= form.cads_button "Save changes" %>
+<% end %>
