@@ -6,9 +6,6 @@ module CitizensAdviceCookiePreferences
 
     helper_method :homepage_url
 
-    # Fixing issues with main app routes going to the engine
-    include Rails.application.routes.url_helpers
-
     def homepage_url
       if request.params[:country].present?
         main_app.extent_root_path(country: request.params[:country])

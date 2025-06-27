@@ -4,8 +4,10 @@ module CitizensAdviceCookiePreferences
 
     DEFAULT_PREFERENCES = { "analytics" => true }.freeze
 
+    include Rails.application.routes.url_helpers
+
     def show
-      redirect_to edit_cookie_preference_path
+      redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path
     end
 
     def edit
@@ -15,9 +17,7 @@ module CitizensAdviceCookiePreferences
     end
 
     def update
-      @cookie_preferences = CookiePreference.new(
-        analytics: prefs_from_form["analytics"],
-      )
+      @cookie_preferences = CookiePreference.new(analytics: prefs_from_form["analytics"])
 
       cookies[:cookie_preference] = @cookie_preferences.serializable_hash if @cookie_preferences.valid?
 

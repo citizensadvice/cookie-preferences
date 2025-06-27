@@ -3,7 +3,7 @@
 <h2>Additional cookie settings</h2>
 <p>These cookies are optional and are only set with your consent. You can manage your preferences at any time through our</p>
 
-<%= form_for @cookie_preferences, method: :patch do |form| %>
+<%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
   <div class="cads-form-field">
     <div class="cads-form-field__content cads-form-group cads-form-group--radio">
       <%= form.collection_radio_buttons :analytics, @cookie_preferences.analytics_options, :id, :name, required: true, label: "" do |b| %>
