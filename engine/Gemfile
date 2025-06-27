@@ -4,6 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Specify your gem's dependencies in engine.gemspec.
 gemspec
 
+gem "citizens_advice_components",
+    github: "citizensadvice/design-system",
+    tag: "v8.0.2",
+    glob: "engine/*.gemspec"
+
 gem "puma"
 
 gem "sprockets-rails"

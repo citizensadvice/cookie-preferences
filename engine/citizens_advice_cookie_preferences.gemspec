@@ -28,5 +28,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency 'rails', '>= 7.1.0'
+  # v7.0.0 is when the form builder was added to the design system
+  spec.add_dependency 'citizens_advice_components', '> 7.0.0'
   spec.add_dependency 'view_component', ['>= 2.0.0', '< 4.0']
 end
