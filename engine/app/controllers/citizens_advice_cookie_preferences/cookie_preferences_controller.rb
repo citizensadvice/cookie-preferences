@@ -2,7 +2,7 @@ module CitizensAdviceCookiePreferences
   class CookiePreferencesController < ApplicationController
     default_form_builder CitizensAdviceComponents::FormBuilder
 
-    DEFAULT_PREFERENCES = { "analytics" => true }.freeze
+    DEFAULT_PREFERENCES = { "additional_cookies" => true }.freeze
 
     include Rails.application.routes.url_helpers
 
@@ -12,12 +12,12 @@ module CitizensAdviceCookiePreferences
 
     def edit
       @cookie_preferences = CookiePreference.new do |pref|
-        pref.analytics = prefs_from_cookie["analytics"]
+        pref.additional_cookies = prefs_from_cookie["additional_cookies"]
       end
     end
 
     def update
-      @cookie_preferences = CookiePreference.new(analytics: prefs_from_form["analytics"])
+      @cookie_preferences = CookiePreference.new(additional_cookies: prefs_from_form["additional_cookies"])
 
       cookies[:cookie_preference] = @cookie_preferences.serializable_hash if @cookie_preferences.valid?
 
@@ -27,7 +27,7 @@ module CitizensAdviceCookiePreferences
     private
 
     def prefs_from_form
-      params.fetch(:cookie_preference).permit(:analytics)
+      params.fetch(:cookie_preference).permit(:additional_cookies)
     end
 
     def prefs_from_cookie

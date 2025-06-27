@@ -8,12 +8,12 @@ module CitizensAdviceCookiePreferences
     include ActiveModel::Attributes
     include ActiveModel::Serializers::JSON
 
-    attribute :analytics, :boolean, default: true
+    attribute :additional_cookies, :boolean, default: false
 
-    def analytics_options
+    def additional_cookies_options
       [
-        FormOption.new(id: "true", name: "Use cookies that measure my website use"),
-        FormOption.new(id: "false", name: "Do not use cookies that measure my website use")
+        FormOption.new(id: "true", name: "Accept additional cookies"),
+        FormOption.new(id: "false", name: "Reject additional cookies")
       ]
     end
 
