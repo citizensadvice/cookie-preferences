@@ -2,7 +2,7 @@ module CitizensAdviceCookiePreferences
   class CookiePreferencesController < ApplicationController
     default_form_builder CitizensAdviceComponents::FormBuilder
 
-    DEFAULT_PREFERENCES = { "additional_cookies" => true }.freeze
+    DEFAULT_PREFERENCES = { "additional_cookies" => false }.freeze
 
     include Rails.application.routes.url_helpers
 
@@ -11,15 +11,19 @@ module CitizensAdviceCookiePreferences
     end
 
     def edit
-      @cookie_preferences = CookiePreference.new do |pref|
-        pref.additional_cookies = prefs_from_cookie["additional_cookies"]
-      end
+      @cookie_preferences = CookiePreference.new(additional_cookies: prefs_from_cookie["additional_cookies"])
     end
 
     def update
       @cookie_preferences = CookiePreference.new(additional_cookies: prefs_from_form["additional_cookies"])
 
-      cookies[:cookie_preference] = @cookie_preferences.serializable_hash if @cookie_preferences.valid?
+      if @cookie_preferences.valid?
+        cookies[:cookie_preference] = {
+          value: @cookie_preferences.serializable_hash,
+          expires: 1.year,
+          domain: :all
+        }
+      end
 
       render :edit
     end
@@ -31,7 +35,13 @@ module CitizensAdviceCookiePreferences
     end
 
     def prefs_from_cookie
-      JSON.parse(cookies[:cookie_preference]) || DEFAULT_PREFERENCES
+      # At the moment, cookie_preference returns "{\"additional_cookies\"=>false}"
+      # this parsing will result in {"additional_cookies"=>false}
+      if cookies[:cookie_preference].present?
+        JSON.parse(cookies[:cookie_preference].gsub('=>', ':'))
+      else
+        DEFAULT_PREFERENCES
+      end
     end
   end
 end
