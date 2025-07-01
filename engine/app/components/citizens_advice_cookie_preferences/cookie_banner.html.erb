@@ -1,3 +1,21 @@
-<div>
-  This is a cookie banner
+<div class="cookie-banner">
+  <div class="cads-grid-container">
+    <div class="cads-grid-row">
+      <div class="cads-grid-col-md-8">
+        <div class="cads-prose">
+          <h2>Cookies on Citizens Advice</h2>
+          <p>We use some essential cookies to make this website work.</p>
+          <p>We'd like to set additional cookies to understand how you use Citizens Advice, remember your settings and improve our services.</p>
+          <p>We also use cookies set by other sites to help us deliver content from their services.</p>
+        </div>
+        <%= render CitizensAdviceComponents::Button.new(variant: :primary) do %>
+          Accept additional cookies
+        <% end %>
+        <%= render CitizensAdviceComponents::Button.new(variant: :primary) do %>
+          Reject additional cookies
+        <% end %>
+        <a href="/cookie-preferences/cookie_preference/">Manage cookies</a>
+      </div>
+    </div>
+  </div>
 </div>
