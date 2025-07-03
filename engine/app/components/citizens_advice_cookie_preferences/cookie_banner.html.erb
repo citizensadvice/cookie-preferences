@@ -4,14 +4,14 @@
       <div class="cads-grid-col-md-8">
         <div class="cads-prose">
           <h2>Cookies on Citizens Advice</h2>
-          <p>We use some essential cookies to make this website work.</p>
-          <p>We'd like to set additional cookies to understand how you use Citizens Advice, remember your settings and improve our services.</p>
-          <p>We also use cookies set by other sites to help us deliver content from their services.</p>
+          <p>We use essential cookies to make our website work properly.</p>
+          <p>We'd also like to use additional cookies to remember your settings and to understand how you use our website. This helps us improve our services for you.</p>
+          <p>Some additional cookies come from other websites. These cookies help us show you things from those websites, like videos.</p>
         </div>
-        <%= render CitizensAdviceComponents::Button.new(variant: :primary) do %>
+        <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "accept" }) do %>
           Accept additional cookies
         <% end %>
-        <%= render CitizensAdviceComponents::Button.new(variant: :primary) do %>
+        <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "reject" }) do %>
           Reject additional cookies
         <% end %>
         <a href="/cookie-preferences/cookie_preference/">Manage cookies</a>
