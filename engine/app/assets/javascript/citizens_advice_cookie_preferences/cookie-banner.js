@@ -1,6 +1,12 @@
+const cookieBanner = document.querySelector(".js-cookie-banner");
 const acceptBtn = document.getElementById("accept");
 const rejectBtn = document.getElementById("reject");
-const hideBannerBtn = document.getElementById("hide-banner");
+const cookieSelectionContainer = document.querySelector(".js-cookie-banner__selection-container");
+const confirmationMessageContainer = document.querySelector(".js-cookie-banner__confirmation-message");
+const confirmationMessageAccept = confirmationMessageContainer.querySelector(".js-cookie-banner__confirmation-accept");
+const confirmationMessageReject = confirmationMessageContainer.querySelector(".js-cookie-banner__confirmation-reject");
+const hideBannerBtn = confirmationMessageContainer.querySelector("button");
+
 
 // Nice console.log to help show when js is being found
 console.log("Hello outside init method!!");
@@ -35,6 +41,9 @@ const acceptCookies = () => {
   }), 365);
   setCookie('cookie_preference_set', true, 365);
   // set JS class that will display confirmation banner
+  cookieSelectionContainer.classList.add('is-hidden');
+  confirmationMessageContainer.classList.add('is-visible');
+  confirmationMessageAccept.classList.add('is-visible');
 }
 
 const rejectCookies = () => {
@@ -44,6 +53,9 @@ const rejectCookies = () => {
   }), 365);
   setCookie('cookie_preference_set', true, 365);
   // set JS class that will display confirmation banner
+  cookieSelectionContainer.classList.add('is-hidden');
+  confirmationMessageContainer.classList.add('is-visible');
+  confirmationMessageReject.classList.add('is-visible');
 }
 
 const DEFAULT_COOKIE_CONSENT = {
@@ -51,9 +63,14 @@ const DEFAULT_COOKIE_CONSENT = {
   additional_cookies: false
 }
 
+function hideCookieBanner() {
+  cookieBanner.classList.add("is-hidden");
+}
+
 // set default cookie or hide cookie banner
 if(getCookie('cookie_preference_set')){
   // set JS class that will mean that banner doesn't render or hideCookieBanner?
+  hideCookieBanner();
 }else{
   setCookie('cookie_preference', JSON.stringify(DEFAULT_COOKIE_CONSENT), 365);
 }
@@ -66,6 +83,9 @@ rejectBtn.addEventListener("click", () => {
   rejectCookies();
 });
 
+hideBannerBtn.addEventListener("click", () => {
+  hideCookieBanner();
+});
 
 // need to add gtm classes to button in view, depending on cookie acceptance status
 
@@ -76,3 +96,4 @@ rejectBtn.addEventListener("click", () => {
 // need event handler to close confirmation/rejection banner on 'hide this message' click
 
 // need to render banner or not, depending on whether cookie preference has already been set
+
