@@ -41,9 +41,8 @@ const acceptCookies = () => {
   }), 365);
   setCookie('cookie_preference_set', true, 365);
   // set JS class that will display confirmation banner
-  cookieSelectionContainer.classList.add('is-hidden');
-  confirmationMessageContainer.classList.add('is-visible');
-  confirmationMessageAccept.classList.add('is-visible');
+  showConfirmationMessage();
+  confirmationMessageAccept.hidden = false;
 }
 
 const rejectCookies = () => {
@@ -53,9 +52,8 @@ const rejectCookies = () => {
   }), 365);
   setCookie('cookie_preference_set', true, 365);
   // set JS class that will display confirmation banner
-  cookieSelectionContainer.classList.add('is-hidden');
-  confirmationMessageContainer.classList.add('is-visible');
-  confirmationMessageReject.classList.add('is-visible');
+  showConfirmationMessage();
+  confirmationMessageReject.hidden = false;
 }
 
 const DEFAULT_COOKIE_CONSENT = {
@@ -64,7 +62,13 @@ const DEFAULT_COOKIE_CONSENT = {
 }
 
 function hideCookieBanner() {
-  cookieBanner.classList.add("is-hidden");
+  cookieBanner.hidden = true;
+}
+
+function showConfirmationMessage() {
+  cookieSelectionContainer.hidden = true;
+  confirmationMessageContainer.hidden = false;
+  confirmationMessageContainer.focus();
 }
 
 // set default cookie or hide cookie banner
@@ -90,10 +94,3 @@ hideBannerBtn.addEventListener("click", () => {
 // need to add gtm classes to button in view, depending on cookie acceptance status
 
 // need datalayer push for accept & reject cookies
-
-// need to render confirmation banner or rejection banner once button clicked (and to hide original banner).
-
-// need event handler to close confirmation/rejection banner on 'hide this message' click
-
-// need to render banner or not, depending on whether cookie preference has already been set
-

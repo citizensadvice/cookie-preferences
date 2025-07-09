@@ -4,35 +4,4 @@ $cookie-banner-bg: #f2f8ff;
 .cookie-banner {
   background-color: $cookie-banner-bg;
   padding: 16px;
-
-  &.is-hidden{
-    display: none;
-  }
-}
-
-.cookie-banner__selection-container.is-hidden{
-  display: none;
-}
-
-.cookie-banner__confirmation-message {
-  display: none;
-
-  &.is-visible{
-    display: block;
-  }
-}
-
-.cookie-banner__confirmation-message-text{
-  display: none;
-
-  &.is-visible{
-    display: block;
-  }
-
-  &--accept,
-  &--reject {
-    &.is-visible{
-      display: block;
-    }
-  }
 }
