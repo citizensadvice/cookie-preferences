@@ -7,10 +7,6 @@ const confirmationMessageAccept = confirmationMessageContainer.querySelector(".j
 const confirmationMessageReject = confirmationMessageContainer.querySelector(".js-cookie-banner__confirmation-reject");
 const hideBannerBtn = confirmationMessageContainer.querySelector("button");
 
-
-// Nice console.log to help show when js is being found
-console.log("Hello outside init method!!");
-
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -33,14 +29,12 @@ function getCookie(name) {
   return null
 }
 
-// ** need to check expiry time for cookies
 const acceptCookies = () => {
   setCookie('cookie_preference', encodeURIComponent(JSON.stringify({
     essential_cookies: true,
     additional_cookies: true
   })), 365);
   setCookie('cookie_preference_set', true, 365);
-  // set JS class that will display confirmation banner
   showConfirmationMessage();
   confirmationMessageAccept.hidden = false;
 }
@@ -51,7 +45,6 @@ const rejectCookies = () => {
     additional_cookies: false
   })), 365);
   setCookie('cookie_preference_set', true, 365);
-  // set JS class that will display confirmation banner
   showConfirmationMessage();
   confirmationMessageReject.hidden = false;
 }
@@ -71,9 +64,7 @@ function showConfirmationMessage() {
   confirmationMessageContainer.focus();
 }
 
-// set default cookie or hide cookie banner
 if(getCookie('cookie_preference_set')){
-  // set JS class that will mean that banner doesn't render or hideCookieBanner?
   hideCookieBanner();
 }else{
   setCookie('cookie_preference', encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)), 365);
@@ -94,3 +85,5 @@ hideBannerBtn.addEventListener("click", () => {
 // need to add gtm classes to button in view, depending on cookie acceptance status
 
 // need datalayer push for accept & reject cookies
+
+// make confirmation banner accessible - e.g. focus or live region?
