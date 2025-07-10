@@ -8,6 +8,7 @@ module CitizensAdviceCookiePreferences
     include ActiveModel::Attributes
     include ActiveModel::Serializers::JSON
 
+    attribute :essential_cookies, :boolean, default: true
     attribute :additional_cookies, :boolean, default: false
 
     def additional_cookies_options

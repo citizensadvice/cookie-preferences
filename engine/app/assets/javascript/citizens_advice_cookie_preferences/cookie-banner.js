@@ -35,10 +35,10 @@ function getCookie(name) {
 
 // ** need to check expiry time for cookies
 const acceptCookies = () => {
-  setCookie('cookie_preference', JSON.stringify({
+  setCookie('cookie_preference', encodeURIComponent(JSON.stringify({
     essential_cookies: true,
     additional_cookies: true
-  }), 365);
+  })), 365);
   setCookie('cookie_preference_set', true, 365);
   // set JS class that will display confirmation banner
   showConfirmationMessage();
@@ -46,10 +46,10 @@ const acceptCookies = () => {
 }
 
 const rejectCookies = () => {
-  setCookie('cookie_preference', JSON.stringify({
+  setCookie('cookie_preference', encodeURIComponent(JSON.stringify({
     essential_cookies: true,
     additional_cookies: false
-  }), 365);
+  })), 365);
   setCookie('cookie_preference_set', true, 365);
   // set JS class that will display confirmation banner
   showConfirmationMessage();
@@ -76,7 +76,7 @@ if(getCookie('cookie_preference_set')){
   // set JS class that will mean that banner doesn't render or hideCookieBanner?
   hideCookieBanner();
 }else{
-  setCookie('cookie_preference', JSON.stringify(DEFAULT_COOKIE_CONSENT), 365);
+  setCookie('cookie_preference', encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)), 365);
 }
 
 acceptBtn.addEventListener("click", () => {

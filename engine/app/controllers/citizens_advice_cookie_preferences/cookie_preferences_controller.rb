@@ -2,9 +2,11 @@ module CitizensAdviceCookiePreferences
   class CookiePreferencesController < ApplicationController
     default_form_builder CitizensAdviceComponents::FormBuilder
 
-    DEFAULT_PREFERENCES = { "additional_cookies": false }.freeze
+    DEFAULT_PREFERENCES = { "essential_cookies": true, "additional_cookies": false }.freeze
 
     include Rails.application.routes.url_helpers
+
+    before_action :set_default_cookie, only: :edit
 
     def show
       redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path
@@ -16,11 +18,16 @@ module CitizensAdviceCookiePreferences
 
     def update
       # binding.pry
-      @cookie_preferences = CookiePreference.new(additional_cookies: prefs_from_form["additional_cookies"])
+      @cookie_preferences = CookiePreference.new(additional_cookies: prefs_from_form['additional_cookies'])
 
       if @cookie_preferences.valid?
         cookies[:cookie_preference] = {
           value: @cookie_preferences.serializable_hash.to_json,
+          expires: 1.year,
+          domain: :all
+        }
+        cookies[:cookie_preference_set] = {
+          value: true,
           expires: 1.year,
           domain: :all
         }
@@ -43,6 +50,16 @@ module CitizensAdviceCookiePreferences
       else
         DEFAULT_PREFERENCES
       end
+    end
+
+    def set_default_cookie
+      return if cookies[:cookie_preference].present?
+
+      cookies[:cookie_preference] = {
+        value: DEFAULT_PREFERENCES.to_json,
+        expires: 1.year,
+        domain: :all
+      }
     end
   end
 end
