@@ -4,21 +4,18 @@
       <div class="cads-grid-col-md-12 cads-grid-col-lg-8">
         <div class="cads-prose">
           <div class="cookie-banner__selection-container js-cookie-banner__selection-container">
-            <h2>Cookies on Citizens Advice</h2>
-            <p>We use essential cookies to make our website work properly.</p>
-            <p>We'd also like to use additional cookies to remember your settings and to understand how you use our website. This helps us improve our services for you.</p>
-            <p>Some additional cookies come from other websites. These cookies help us show you things from those websites, like videos.</p>
-
+            <h2><%= t("cookie_banner.title") %></h2>
+            <%= t("cookie_banner.description.html") %>
             <div class="cookie-banner__button-link-container">
               <div class="cookie-banner__button-container">
                 <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "accept" }) do %>
-                  Accept additional cookies
+                  <%= t("cookie_banner.accept_button") %>
                 <% end %>
                 <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "reject" }) do %>
-                  Reject additional cookies
+                  <%= t("cookie_banner.reject_button") %>
                 <% end %>
               </div>
-              <a class="cookie-banner__link cads-paragraph" href="/cookie-preferences/cookie_preference/">Manage cookies</a>
+              <a class="cookie-banner__link cads-paragraph" href="/cookie-preferences/cookie_preference/"><%= t("cookie_banner.link") %></a>
             </div>
           </div>
           <div class="cookie-banner__confirmation-message js-cookie-banner__confirmation-message" hidden>
