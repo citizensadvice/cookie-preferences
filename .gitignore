@@ -1,0 +1,3 @@
+# Editor / Hidden files
+.idea
+/test/dummy/*
