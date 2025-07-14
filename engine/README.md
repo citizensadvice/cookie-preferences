@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "citizens_advice_cookie_preferences"
+gem "engine"
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install citizens_advice_cookie_preferences
+$ gem install engine
 ```
 
 ## Contributing
