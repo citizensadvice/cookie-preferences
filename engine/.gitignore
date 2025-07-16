@@ -3,6 +3,6 @@
 /log/*.log
 /pkg/
 /tmp/
-/test/dummy/log/*.log
-/test/dummy/storage/
-/test/dummy/tmp/
+/spec/test_app/log/*.log
+/spec/test_app/storage/
+/spec/test_app/tmp/
