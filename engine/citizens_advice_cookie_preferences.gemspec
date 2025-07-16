@@ -1,7 +1,7 @@
 require_relative 'lib/citizens_advice_cookie_preferences/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = 'engine'
+  spec.name        = 'citizens_advice_cookie_preferences'
   spec.version     = CitizensAdviceCookiePreferences::VERSION
   spec.authors     = ['Citizens Advice']
   spec.homepage    = 'https://github.com/citizensadvice/cookie-preferences'
