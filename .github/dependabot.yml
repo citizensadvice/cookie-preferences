@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: bundler
+    directory: "/engine"
+    schedule:
+      interval: weekly
+    ignore:
+      # Design system upgrade should be performed for npm and bundler at the same time, this should happen manually
+      - dependency-name: 'citizens_advice_components'
+      # For Rails, ignore all minor updates for version updates only
+      - dependency-name: "rails"
+        update-types: [ "version-update:semver-minor" ]
+    commit-message:
+      prefix: '[dependabot:bundler] '
+    groups:
+      regular-updates: # Group everything except major version updates and security vulnerabilities
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    commit-message:
+      prefix: '[dependabot:actions] '
+    groups:
+      regular-updates: # Group everything except major version updates and security vulnerabilities
+        update-types:
+          - "minor"
+          - "patch"
