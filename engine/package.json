@@ -1,0 +1,18 @@
+{
+  "name": "citizens-advice-cookie-preferences",
+  "version": "1.0.0",
+  "description": "A gem to control cookie preferences",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}
