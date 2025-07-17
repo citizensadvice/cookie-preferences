@@ -1,0 +1,4 @@
+inherit_gem:
+  citizens-advice-style:
+    - default.yml # For Citizens Advice ruby styles
+    - default-rails.yml # For Citizens Advice rails styles
