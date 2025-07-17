@@ -12,11 +12,29 @@ GIT
       rubocop-rspec (~> 3.5)
       rubocop-rspec_rails (~> 2.31)
 
+GIT
+  remote: https://github.com/citizensadvice/design-system.git
+  revision: 582b90893278a0ad3ec7e0e6b2e98a0901868565
+  tag: v8.0.2
+  glob: engine/*.gemspec
+  specs:
+    citizens_advice_components (8.0.2)
+      actionpack (>= 7.1.0, < 9.0)
+      actionview (>= 7.1.0, < 9.0)
+      activemodel (>= 7.1.0, < 9.0)
+      activerecord (>= 7.1.0, < 9.0)
+      activesupport (>= 7.1.0, < 9.0)
+      rails-i18n (>= 7.0.10)
+      railties (>= 7.1.0, < 9.0)
+      view_component (>= 2.0.0, < 4.0)
+
 PATH
   remote: .
   specs:
     citizens_advice_cookie_preferences (0.1.0)
+      citizens_advice_components (> 8.0.0)
       rails (>= 7.1.0)
+      view_component (>= 2.0.0, < 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -127,6 +145,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
+    method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.5)
     net-imap (0.5.9)
@@ -198,6 +217,9 @@ GEM
     rails-html-sanitizer (1.6.2)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
+    rails-i18n (8.0.1)
+      i18n (>= 0.7, < 2)
+      railties (>= 8.0.0, < 9)
     railties (8.0.2)
       actionpack (= 8.0.2)
       activesupport (= 8.0.2)
@@ -288,6 +310,10 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.3)
     useragent (0.16.11)
+    view_component (3.23.2)
+      activesupport (>= 5.2.0, < 8.1)
+      concurrent-ruby (~> 1)
+      method_source (~> 1.0)
     websocket-driver (0.8.0)
       base64
       websocket-extensions (>= 0.1.0)
@@ -306,6 +332,7 @@ PLATFORMS
 
 DEPENDENCIES
   citizens-advice-style!
+  citizens_advice_components!
   citizens_advice_cookie_preferences!
   puma
   rspec-rails
