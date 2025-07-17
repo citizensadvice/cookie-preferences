@@ -13,4 +13,5 @@ gem "sprockets-rails"
 
 group :development, :test do
   gem "rspec-rails"
+  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v12.0.0"
 end
