@@ -1,0 +1,34 @@
+<%= render CitizensAdviceComponents::PageContent.new do |c| %>
+  <% c.with_main do %>
+    <h1 class="cads-page-title">Your cookie settings</h1>
+
+    <%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
+      <div class="cads-form-field">
+        <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
+          <legend>
+            <h2>Accept or reject additional cookies</h2>
+          </legend>
+          <p>We'll only add additional cookies if you give us permission. We won't add them unless you choose to accept them. You can also change your mind at any time.</p>
+          <p>If you choose not to accept additional cookies, you might find some things on our website don’t work in the same way. </p>
+          <p>You might not be able to:</p>
+          <ul>
+            <li>watch embedded videos</li>
+            <li>have your video player preferences remembered</li>
+            <li>see personalised content from Google</li>
+            <li>see Google advertising tailored to your interests</li>
+            <li>stay signed into Google services as easily</li>
+            <li>help us improve our website</li>
+          </ul>
+          <%= form.collection_radio_buttons :additional, @cookie_preferences.additional_cookies_options, :id, :name, required: true, label: "" do |b| %>
+            <div class="cads-form-group__item">
+              <%= b.radio_button(class: "cads-form-group__input") %>
+              <%= b.label(class: "cads-form-group__label") %>
+            </div>
+          <% end %>
+        </fieldset>
+      </div>
+
+      <%= form.cads_button "Save changes" %>
+    <% end %>
+  <% end %>
+<% end %>
