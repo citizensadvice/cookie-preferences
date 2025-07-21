@@ -1,0 +1,5 @@
+<%= render CitizensAdviceComponents::Header.new do |c| %>
+  <% c.with_logo(title: "Citizens Advice homepage", url: "/") %>
+  <% c.with_search_form(search_action_url: "/search") %>
+<% end %>
+<%= render CitizensAdviceComponents::Navigation.new(links: navigation_links) %>

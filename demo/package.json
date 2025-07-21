@@ -9,6 +9,7 @@
     "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   },
   "dependencies": {
+    "@citizensadvice/design-system": "8.0.3",
     "sass": "^1.89.2"
   }
 }
