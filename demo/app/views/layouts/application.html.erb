@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="no-js" lang="<%= I18n.locale %>">
+<head>
+  <meta charset="utf-8" />
+  <title>Cookie Preferences Engine</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= cads_meta_preload_fonts %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <script>document.querySelector('html').classList.remove('no-js');</script>
+</head>
+<body>
+<div class="cads-page">
+  <div class="cads-page-header">
+    <%= render AppHeaderComponent.new %>
+  </div>
+  <div class="cads-page-wrapper">
+    <div id="cads-main-content"><%= yield %></div>
+  </div>
+  <div class="cads-page-footer">
+    <%= render AppFooterComponent.new %>
+  </div>
+  <div>
+</body>
+</html>
