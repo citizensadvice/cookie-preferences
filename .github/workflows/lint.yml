@@ -2,7 +2,7 @@ name: Lint
 on: workflow_dispatch
 jobs:
   lint-demo-app:
-    runs-on: runs-on
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: demo
@@ -10,16 +10,16 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v4
 
-      - name: "Setup ruby"
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: demo
 
       - name: "Ruby lint"
         run: bundle exec rubocop --format progress --format github
 
   lint-engine:
-    runs-on: runs-on
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: engine
@@ -27,16 +27,16 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v4
 
-      - name: "Setup ruby"
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: engine
 
       - name: "Ruby lint"
         run: bundle exec rubocop --format progress --format github
 
   audit-demo-app:
-    runs-on: runs-on
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: demo
@@ -45,10 +45,10 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v4
 
-      - name: "Setup ruby"
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: demo
 
       - name: "Bundle audit"
         run: bundle exec bundle-audit
@@ -57,7 +57,7 @@ jobs:
         run: bundle exec brakeman
 
   audit-engine:
-    runs-on: runs-on
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: engine
@@ -66,10 +66,10 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v4
 
-      - name: "Setup ruby"
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: engine
 
       - name: "Bundle audit"
         run: bundle exec bundle-audit
