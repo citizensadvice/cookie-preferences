@@ -14,6 +14,8 @@ gem "sprockets-rails"
 # gem "debug", ">= 1.0.0"
 
 group :development, :test do
+  gem "brakeman", require: false
+  gem "bundler-audit"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v12.0.0"
   gem "rspec-rails"
 end
