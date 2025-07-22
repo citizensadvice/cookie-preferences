@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/citizensadvice/citizens-advice-style-ruby.git
+  revision: e5314cb7aef03ed98a318d986aa80202c6fa33c0
+  tag: v12.0.0
+  specs:
+    citizens-advice-style (12.0.0)
+      rubocop (~> 1.73)
+      rubocop-capybara (~> 2.22)
+      rubocop-factory_bot (~> 2.27)
+      rubocop-performance (~> 1.24)
+      rubocop-rails (~> 2.30)
+      rubocop-rspec (~> 3.5)
+      rubocop-rspec_rails (~> 2.31)
+
+GIT
   remote: https://github.com/citizensadvice/design-system.git
   revision: abea66c928ebe755372da567f5db8d339d3532ea
   tag: v8.0.3
@@ -247,6 +261,12 @@ GEM
     rubocop-ast (1.46.0)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
+    rubocop-capybara (2.22.1)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.72, >= 1.72.1)
+    rubocop-factory_bot (2.27.1)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.72, >= 1.72.1)
     rubocop-performance (1.25.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
@@ -257,10 +277,13 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.44.0, < 2.0)
-    rubocop-rails-omakase (1.1.0)
-      rubocop (>= 1.72)
-      rubocop-performance (>= 1.24)
-      rubocop-rails (>= 2.30)
+    rubocop-rspec (3.6.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.72, >= 1.72.1)
+    rubocop-rspec_rails (2.31.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.72, >= 1.72.1)
+      rubocop-rspec (~> 3.5)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
     stringio (3.1.7)
@@ -302,6 +325,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
+  citizens-advice-style!
   citizens_advice_components!
   cssbundling-rails
   debug
@@ -310,7 +334,6 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)
-  rubocop-rails-omakase
   tzinfo-data
   view_component
   web-console

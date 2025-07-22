@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AppHeaderComponent < ViewComponent::Base
   def navigation_links
     [
