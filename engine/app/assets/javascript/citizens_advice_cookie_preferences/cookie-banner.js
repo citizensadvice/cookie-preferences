@@ -79,16 +79,11 @@ rejectBtn.addEventListener("click", () => {
 hideBannerBtn.addEventListener("click", () => {
   hideCookieBanner();
 });
-console.log("inside the init method");
+
+console.log("using the new JS");
 
 // need to add gtm classes to button in view, depending on cookie acceptance status
 
 // need datalayer push for accept & reject cookies
 
 // make confirmation banner accessible - e.g. focus or live region?
-
-// export default setCookie; // tried this to access setCookie function
-
-// export default () => {
-//   setCookie();
-// };
