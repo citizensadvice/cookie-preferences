@@ -1,5 +1,8 @@
 name: Lint
-on: workflow_dispatch
+on:
+  pull_request:
+    types: ["opened", "synchronize"]
+
 jobs:
   lint-demo-app:
     runs-on: ubuntu-latest
