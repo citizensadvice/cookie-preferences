@@ -13,7 +13,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: ruby-3.3.1
           working-directory: demo
 
       - name: "Ruby lint"
@@ -31,7 +30,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: ruby-3.3.1
           working-directory: engine
 
       - name: "Ruby lint"
@@ -50,7 +48,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: ruby-3.3.1
           working-directory: demo
 
       - name: "Bundle audit"
@@ -72,7 +69,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: ruby-3.3.1
           working-directory: engine
 
       - name: "Bundle audit"
