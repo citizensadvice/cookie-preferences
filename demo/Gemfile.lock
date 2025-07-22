@@ -28,6 +28,12 @@ GIT
       railties (>= 7.1.0, < 9.0)
       view_component (>= 2.0.0, < 4.0)
 
+PATH
+  remote: ../engine
+  specs:
+    citizens_advice_cookie_preferences (0.1.0)
+      rails (>= 7.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -327,6 +333,7 @@ DEPENDENCIES
   brakeman
   citizens-advice-style!
   citizens_advice_components!
+  citizens_advice_cookie_preferences!
   cssbundling-rails
   debug
   jbuilder
