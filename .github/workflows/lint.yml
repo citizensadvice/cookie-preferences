@@ -1,0 +1,78 @@
+name: Lint
+on: workflow_dispatch
+jobs:
+  lint-demo-app:
+    runs-on: runs-on
+    defaults:
+      run:
+        working-directory: demo
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: "Ruby lint"
+        run: bundle exec rubocop --format progress --format github
+
+  lint-engine:
+    runs-on: runs-on
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: "Ruby lint"
+        run: bundle exec rubocop --format progress --format github
+
+  audit-demo-app:
+    runs-on: runs-on
+    defaults:
+      run:
+        working-directory: demo
+    needs: lint-demo-app
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: "Bundle audit"
+        run: bundle exec bundle-audit
+
+      - name: "Brakeman audit"
+        run: bundle exec brakeman
+
+  audit-engine:
+    runs-on: runs-on
+    defaults:
+      run:
+        working-directory: engine
+    needs: lint-engine
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: "Bundle audit"
+        run: bundle exec bundle-audit
+
+      - name: "Brakeman audit"
+        run: bundle exec brakeman
