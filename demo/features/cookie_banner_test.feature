@@ -4,7 +4,7 @@ Feature: Cookie Banner
     Given I am on the Demo App Home page
 
   Scenario: Default cookies are set
-    The first time a user visits the site and hasn't interacted with the cookie banner
+    I visit the site and haven't interacted with the cookie banner
     Then the essential cookies are accepted
     And the additional cookies are rejected
     And my cookie preferences are not set
