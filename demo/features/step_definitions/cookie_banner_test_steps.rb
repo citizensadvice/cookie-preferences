@@ -23,6 +23,19 @@ Then('the additional cookies are accepted') do
   expect(cookie_values["additional"]).to be true
 end
 
-Then("I should see {string}") do |text|
-  expect(page).to have_content(text)
+Then('the additional cookies are rejected') do
+  cookie_preference = page.driver.browser.manage.all_cookies.find{|cookie| cookie[:name] == "cookie_preference"}
+  cookie_values = JSON.parse(CGI.unescape(cookie_preference[:value]))
+  expect(cookie_values["additional"]).to be false
+end
+
+Given('I have set my cookie preferences') do
+  within(".cookie-banner") do
+    click_button "Accept additional cookies"
+  end
+end
+
+
+Then('the cookie banner is no longer visible') do
+  expect(page).to have_selector('.cookie-banner', visible: false)
 end
