@@ -1,0 +1,32 @@
+<div class="cookie-banner js-cookie-banner" hidden>
+  <div class="cads-grid-container">
+    <div class="cads-grid-row">
+      <div class="cads-grid-col-md-12 cads-grid-col-lg-8">
+        <div class="cads-prose">
+          <div class="cookie-banner__selection-container js-cookie-banner__selection-container">
+            <h2><%= t("cookie_banner.title") %></h2>
+            <%= t("cookie_banner.description.html") %>
+            <div class="cookie-banner__button-link-container">
+              <div class="cookie-banner__button-container">
+                <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "js-cookie-banner__button-accept" }) do %>
+                  <%= t("cookie_banner.accept_button") %>
+                <% end %>
+                <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "js-cookie-banner__button-reject" }) do %>
+                  <%= t("cookie_banner.reject_button") %>
+                <% end %>
+              </div>
+              <a class="cookie-banner__link cads-paragraph" href="/cookie-preferences/cookie_preference/"><%= t("cookie_banner.link") %></a>
+            </div>
+          </div>
+          <div class="cookie-banner__confirmation-message js-cookie-banner__confirmation-message" tabindex="-1" hidden>
+            <p class="cookie-banner__confirmation-message-text js-cookie-banner__confirmation-accept" hidden><%= t("cookie_banner.accept_confirmation.html") %></p>
+            <p class="cookie-banner__confirmation-message-text js-cookie-banner__confirmation-reject" hidden><%= t("cookie_banner.reject_confirmation.html") %></p>
+            <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "js-cookie-banner__button-hide" }) do %>
+              <%= t("cookie_banner.hide_button") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

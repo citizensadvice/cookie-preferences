@@ -61,6 +61,10 @@ group :development do
 end
 
 group :test do
+  gem "capybara"
+  gem "capybara_accessible_selectors", github: "citizensadvice/capybara_accessible_selectors", tag: "v0.12.0"
   gem "cucumber-rails", require: false
   gem "rspec-expectations"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end

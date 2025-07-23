@@ -8,6 +8,14 @@
 
 require "cucumber/rails"
 
+Capybara.configure do |config|
+  config.run_server = false
+  config.default_driver = :selenium
+  # the server can sometimes be slow to load pages in CI, so let's increase the default wait time to stop flakiness
+  config.default_max_wait_time = 4
+  config.app_host = "http://localhost:3000"
+end
+
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how
 # your application behaves in the production environment, where an error page will
