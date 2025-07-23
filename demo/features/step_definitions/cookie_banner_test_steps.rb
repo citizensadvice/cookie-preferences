@@ -17,6 +17,11 @@ Then('my cookie preference is saved') do
   expect(cookie_preference_set[:value]).to eq "true"
 end
 
+Then('my cookie preferences are not set') do
+  cookie_preference_set = page.driver.browser.manage.all_cookies.find{|cookie| cookie[:name] == "cookie_preference_set"}
+  expect(cookie_preference_set).to be nil
+end
+
 Then('the additional cookies are accepted') do
   cookie_preference = page.driver.browser.manage.all_cookies.find{|cookie| cookie[:name] == "cookie_preference"}
   cookie_values = JSON.parse(CGI.unescape(cookie_preference[:value]))
@@ -35,7 +40,10 @@ Given('I have set my cookie preferences') do
   end
 end
 
-
 Then('the cookie banner is no longer visible') do
   expect(page).to have_selector('.cookie-banner', visible: false)
+end
+
+Then('the cookie banner is visible') do
+  expect(page).to have_selector('.cookie-banner', visible: true)
 end

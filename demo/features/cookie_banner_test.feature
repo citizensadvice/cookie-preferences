@@ -33,6 +33,5 @@ Feature: Cookie Banner
     Then the cookie banner is no longer visible
 
   Scenario: User does not set their cookie preference and visits another page
-    Given I have not set my cookie preferences
-    And I visit another page
+    Given I visit another page
     Then the cookie banner is visible
