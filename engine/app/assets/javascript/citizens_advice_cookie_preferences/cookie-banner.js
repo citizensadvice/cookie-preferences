@@ -65,6 +65,7 @@ function showConfirmationMessage() {
 if(getCookie('cookie_preference_set')){
   hideCookieBanner();
 }else{
+  cookieBanner.hidden = false;
   setCookie('cookie_preference', encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)), 365);
 }
 
@@ -79,8 +80,6 @@ rejectBtn.addEventListener("click", () => {
 hideBannerBtn.addEventListener("click", () => {
   hideCookieBanner();
 });
-
-console.log("using the new JS");
 
 // need to add gtm classes to button in view, depending on cookie acceptance status
 
