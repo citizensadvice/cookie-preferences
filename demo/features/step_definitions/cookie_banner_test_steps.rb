@@ -21,14 +21,24 @@ Then("my cookie preferences are not set") do
   expect(cookie_preference_set).to be nil
 end
 
-Then("the additional cookies are accepted") do
+Then("the analytics cookies are accepted") do
   cookie_preference = cookie_preference_helper
-  expect(cookie_preference["additional"]).to be true
+  expect(cookie_preference["analytics"]).to be true
 end
 
-Then("the additional cookies are rejected") do
+Then("the analytics cookies are rejected") do
   cookie_preference = cookie_preference_helper
-  expect(cookie_preference["additional"]).to be false
+  expect(cookie_preference["analytics"]).to be false
+end
+
+Then("the video player cookies are accepted") do
+  cookie_preference = cookie_preference_helper
+  expect(cookie_preference["video_players"]).to be true
+end
+
+Then("the video player cookies are rejected") do
+  cookie_preference = cookie_preference_helper
+  expect(cookie_preference["video_players"]).to be false
 end
 
 Given("I have set my cookie preferences") do
