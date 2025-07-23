@@ -50,4 +50,8 @@ $cookie-banner-bg: #f2f8ff;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
   }
+
+  &--no-decoration{
+    background-image: none;
+  }
 }

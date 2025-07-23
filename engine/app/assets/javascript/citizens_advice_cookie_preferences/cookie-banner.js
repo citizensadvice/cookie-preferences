@@ -60,6 +60,7 @@ function showConfirmationMessage() {
   cookieSelectionContainer.hidden = true;
   confirmationMessageContainer.hidden = false;
   confirmationMessageContainer.focus();
+  cookieBanner.classList.add("cookie-banner--no-decoration");
 }
 
 if(getCookie('cookie_preference_set')){
