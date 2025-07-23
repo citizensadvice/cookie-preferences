@@ -10,18 +10,21 @@ const selectors = {
 };
 
 const DEFAULT_COOKIE_CONSENT = {
-  essential: true,
-  additional: false
+    essential: true,
+    analytics: false,
+    video_players: false
 }
 
 const cookieBanner = document.querySelector(selectors.cookieBanner);
+
+const cookieDomain = document.location.hostname === 'localhost' ? 'localhost' : 'citizesadvice.org.uk'
 
 function setCookie(cname, cvalue, exdays) {
   // set expiry date in milliseconds
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/" + `;domain=${cookieDomain}`;
 }
 
 function getCookie(name) {
@@ -42,7 +45,8 @@ function getCookie(name) {
 const acceptCookies = () => {
   setCookie('cookie_preference', encodeURIComponent(JSON.stringify({
     essential: true,
-    additional: true
+    analytics: true,
+    video_players: true
   })), 365);
   setCookie('cookie_preference_set', true, 365);
   showConfirmationMessage();
