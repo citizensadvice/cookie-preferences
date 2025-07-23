@@ -6,15 +6,7 @@
   "directories": {
     "lib": "lib"
   },
-  "scripts": {
-    "test": "vitest run",
-    "coverage": "vitest run --coverage"
-  },
   "keywords": [],
   "author": "",
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "@vitest/browser": "^3.2.4",
-    "vitest": "^3.2.4"
-  }
+  "license": "Apache-2.0"
 }
