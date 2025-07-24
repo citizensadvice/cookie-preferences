@@ -9,7 +9,7 @@ runs:
       working-directory: demo
 
     - name: "Start local server"
-      run: bundle exec rake server -d
+      run: bundle exec rails server -d
       shell: bash
       working-directory: demo
       env:
