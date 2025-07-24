@@ -63,25 +63,28 @@ function showConfirmationMessage() {
   cookieBanner.classList.add("cookie-banner--no-decoration");
 }
 
-if(getCookie('cookie_preference_set')){
-  hideCookieBanner();
-}else{
-  cookieBanner.hidden = false;
-  setCookie('cookie_preference', encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)), 365);
+function setDefaultCookies() {
+  if(getCookie('cookie_preference_set')){
+    hideCookieBanner();
+  }else{
+    cookieBanner.hidden = false;
+    setCookie('cookie_preference', encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)), 365);
+  }
 }
+export default function initCookieBanner() {
+  setDefaultCookies();
+  acceptBtn.addEventListener("click", () => {
+    acceptCookies();
+  });
 
-acceptBtn.addEventListener("click", () => {
-  acceptCookies();
-});
+  rejectBtn.addEventListener("click", () => {
+    rejectCookies();
+  });
 
-rejectBtn.addEventListener("click", () => {
-  rejectCookies();
-});
-
-hideBannerBtn.addEventListener("click", () => {
-  hideCookieBanner();
-});
-
+  hideBannerBtn.addEventListener("click", () => {
+    hideCookieBanner();
+  });
+}
 // need to add gtm classes to button in view, depending on cookie acceptance status
 
 // need datalayer push for accept & reject cookies

@@ -8,5 +8,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "esbuild app/javascript/citizens_advice_cookie_preferences/*.* --bundle --sourcemap --outdir=app/assets/javascript --minify"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.8"
+  }
 }
