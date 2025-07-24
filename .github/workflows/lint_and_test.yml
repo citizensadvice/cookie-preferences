@@ -99,15 +99,8 @@ jobs:
       - name: "Start local server"
         uses: ./.github/actions/start-demo-dev-server
 
-      - name: Get working directory
-        run: pwd
-        shell: bash
-
       - name: "Create output directory"
         run: mkdir -p cucumber-results/logs/
-
-      - name: "List directory"
-        run: ls -A
 
       - name: "Run Cucumber"
         run: bundle exec cucumber
