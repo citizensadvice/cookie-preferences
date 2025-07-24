@@ -6,16 +6,17 @@ runs:
     - name: Get working directory
       run: pwd
       shell: bash
+      working-directory: ./demo
 
     - name: "Build assets"
       run: bundle exec rake assets:precompile
       shell: bash
-      working-directory: demo
+      working-directory: ./demo
 
     - name: "Start local server"
       run: bundle exec rails server -d
       shell: bash
-      working-directory: demo
+      working-directory: ./demo
       env:
         CANONICAL_HOST: 172.17.0.1:3000
         SECRET_KEY_BASE: placeholdersecretkeybase
