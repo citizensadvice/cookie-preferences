@@ -1,0 +1,21 @@
+name: Start demo dev server
+
+runs:
+  using: composite
+  steps:
+    - name: "Build assets"
+      run: bin/rails assets:precompile
+      shell: bash
+      working-directory: demo
+
+    - name: "Start local server"
+      run: bin/rails server -d
+      shell: bash
+      working-directory: demo
+      env:
+        CANONICAL_HOST: 172.17.0.1:3000
+        SECRET_KEY_BASE: placeholdersecretkeybase
+        RAILS_ENV: production
+        RACK_ENV: production
+        RAILS_LOG_TO_STDOUT: "true"
+        RAILS_SERVE_STATIC_FILES: "true"
