@@ -10,7 +10,7 @@
   "author": "",
   "license": "Apache-2.0",
   "scripts": {
-    "build": "esbuild app/javascript/citizens_advice_cookie_preferences/*.* --bundle --sourcemap --outdir=app/assets/javascript --minify"
+    "build": "esbuild app/javascript/citizens_advice_cookie_preferences/*.* --bundle --sourcemap --outdir=app/assets/javascript/citizens_advice_cookie_preferences/ --minify"
   },
   "devDependencies": {
     "esbuild": "^0.25.8"
