@@ -125,6 +125,7 @@ jobs:
       - name: "Upload Cucumber report"
         uses: actions/upload-artifact@v4
         if: '!cancelled()'
+        working-directory: ./demo
         with:
           name: cucumber
           path: cucumber-results/
