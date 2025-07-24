@@ -4,11 +4,11 @@ runs:
   using: composite
   steps:
     - name: "Build assets"
-      run: bin/rails assets:precompile
+      run: ./bin/rails assets:precompile
       shell: bash
 
     - name: "Start local server"
-      run: bin/rails server -d
+      run: ./bin/rails server -d
       shell: bash
       env:
         CANONICAL_HOST: 172.17.0.1:3000
