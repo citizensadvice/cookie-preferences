@@ -4,12 +4,12 @@ runs:
   using: composite
   steps:
     - name: "Build assets"
-      run: bin/rails assets:precompile
+      run: ./demo/bin/rails assets:precompile
       shell: bash
       working-directory: demo
 
     - name: "Start local server"
-      run: bin/rails server -d
+      run: ./demo/bin/rails server -d
       shell: bash
       working-directory: demo
       env:
