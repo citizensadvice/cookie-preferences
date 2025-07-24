@@ -115,7 +115,6 @@ jobs:
           TESTING_BASE_URL: http://172.17.0.1:3000
           BASE_ARTIFACTS_PATH: cucumber-results
           LOG_LOCATION: /dev/stdout
-          GRID: true
           HUB_URL: http://localhost:4444/wd/hub
 
       - name: "Fix report filenames"
@@ -125,10 +124,9 @@ jobs:
       - name: "Upload Cucumber report"
         uses: actions/upload-artifact@v4
         if: '!cancelled()'
-        working-directory: ./demo
         with:
           name: cucumber
-          path: cucumber-results/
+          path: demo/cucumber-results/
 
     services:
       standalone-firefox:
