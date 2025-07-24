@@ -3,6 +3,10 @@ name: Start demo dev server
 runs:
   using: composite
   steps:
+    - name: Get working directory
+      run: pwd
+      shell: bash
+
     - name: "Build assets"
       run: bundle exec rake assets:precompile
       shell: bash
