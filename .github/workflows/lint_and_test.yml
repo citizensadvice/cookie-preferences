@@ -106,6 +106,9 @@ jobs:
       - name: "Create output directory"
         run: mkdir -p cucumber-results/logs/
 
+      - name: "List directory"
+        run: ls -A
+
       - name: "Run Cucumber"
         run: bundle exec cucumber
         env:
