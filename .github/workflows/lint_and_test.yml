@@ -79,3 +79,51 @@ jobs:
 
       - name: "Brakeman audit"
         run: bundle exec brakeman
+
+  cucumber-test-demo-app:
+    name: Cucumber tests on demo app
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: demo
+    needs: lint-demo-app
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: "Install dependencies"
+        uses: ./.github/actions/install-demo-dependencies
+
+      - name: "Start local server"
+        uses: ./.github/actions/start-demo-dev-server
+
+      - name: "Create output directory"
+        run: mkdir -p cucumber-results/logs/
+
+      - name: "Run Cucumber"
+        run: bundle exec cucumber
+        env:
+          TESTING_BASE_URL: http://172.17.0.1:3000
+          BASE_ARTIFACTS_PATH: cucumber-results
+          LOG_LOCATION: /dev/stdout
+          HUB_URL: http://localhost:4444/wd/hub
+
+      - name: "Fix report filenames"
+        if: '!cancelled()'
+        run: cp -r log cucumber-results/server-log && find cucumber-results/ -name '*"*' -type f -exec bash -c 'mv "$0" "$(echo "$0" | tr "\"" _)"' {} \;
+
+      - name: "Upload Cucumber report"
+        uses: actions/upload-artifact@v4
+        if: '!cancelled()'
+        with:
+          name: cucumber
+          path: demo/cucumber-results/
+
+    services:
+      standalone-firefox:
+        image: selenium/standalone-firefox
+        options: --shm-size=2gb
+        ports:
+          - "4444:4444"
