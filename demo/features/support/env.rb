@@ -16,6 +16,18 @@ Capybara.configure do |config|
   config.app_host = "http://localhost:3000"
 end
 
+Capybara.register_driver :firefox_with_headless_toggle do |app|
+  firefox_options = Selenium::WebDriver::Firefox::Options.new
+  # Enable headless unless HEADLESS=false
+  firefox_options.args << "--headless" unless ENV["HEADLESS"] == "false"
+  Capybara::Selenium::Driver.new(app,
+                                 browser: :firefox,
+                                 options: firefox_options)
+end
+
+Capybara.default_driver = :firefox_with_headless_toggle
+Capybara.javascript_driver = :firefox_with_headless_toggle
+
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how
 # your application behaves in the production environment, where an error page will
