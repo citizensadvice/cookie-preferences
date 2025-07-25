@@ -4,12 +4,12 @@ runs:
   using: composite
   steps:
     - name: "Build assets"
-      run: bundle exec rake assets:precompile
+      run: bin/rails assets:precompile
       shell: bash
       working-directory: ./demo
 
     - name: "Start local server"
-      run: bundle exec rails server -d
+      run: bin/rails server -d
       shell: bash
       working-directory: ./demo
       env:
