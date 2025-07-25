@@ -99,27 +99,19 @@ jobs:
       - name: "Start local server"
         uses: ./.github/actions/start-demo-dev-server
 
-      - name: "Create output directory"
-        run: mkdir -p cucumber-results/logs/
-
       - name: "Run Cucumber"
         run: bundle exec cucumber --profile reports
         env:
           TESTING_BASE_URL: http://172.17.0.1:3000
-          BASE_ARTIFACTS_PATH: cucumber-results
-          LOG_LOCATION: /dev/stdout
           HUB_URL: http://localhost:4444/wd/hub
-
-      - name: "Fix report filenames"
-        if: '!cancelled()'
-        run: cp -r log cucumber-results/server-log && find cucumber-results/ -name '*"*' -type f -exec bash -c 'mv "$0" "$(echo "$0" | tr "\"" _)"' {} \;
 
       - name: "Upload Cucumber report"
         uses: actions/upload-artifact@v4
         if: '!cancelled()'
         with:
           name: cucumber
-          path: demo/cucumber-results/
+          path: demo/log/cucumber_report.*
+          retention-days: 7
 
     services:
       standalone-firefox:
