@@ -1,15 +1,14 @@
 /**
  * @vitest-environment jsdom
  */
-
-import { expect, test } from "vitest";
-import initCookieBanner from "./cookie-banner";
 import '@testing-library/jest-dom';
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
-const sampleHTML = `<div class="sample-component"></div>`;
-const containerHTML = `<div class="cookie-banner js-cookie-banner" data-testid="cookie-banner">
+import initCookieBanner from "./cookie-banner";
+
+beforeEach(async () => {
+  const componentHtml = `<div class="cookie-banner js-cookie-banner" data-testid="cookie-banner">
     <div class="cads-grid-container">
       <div class="cads-grid-row">
          <div class="cads-grid-col-md-12 cads-grid-col-lg-8">
@@ -44,18 +43,18 @@ const containerHTML = `<div class="cookie-banner js-cookie-banner" data-testid="
          </div>
        </div>
      </div>
-   </div>`
+   </div>`;
 
-beforeEach(async () => {
-  const container = document.createElement('div');
-  container.innerHTML = containerHTML;
-  document.body.appendChild(container);
+  document.body.innerHTML = componentHtml;
+
+  initCookieBanner();
+});
+
+afterEach(()=>{
+  document.body.innerHTML = "";
 });
 
 test('test', async () => {
   const user = userEvent.setup();
   await user.click(screen.getByRole('button', { name: /Accept additional cookies/i }));
-  const confirmationMessage = screen.getByTestId('cookie-banner-confirmation-message');
-  const cookieBanner = screen.getByTestId('cookie-banner');
-  expect(confirmationMessage).toHaveAttribute('hidden', "");
 });

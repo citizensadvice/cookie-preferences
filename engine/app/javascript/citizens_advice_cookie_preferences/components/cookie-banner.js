@@ -15,8 +15,6 @@ const DEFAULT_COOKIE_CONSENT = {
     video_players: false
 }
 
-const cookieBanner = document.querySelector(selectors.cookieBanner);
-
 const cookieDomain = document.location.hostname === 'localhost' ? 'localhost' : 'citizesadvice.org.uk'
 
 function setCookie(cname, cvalue, exdays) {
@@ -61,10 +59,13 @@ const rejectCookies = () => {
 }
 
 function hideCookieBanner() {
+  const cookieBanner = document.querySelector(selectors.cookieBanner);
   cookieBanner.hidden = true;
 }
 
 function showConfirmationMessage() {
+  const cookieBanner = document.querySelector(selectors.cookieBanner);
+
   const confirmationMessageContainer = document.querySelector(selectors.confirmationMessageContainer);
   document.querySelector(selectors.cookieSelectionContainer).hidden = true;
   confirmationMessageContainer.hidden = false;
@@ -76,6 +77,8 @@ function setDefaultCookies() {
   if(getCookie('cookie_preference_set')){
     hideCookieBanner();
   }else{
+    const cookieBanner = document.querySelector(selectors.cookieBanner);
+
     cookieBanner.hidden = false;
     setCookie('cookie_preference', encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)), 365);
   }
