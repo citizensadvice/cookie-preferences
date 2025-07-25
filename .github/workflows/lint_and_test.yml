@@ -103,7 +103,7 @@ jobs:
         run: mkdir -p cucumber-results/logs/
 
       - name: "Run Cucumber"
-        run: bundle exec cucumber
+        run: bundle exec cucumber --profile reports
         env:
           TESTING_BASE_URL: http://172.17.0.1:3000
           BASE_ARTIFACTS_PATH: cucumber-results
