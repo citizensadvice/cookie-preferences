@@ -55,6 +55,20 @@ Then("the cookie banner is visible") do
   expect(page).to have_css(".cookie-banner", visible: :visible)
 end
 
+Then("the cookie_preference domain is set") do
+  cookie_preference = cookie_metadata_helper("cookie_preference")
+  expect(cookie_preference[:domain]).to eq domain_helper
+end
+
+Then("the cookie_preference expiry is set for 1 year") do
+  cookie_preference = cookie_metadata_helper("cookie_preference")
+  expect(cookie_preference[:expires].to_date).to eq Time.zone.today.next_year
+end
+
+def domain_helper
+  current_url.include?("localhost") ? "localhost" : "citizensadvce.org.uk"
+end
+
 def cookie_value_helper(cookie_name)
   complete_cookie = page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == cookie_name }
   JSON.parse(CGI.unescape(complete_cookie[:value]))

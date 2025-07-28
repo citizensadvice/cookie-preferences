@@ -37,3 +37,8 @@ Feature: Cookie Banner
   Scenario: User does not set their cookie preference and visits another page
     Given I visit another page
     Then the cookie banner is visible
+
+  Scenario: User sets their cookie preference so metadata is set
+    Given I have set my cookie preferences
+    Then the cookie_preference domain is set
+    And the cookie_preference expiry is set for 1 year
