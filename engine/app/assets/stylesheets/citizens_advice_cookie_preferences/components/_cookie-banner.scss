@@ -1,4 +1,4 @@
-/** @define cookie-banner */
+/** @define cookie-banner; weak */
 $cookie-banner-bg: #f2f8ff;
 
 .cookie-banner {
@@ -34,8 +34,6 @@ $cookie-banner-bg: #f2f8ff;
       flex-direction: column;
     }
   }
-
-  //@media (min-width: 768px) and (max-width: 1023.98px) - tablet
 
   &__button-link-container {
     display: flex;
