@@ -1,0 +1,21 @@
+name: Install engine dependencies
+runs:
+  using: composite
+  steps:
+    - name: "Setup ruby"
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+        working-directory: engine
+
+    - name: "Setup node"
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: engine/.node-version
+        cache: 'yarn'
+        cache-dependency-path: engine/yarn.lock
+
+    - name: "Install JS dependencies"
+      run: yarn install --frozen-lockfile
+      shell: bash
+      working-directory: engine

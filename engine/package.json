@@ -8,7 +8,12 @@
   },
   "scripts": {
     "test": "vitest run",
-    "build": "esbuild app/javascript/citizens_advice_cookie_preferences/*.* --bundle --sourcemap --outdir=app/assets/javascript/citizens_advice_cookie_preferences/ --minify"
+    "build": "esbuild app/javascript/citizens_advice_cookie_preferences/*.* --bundle --sourcemap --outdir=app/assets/javascript/citizens_advice_cookie_preferences/ --minify",
+    "format": "prettier --write .",
+    "lint:format": "prettier --check .",
+    "lint:js": "eslint .",
+    "lint:scss": "stylelint 'app/assets/stylesheets/**/*.scss'",
+    "lint": "yarn lint:format && yarn lint:js && yarn lint:scss"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +25,14 @@
     "esbuild": "^0.25.8",
     "jsdom": "^26.1.0",
     "vitest": "^3.2.4"
+    "@eslint/js": "^9.32.0",
+    "esbuild": "^0.25.8",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0",
+    "prettier": "3.6.2",
+    "stylelint": "^16.22.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-selector-bem-pattern": "^4.0.1"
   }
 }

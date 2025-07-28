@@ -6,14 +6,14 @@ const selectors = {
   confirmationMessageContainer: ".js-cookie-banner__confirmation-message",
   confirmationMessageAccept: ".js-cookie-banner__confirmation-accept",
   confirmationMessageReject: ".js-cookie-banner__confirmation-reject",
-  hideBannerBtn: "#js-cookie-banner__button-hide"
+  hideBannerBtn: "#js-cookie-banner__button-hide",
 };
 
 const DEFAULT_COOKIE_CONSENT = {
     essential: true,
     analytics: false,
     video_players: false
-}
+};
 
 const cookieDomain = document.location.hostname === 'localhost' ? 'localhost' : 'citizesadvice.org.uk'
 
@@ -26,18 +26,18 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function getCookie(name) {
-  const nameEQ = `${name}=`
-  const cookies = document.cookie.split(';')
+  const nameEQ = `${name}=`;
+  const cookies = document.cookie.split(";");
   for (let i = 0, len = cookies.length; i < len; i++) {
-    let cookie = cookies[i]
-    while (cookie.charAt(0) === ' ') {
-      cookie = cookie.substring(1, cookie.length)
+    let cookie = cookies[i];
+    while (cookie.charAt(0) === " ") {
+      cookie = cookie.substring(1, cookie.length);
     }
     if (cookie.indexOf(nameEQ) === 0) {
-      return decodeURIComponent(cookie.substring(nameEQ.length))
+      return decodeURIComponent(cookie.substring(nameEQ.length));
     }
   }
-  return null
+  return null;
 }
 
 const acceptCookies = () => {
@@ -49,14 +49,18 @@ const acceptCookies = () => {
   setCookie('cookie_preference_set', true, 365);
   showConfirmationMessage();
   document.querySelector(selectors.confirmationMessageAccept).hidden = false;
-}
+};
 
 const rejectCookies = () => {
-  setCookie('cookie_preference', encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)), 365);
-  setCookie('cookie_preference_set', true, 365);
+  setCookie(
+    "cookie_preference",
+    encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)),
+    365,
+  );
+  setCookie("cookie_preference_set", true, 365);
   showConfirmationMessage();
-  document.querySelector(selectors.confirmationMessageReject).hidden = false
-}
+  document.querySelector(selectors.confirmationMessageReject).hidden = false;
+};
 
 function hideCookieBanner() {
   const cookieBanner = document.querySelector(selectors.cookieBanner);
@@ -74,13 +78,16 @@ function showConfirmationMessage() {
 }
 
 function setDefaultCookies() {
-  if(getCookie('cookie_preference_set')){
+  if (getCookie("cookie_preference_set")) {
     hideCookieBanner();
-  }else{
+  } else {
     const cookieBanner = document.querySelector(selectors.cookieBanner);
-
     cookieBanner.hidden = false;
-    setCookie('cookie_preference', encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)), 365);
+    setCookie(
+      "cookie_preference",
+      encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)),
+      365,
+    );
   }
 }
 
@@ -93,9 +100,11 @@ function addCookieBannerEventHandlers() {
     rejectCookies();
   });
 
-  document.querySelector(selectors.hideBannerBtn).addEventListener("click", () => {
-    hideCookieBanner();
-  });
+  document
+    .querySelector(selectors.hideBannerBtn)
+    .addEventListener("click", () => {
+      hideCookieBanner();
+    });
 }
 
 export default function initCookieBanner() {

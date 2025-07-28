@@ -13,13 +13,14 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v4
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          working-directory: demo
+      - name: "Install dependencies"
+        uses: ./.github/actions/install-demo-dependencies
 
       - name: "Ruby lint"
         run: bundle exec rubocop --format progress --format github
+
+      - name: "Yarn lint"
+        run: yarn lint
 
   lint-engine:
     runs-on: ubuntu-latest
@@ -30,13 +31,14 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v4
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-          working-directory: engine
+      - name: "Install dependencies"
+        uses: ./.github/actions/install-engine-dependencies
 
       - name: "Ruby lint"
         run: bundle exec rubocop --format progress --format github
+
+      - name: "Yarn lint"
+        run: yarn lint
 
   audit-demo-app:
     runs-on: ubuntu-latest
