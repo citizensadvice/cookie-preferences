@@ -1,15 +1,19 @@
 {
   "name": "app",
   "private": true,
-  "devDependencies": {
-    "esbuild": "^0.25.8"
-  },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
-    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --load-path=$(bundle show citizens_advice_cookie_preferences)/app/assets/stylesheets"
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --load-path=$(bundle show citizens_advice_cookie_preferences)/app/assets/stylesheets",
+    "format": "prettier --write .",
+    "lint:format": "prettier --check .",
+    "lint": "yarn lint:format"
   },
   "dependencies": {
     "@citizensadvice/design-system": "8.0.3",
     "sass": "^1.89.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.8",
+    "prettier": "3.6.2"
   }
 }

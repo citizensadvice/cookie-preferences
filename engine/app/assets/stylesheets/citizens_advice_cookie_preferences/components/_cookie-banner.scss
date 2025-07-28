@@ -1,4 +1,4 @@
-/** @define cookie-banner */
+/** @define cookie-banner; weak */
 $cookie-banner-bg: #f2f8ff;
 
 .cookie-banner {
@@ -22,11 +22,11 @@ $cookie-banner-bg: #f2f8ff;
     }
   }
 
-  &__link{
+  &__link {
     margin-bottom: 0;
   }
 
-  &__button-container{
+  &__button-container {
     display: flex;
     flex-direction: row;
 
@@ -35,9 +35,7 @@ $cookie-banner-bg: #f2f8ff;
     }
   }
 
-  //@media (min-width: 768px) and (max-width: 1023.98px) - tablet
-
-  &__button-link-container{
+  &__button-link-container {
     display: flex;
     align-items: baseline;
 
@@ -46,12 +44,12 @@ $cookie-banner-bg: #f2f8ff;
     }
   }
 
-  .cads-button{
+  .cads-button {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
   }
 
-  &--no-decoration{
+  &--no-decoration {
     background-image: none;
   }
 }
