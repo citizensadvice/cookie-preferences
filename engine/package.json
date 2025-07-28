@@ -14,7 +14,8 @@
     "format": "prettier --write .",
     "lint:format": "prettier --check .",
     "lint:js": "eslint .",
-    "lint:scss": "stylelint 'app/assets/stylesheets/**/*.scss'"
+    "lint:scss": "stylelint 'app/assets/stylesheets/**/*.scss'",
+    "lint": "yarn lint:format && yarn lint:js && yarn lint:scss"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
