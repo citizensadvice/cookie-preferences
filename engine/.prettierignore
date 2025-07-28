@@ -5,3 +5,6 @@ app/assets/javascript/*
 
 # Ignore spec test app files
 spec/test_app/*
+
+# Ignore vendor
+/vendor/*
