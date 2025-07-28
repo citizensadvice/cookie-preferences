@@ -10,19 +10,29 @@ const selectors = {
 };
 
 const DEFAULT_COOKIE_CONSENT = {
-    essential: true,
-    analytics: false,
-    video_players: false
+  essential: true,
+  analytics: false,
+  video_players: false,
 };
 
-const cookieDomain = document.location.hostname === 'localhost' ? 'localhost' : 'citizesadvice.org.uk'
+const cookieDomain =
+  document.location.hostname === "localhost"
+    ? "localhost"
+    : "citizesadvice.org.uk";
 
 function setCookie(cname, cvalue, exdays) {
   // set expiry date in milliseconds
   const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/" + `;domain=${cookieDomain}`;
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
+  document.cookie =
+    cname +
+    "=" +
+    cvalue +
+    ";" +
+    expires +
+    ";path=/" +
+    `;domain=${cookieDomain}`;
 }
 
 function getCookie(name) {
@@ -41,12 +51,18 @@ function getCookie(name) {
 }
 
 const acceptCookies = () => {
-  setCookie('cookie_preference', encodeURIComponent(JSON.stringify({
-    essential: true,
-    analytics: true,
-    video_players: true
-  })), 365);
-  setCookie('cookie_preference_set', true, 365);
+  setCookie(
+    "cookie_preference",
+    encodeURIComponent(
+      JSON.stringify({
+        essential: true,
+        analytics: true,
+        video_players: true,
+      }),
+    ),
+    365,
+  );
+  setCookie("cookie_preference_set", true, 365);
   showConfirmationMessage();
   document.querySelector(selectors.confirmationMessageAccept).hidden = false;
 };
@@ -70,7 +86,9 @@ function hideCookieBanner() {
 function showConfirmationMessage() {
   const cookieBanner = document.querySelector(selectors.cookieBanner);
 
-  const confirmationMessageContainer = document.querySelector(selectors.confirmationMessageContainer);
+  const confirmationMessageContainer = document.querySelector(
+    selectors.confirmationMessageContainer,
+  );
   document.querySelector(selectors.cookieSelectionContainer).hidden = true;
   confirmationMessageContainer.hidden = false;
   confirmationMessageContainer.focus();
