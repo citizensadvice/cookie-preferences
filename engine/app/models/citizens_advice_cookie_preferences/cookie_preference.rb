@@ -9,12 +9,20 @@ module CitizensAdviceCookiePreferences
     include ActiveModel::Serializers::JSON
 
     attribute :essential, :boolean, default: true
-    attribute :additional, :boolean, default: false
+    attribute :analytics, :boolean, default: false
+    attribute :video_players, :boolean, default: false
 
-    def additional_cookies_options
+    def analytics_cookies_options
       [
-        FormOption.new(id: "true", name: "Accept additional cookies"),
-        FormOption.new(id: "false", name: "Reject additional cookies")
+        FormOption.new(id: "true", name: "Accept analytics cookies"),
+        FormOption.new(id: "false", name: "Reject analytics cookies")
+      ]
+    end
+
+    def video_players_cookies_options
+      [
+        FormOption.new(id: "true", name: "Accept video players cookies"),
+        FormOption.new(id: "false", name: "Reject video players cookies")
       ]
     end
 

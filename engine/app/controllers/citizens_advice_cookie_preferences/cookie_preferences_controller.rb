@@ -4,7 +4,7 @@ module CitizensAdviceCookiePreferences
   class CookiePreferencesController < ApplicationController
     default_form_builder CitizensAdviceComponents::FormBuilder
 
-    DEFAULT_PREFERENCES = { essential: true, additional: false }.freeze
+    DEFAULT_PREFERENCES = { essential: true, analytics: false, video_players: false }.freeze
 
     include Rails.application.routes.url_helpers
 
@@ -19,7 +19,7 @@ module CitizensAdviceCookiePreferences
     end
 
     def update
-      @cookie_preferences = CookiePreference.new(additional: prefs_from_form["additional"])
+      @cookie_preferences = CookiePreference.new(analytics: prefs_from_form["analytics"], video_players: prefs_from_form["video_players"])
 
       if @cookie_preferences.valid?
         cookies[:cookie_preference] = {
@@ -40,7 +40,7 @@ module CitizensAdviceCookiePreferences
     private
 
     def prefs_from_form
-      params.fetch(:cookie_preference).permit(:additional)
+      params.fetch(:cookie_preference).permit(:analytics, :video_players)
     end
 
     def prefs_from_cookie
