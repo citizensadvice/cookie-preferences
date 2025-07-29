@@ -66,7 +66,7 @@ Then("the cookie_preference expiry is set for 1 year") do
 end
 
 def domain_helper
-  current_url.include?("localhost") ? "localhost" : "citizensadvce.org.uk"
+  current_url.include?("localhost") ? "localhost" : "citizensadvice.org.uk"
 end
 
 def cookie_value_helper(cookie_name)
