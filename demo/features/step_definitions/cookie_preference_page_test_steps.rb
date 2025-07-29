@@ -1,10 +1,22 @@
 # frozen_string_literal: true
 
-# When("I click the {string} button") do |text|
-#   within(".cookie-banner") do
-#     click_button text
-#   end
-# end
+When("I click to reject {string} cookies") do |text|
+  within(".edit_cookie_preference") do
+    choose("cookie_preference[#{text}]", option: 'false', visible:false)
+  end
+end
+
+When("I click to accept {string} cookies") do |text|
+  within(".edit_cookie_preference") do
+    choose("cookie_preference[#{text}]", option: 'true', visible:false)
+  end
+end
+
+When("I click to save my choices") do
+  within(".edit_cookie_preference") do
+    click_button "Save changes"
+  end
+end
 
 Then("the cookie banner is not visible") do
   expect(page).to have_no_css(".cookie-banner")
