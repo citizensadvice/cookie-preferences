@@ -12,7 +12,7 @@
       </ul>
       <p> We’ll always add essential cookies to your device when you use our website. These cookies make sure our website works properly.</p>
       <p> We’ll only add additional cookies if you give us permission. Additional cookies help us remember your preferences and show you things from other websites, like videos. They also help us find out how you use our website so we can keep improving it.</p>
-      <p>You can read detailed information about how we use cookies.</p>
+      <p>You can <a href="/about-us/information/how-we-use-cookies/">read detailed information about how we use cookies.</a></p>
     </div>
 
     <%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
@@ -55,6 +55,8 @@
         </fieldset>
       </div>
 
+      <%= form.cads_button "Save changes" %>
+
       <div class="cads-prose">
         <h2>If you'd like to block all cookies</h2>
         <p>If you block all cookies you won’t be able to:</p>
@@ -67,13 +69,11 @@
         </ul>
         <p>To block cookies, you should change the settings in your web browser. You can also delete cookies that have already been added. Search for 'cookies' in the ‘Help’ section of your browser.</p>
         <p>Cookies from Google Analytics or Mouseflow tell us how you're using our site. You can stop these cookies being added to your device by ‘opting out’.</p>
-        <p>Opt out from Google Analytics cookies.</p>
-        <p>Opt out from Mouseflow cookies.</p>
+        <p><a href="https://tools.google.com/dlpage/gaoptout">Opt out from Google Analytics cookies.</a></p>
+        <p><a href="https://mouseflow.com/opt-out/">Opt out from Mouseflow cookies.</a></p>
 
-        <p>You can find out more about cookies and how to delete them on the Information Commissioner's Office (ICO) website.</p>
+        <p>You can <a href="https://ico.org.uk/for-the-public/online/cookies/">find out more about cookies and how to delete them on the Information Commissioner's Office (ICO) website.</a></p>
       </div>
-
-      <%= form.cads_button "Save changes" %>
     <% end %>
   <% end %>
 <% end %>
