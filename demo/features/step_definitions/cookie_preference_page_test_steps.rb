@@ -1,14 +1,30 @@
 # frozen_string_literal: true
 
+Given("I have previously accepted all cookies") do
+  visit "/"
+  within(".cookie-banner") do
+    click_button "Accept additional cookies"
+  end
+  visit "/cookie-preferences/cookie_preference"
+end
+
+Given("I have previously rejected all cookies") do
+  visit "/"
+  within(".cookie-banner") do
+    click_button "Reject additional cookies"
+  end
+  visit "/cookie-preferences/cookie_preference"
+end
+
 When("I click to reject {string} cookies") do |text|
   within(".edit_cookie_preference") do
-    choose("cookie_preference[#{text}]", option: 'false', visible:false)
+    choose("cookie_preference[#{text}]", option: "false", visible: false)
   end
 end
 
 When("I click to accept {string} cookies") do |text|
   within(".edit_cookie_preference") do
-    choose("cookie_preference[#{text}]", option: 'true', visible:false)
+    choose("cookie_preference[#{text}]", option: "true", visible: false)
   end
 end
 
@@ -23,11 +39,11 @@ Then("the cookie banner is not visible") do
 end
 
 Then("the reject {string} radio button is checked") do |text|
-  radio_button = find("#cookie_preference_#{text}_false", visible:false)
+  radio_button = find("#cookie_preference_#{text}_false", visible: false)
   expect(radio_button.checked?).to be true
 end
 
 Then("the accept {string} radio button is checked") do |text|
-  radio_button = find("#cookie_preference_#{text}_true", visible:false)
+  radio_button = find("#cookie_preference_#{text}_true", visible: false)
   expect(radio_button.checked?).to be true
 end
