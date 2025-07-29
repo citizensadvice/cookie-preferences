@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CitizensAdviceCookiePreferences
-  module CookiePreferencesHelpers
+  module SetCookiePreferences
     extend ActiveSupport::Concern
 
     included do
