@@ -5,7 +5,8 @@ Feature: Cookie Preference Page
 
   Scenario: Default cookies are set
   I visit the site and haven't interacted with the cookie banner
-    Then the reject "analytics" radio button is checked
+    Then the cookie banner is not visible
+    And the reject "analytics" radio button is checked
     And the reject "video_players" radio button is checked
 
   Scenario: Analytics is accepted, video players is rejected

@@ -6,6 +6,10 @@
 #   end
 # end
 
+Then("the cookie banner is not visible") do
+  expect(page).to have_no_css(".cookie-banner")
+end
+
 Then("the reject {string} radio button is checked") do |text|
   radio_button = find("#cookie_preference_#{text}_false", visible:false)
   expect(radio_button.checked?).to be true
