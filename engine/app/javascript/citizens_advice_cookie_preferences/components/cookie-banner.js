@@ -18,7 +18,7 @@ const DEFAULT_COOKIE_CONSENT = {
 const cookieDomain =
   document.location.hostname === "localhost"
     ? "localhost"
-    : "citizesadvice.org.uk";
+    : "citizensadvice.org.uk";
 
 function setCookie(cname, cvalue, exdays) {
   // set expiry date in milliseconds
