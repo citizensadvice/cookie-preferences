@@ -7,27 +7,24 @@ require "rails_helper"
 
 RSpec.describe "SetCookiePreferences concern" do
 
-  controller(ApplicationController) do
-    include CitizensAdviceCookiePreferences::SetCookiePreferences
-
-    def fake_action; redirect_to '/an_url'; end
-  end
-
   before do
-    routes.draw {
-      get 'fake_action' => 'anonymous#fake_action'
-    }
-
-    accept_additional_cookies
-    get :fake_action
+    # This links to the application controller in test app
+    # if the approach works, we can make a separate controller for this test
+    @controller = ApplicationController.new
   end
 
-  it 'my_method_to_test' do
-    # allow(CitizensAdviceCookiePreferences::CurrentCookies).to receive(:preference)
-    binding.pry
+  it 'assigns CitizensAdviceCookiePreferences::CurrentCookies.preference to be the json parsed version of the cookie value' do
+    accept_additional_cookies
+    get :index
+    # At this stage, we have a value for cookies[:cookie_preference]
     cookies_preference_parsed = JSON.parse(cookies[:cookie_preference])
+    # Initially added - allow(CitizensAdviceCookiePreferences::CurrentCookies).to receive(:preference)
+    # And then also tried with to receive and return - but this would defeat the purpose of writing this test as it can work without the concern being called
+    # CitizensAdviceCookiePreferences::CurrentCookies.preference is nil here, even though set_cookie_preferences has been called
     expect(CitizensAdviceCookiePreferences::CurrentCookies.preference).to eq(cookies_preference_parsed)
   end
+
+  private
 
   def accept_additional_cookies
     cookies[:cookie_preference] = {

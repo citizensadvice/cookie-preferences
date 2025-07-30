@@ -2,4 +2,6 @@
 
 Rails.application.routes.draw do
   mount CitizensAdviceCookiePreferences::Engine => "/engine"
+
+  get 'index' => 'application#index'
 end
