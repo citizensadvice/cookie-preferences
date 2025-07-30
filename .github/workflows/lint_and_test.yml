@@ -119,7 +119,7 @@ jobs:
         if: '!cancelled()'
         with:
           name: cucumber
-          path: cucumber-results/
+          path: demo/cucumber-results/
           retention-days: 7
 
     services:
