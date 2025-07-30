@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 And("I visit a page that uses the cookie helpers") do
-  visit "/show-page"
+  visit "/helpers-page"
 end
 
 Then("I see see a message that the {string} cookies are accepted") do |text|
