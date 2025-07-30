@@ -39,11 +39,21 @@ Then("the cookie banner is not visible") do
 end
 
 Then("the reject {string} radio button is checked") do |text|
-  radio_button = find("#cookie_preference_#{text}_false", visible: false)
-  expect(radio_button.checked?).to be true
+  if text == "analytics"
+    label = "Reject analytics cookies"
+  elsif text == "video_players"
+    label = "Reject video players cookies"
+  end
+
+  expect(page).to have_checked_field label
 end
 
 Then("the accept {string} radio button is checked") do |text|
-  radio_button = find("#cookie_preference_#{text}_true", visible: false)
-  expect(radio_button.checked?).to be true
+  if text == "analytics"
+    label = "Accept analytics cookies"
+  elsif text == "video_players"
+    label = "Accept video players cookies"
+  end
+
+  expect(page).to have_checked_field label
 end
