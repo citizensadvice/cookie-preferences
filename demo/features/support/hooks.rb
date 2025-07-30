@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
 After do |test_case|
-  Capybara.current_session.save_screenshot("cucumber-results/screenshots/#{test_case.name}.png") if test_case.failed?
+  if test_case.failed?
+    path = "cucumber-results/screenshots/#{test_case.name}.png"
+    AutomationLogger.info("Taking a screenshot to #{path}")
+    Capybara.current_session.save_screenshot(path)
+    attach(path, "image/png")
+  end
 end
