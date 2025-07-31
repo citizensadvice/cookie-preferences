@@ -60,5 +60,9 @@ module CitizensAdviceCookiePreferences
         domain: :all
       }
     end
+
+    def cookies_preference_page?
+      true
+    end
   end
 end

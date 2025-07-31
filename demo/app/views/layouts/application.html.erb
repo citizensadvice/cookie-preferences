@@ -11,7 +11,7 @@
   <script>document.querySelector('html').classList.remove('no-js');</script>
 </head>
 <body>
-<% unless cookies_preferences_page? %>
+<% unless cookies_preference_page? %>
   <%= render CitizensAdviceCookiePreferences::CookieBanner.new %>
 <% end %>
 <div class="cads-page">
