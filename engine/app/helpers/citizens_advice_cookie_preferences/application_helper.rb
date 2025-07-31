@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
 module CitizensAdviceCookiePreferences
-  module ApplicationHelper
-  end
+  module ApplicationHelper; end
 end
