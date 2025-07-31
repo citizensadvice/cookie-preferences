@@ -13,7 +13,6 @@
       <p> We’ll always add essential cookies to your device when you use our website. These cookies make sure our website works properly.</p>
       <p> We’ll only add additional cookies if you give us permission. Additional cookies help us remember your preferences and show you things from other websites, like videos. They also help us find out how you use our website so we can keep improving it.</p>
       <p>You can <a href="/about-us/information/how-we-use-cookies/">read detailed information about how we use cookies.</a></p>
-    </div>
 
     <%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
       <div class="cads-form-field">
@@ -57,7 +56,6 @@
 
       <%= form.cads_button "Save changes" %>
 
-      <div class="cads-prose">
         <h2>If you'd like to block all cookies</h2>
         <p>If you block all cookies you won’t be able to:</p>
         <ul>
