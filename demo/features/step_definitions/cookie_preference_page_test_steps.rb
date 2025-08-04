@@ -5,7 +5,7 @@ Given("I have previously accepted all cookies") do
   within(".cookie-banner") do
     click_button "Accept additional cookies"
   end
-  visit "/cookie-preferences/cookie_preference"
+  visit "/cookie-preferences"
 end
 
 Given("I have previously rejected all cookies") do
@@ -13,7 +13,7 @@ Given("I have previously rejected all cookies") do
   within(".cookie-banner") do
     click_button "Reject additional cookies"
   end
-  visit "/cookie-preferences/cookie_preference"
+  visit "/cookie-preferences"
 end
 
 When("I click to reject {string} cookies") do |text|

@@ -5,7 +5,7 @@ Given("I am on the Demo App Home page") do
 end
 
 Given("I am on the cookie preference page") do
-  visit "/cookie-preferences/cookie_preference"
+  visit "/cookie-preferences"
 end
 
 Given("I have set my cookie preferences") do
