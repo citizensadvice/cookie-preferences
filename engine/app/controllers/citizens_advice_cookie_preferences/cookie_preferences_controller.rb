@@ -11,7 +11,7 @@ module CitizensAdviceCookiePreferences
     before_action :set_default_cookie, only: :edit
 
     def show
-      redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path
+      redirect_to citizens_advice_cookie_preferences.edit_cookie_preferences_path
     end
 
     def edit
