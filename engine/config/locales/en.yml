@@ -9,12 +9,12 @@ en:
     accept_confirmation:
       html: >
         You’ve accepted additional cookies. You can
-        <a href="/cookie-preferences/cookie_preference/">change your cookie settings</a>
+        <a href="/cookie-preferences/">change your cookie settings</a>
         at any time
     reject_confirmation:
       html: >
         You’ve rejected additional cookies. You can
-        <a href="/cookie-preferences/cookie_preference/">change your cookie settings</a>
+        <a href="/cookie-preferences/">change your cookie settings</a>
         at any time
 
     description:

@@ -2,8 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include CitizensAdviceComponents::Helpers
-  helper CitizensAdviceCookiePreferences::ApplicationHelper
-  include CitizensAdviceCookiePreferences::SetCookiePreferences
+  include CitizensAdviceCookiePreferences::Helpers
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
 
