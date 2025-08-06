@@ -22,6 +22,7 @@ Feature: Cookie Preference Page
     And the analytics cookies are accepted
     And the video player cookies are rejected
     And my cookie preference is saved
+    And the version number is set
 
   Scenario: I accept only the video players cookies
     When I click to accept "video_players" cookies
@@ -32,6 +33,7 @@ Feature: Cookie Preference Page
     And the analytics cookies are rejected
     And the video player cookies are accepted
     And my cookie preference is saved
+    And the version number is set
 
   Scenario: I have previously accepted all cookies
     Given I have previously accepted all cookies
@@ -41,6 +43,7 @@ Feature: Cookie Preference Page
     And the analytics cookies are accepted
     And the video player cookies are accepted
     And my cookie preference is saved
+    And the version number is set
 
   Scenario: I reject the analytics and video players cookies
     Given I have previously accepted all cookies
@@ -53,6 +56,7 @@ Feature: Cookie Preference Page
     And the analytics cookies are rejected
     And the video player cookies are rejected
     And my cookie preference is saved
+    And the version number is set
 
   Scenario: I accept the analytics and video players cookies
     Given I have previously rejected all cookies
@@ -65,3 +69,4 @@ Feature: Cookie Preference Page
     And the analytics cookies are accepted
     And the video player cookies are accepted
     And my cookie preference is saved
+    And the version number is set
