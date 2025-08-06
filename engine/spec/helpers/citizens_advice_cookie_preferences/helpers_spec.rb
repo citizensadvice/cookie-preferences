@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CitizensAdviceCookiePreferences::ApplicationHelper do
+RSpec.describe CitizensAdviceCookiePreferences::Helpers do
   describe "#allow_analytics_cookies?" do
     it "returns true when CurrentCookies.analytics? is true" do
       allow(CitizensAdviceCookiePreferences::CurrentCookies).to receive(:analytics?).and_return(true)

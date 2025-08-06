@@ -11,10 +11,18 @@ module CitizensAdviceCookiePreferences
 
     included do
       before_action :set_cookie_preferences
-      helper_method :cookies_preference_page?
+      helper_method :cookies_preference_page?, :allow_analytics_cookies?, :allow_video_players_cookies?
 
       def cookies_preference_page?
         false
+      end
+
+      def allow_analytics_cookies?
+        CitizensAdviceCookiePreferences::CurrentCookies.analytics?
+      end
+
+      def allow_video_players_cookies?
+        CitizensAdviceCookiePreferences::CurrentCookies.video_players?
       end
     end
 
