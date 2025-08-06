@@ -15,6 +15,8 @@ const DEFAULT_COOKIE_CONSENT = {
   video_players: false,
 };
 
+const COOKIE_VERSION_NUM = "1"
+
 const cookieDomain =
   document.location.hostname === "localhost"
     ? "localhost"
@@ -62,7 +64,7 @@ const acceptCookies = () => {
     ),
     365,
   );
-  setCookie("cookie_preference_set", true, 365);
+  setCookie("cookie_preference_set", COOKIE_VERSION_NUM, 365);
   showConfirmationMessage();
   document.querySelector(selectors.confirmationMessageAccept).hidden = false;
 };
@@ -73,7 +75,7 @@ const rejectCookies = () => {
     encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)),
     365,
   );
-  setCookie("cookie_preference_set", true, 365);
+  setCookie("cookie_preference_set", COOKIE_VERSION_NUM, 365);
   showConfirmationMessage();
   document.querySelector(selectors.confirmationMessageReject).hidden = false;
 };
