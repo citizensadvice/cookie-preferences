@@ -1,4 +1,4 @@
-name: Lint
+name: Lint and test
 on:
   pull_request:
     types: ["opened", "synchronize"]
@@ -111,6 +111,22 @@ jobs:
           name: cucumber
           path: demo/log/cucumber_report.*
           retention-days: 7
+
+  test-engine:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: engine
+    needs: lint-engine
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Install dependencies"
+        uses: ./.github/actions/install-engine-dependencies
+
+      - name: "Rspec"
+        run: bundle exec rspec
 
     services:
       standalone-firefox:

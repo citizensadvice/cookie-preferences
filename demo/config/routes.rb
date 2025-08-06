@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   root "home#index", as: :home
   get "/show-page", to: "home#show"
+  get "/helpers-page", to: "helpers_page#index"
 
   mount CitizensAdviceCookiePreferences::Engine, at: "/cookie-preferences"
 
