@@ -5,19 +5,11 @@ module CitizensAdviceCookiePreferences
     attribute :preference
 
     def analytics?
-      if preference.present?
-        preference.fetch("analytics", false)
-      else
-        false
-      end
+      preference ? preference.fetch("analytics", false) : false
     end
 
     def video_players?
-      if preference.present?
-        preference.fetch("video_players", false)
-      else
-        false
-      end
+      preference ? preference.fetch("video_players", false) : false
     end
   end
 end
