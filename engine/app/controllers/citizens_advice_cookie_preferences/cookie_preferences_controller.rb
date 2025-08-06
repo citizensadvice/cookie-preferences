@@ -5,6 +5,7 @@ module CitizensAdviceCookiePreferences
     default_form_builder CitizensAdviceComponents::FormBuilder
 
     DEFAULT_PREFERENCES = { essential: true, analytics: false, video_players: false }.freeze
+    VERSION_NUM = "1"
 
     include Rails.application.routes.url_helpers
 
@@ -28,7 +29,7 @@ module CitizensAdviceCookiePreferences
           domain: :all
         }
         cookies[:cookie_preference_set] = {
-          value: true,
+          value: VERSION_NUM,
           expires: 1.year,
           domain: :all
         }
