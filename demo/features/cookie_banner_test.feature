@@ -44,3 +44,13 @@ Feature: Cookie Banner
     Given I have set my cookie preferences
     Then the cookie_preference domain is set
     And the cookie_preference expiry is set for 1 year
+
+  Scenario: User has to re-consent when the current cookie version changes
+    Given I have previously consented to cookie version "old_version"
+    Then I visit another page
+    Then the cookie banner is visible
+
+  Scenario: User does not have to re-consent when the current cookie version stays the same
+    Given I have previously consented to cookie version "1"
+    Then I visit another page
+    Then the cookie banner is no longer visible
