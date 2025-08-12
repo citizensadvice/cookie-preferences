@@ -64,7 +64,6 @@ const acceptCookies = () => {
   );
   setCookie("cookie_preference_set", true, 365);
   showConfirmationMessage();
-  loadAnalytics();
   document.querySelector(selectors.confirmationMessageAccept).hidden = false;
 };
 
@@ -120,11 +119,11 @@ function loadAnalytics() {
   }
 }
 
-// need to push the cookies consent to the dataLayer & possibly the page info if it hasn't already been pushed
-// function pushToDataLayer() {
-//   - if data_layer_properties.present?
-//     dataLayer.push(#{data_layer_properties.to_json.html_safe})
-// }
+function acceptCookiesGTMEvent () {
+  window.dataLayer.push({
+    event: 'acceptAllCookies',
+  });
+}
 
 function setDefaultCookies() {
   if (getCookie("cookie_preference_set")) {
@@ -144,6 +143,8 @@ function setDefaultCookies() {
 function addCookieBannerEventHandlers() {
   document.querySelector(selectors.acceptBtn).addEventListener("click", () => {
     acceptCookies();
+    loadAnalytics();
+    acceptCookiesGTMEvent();
   });
 
   document.querySelector(selectors.rejectBtn).addEventListener("click", () => {
