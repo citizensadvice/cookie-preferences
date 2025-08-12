@@ -64,6 +64,7 @@ const acceptCookies = () => {
   );
   setCookie("cookie_preference_set", true, 365);
   showConfirmationMessage();
+  loadAnalytics();
   document.querySelector(selectors.confirmationMessageAccept).hidden = false;
 };
 
@@ -94,6 +95,36 @@ function showConfirmationMessage() {
   confirmationMessageContainer.focus();
   cookieBanner.classList.add("cookie-banner--no-decoration");
 }
+
+function loadAnalytics() {
+  if (!window.gaGlobal) {
+    // Load gtm script
+    // Script based on snippet at https://developers.google.com/tag-manager/quickstart
+    // prettier-ignore
+    ;(function (w, d, s, l, i) {
+      w[l] = w[l] || []
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      })
+
+      const j = d.createElement(s)
+      const dl = l !== 'dataLayer' ? `&l=${l}` : ''
+
+      var csp_nonce = document.getElementsByName('csp-nonce')[0].getAttribute('content');
+      j.async = true
+      j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`
+      j.setAttribute('nonce',csp_nonce)
+      document.head.appendChild(j)
+    })(window, document, 'script', 'dataLayer', 'GTM-T5MB575')
+  }
+}
+
+// need to push the cookies consent to the dataLayer & possibly the page info if it hasn't already been pushed
+// function pushToDataLayer() {
+//   - if data_layer_properties.present?
+//     dataLayer.push(#{data_layer_properties.to_json.html_safe})
+// }
 
 function setDefaultCookies() {
   if (getCookie("cookie_preference_set")) {
