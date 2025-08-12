@@ -20,6 +20,9 @@ const cookieDomain =
     ? "localhost"
     : "citizensadvice.org.uk";
 
+const form = document.querySelector('.edit_cookie_preference');
+const submitButton = form.querySelector('button')
+
 function setCookie(cname, cvalue, exdays) {
   // set expiry date in milliseconds
   const d = new Date();
@@ -143,6 +146,15 @@ function setDefaultCookies() {
   }
 }
 
+function addCookiePreferencePageEventHandler() {
+  submitButton.addEventListener(
+    "click", (e) => {
+      e.preventDefault();
+      console.log("in the cookie preferences event handler")
+    }
+  )
+}
+
 function addCookieBannerEventHandlers() {
   document.querySelector(selectors.acceptBtn).addEventListener("click", () => {
     acceptCookies();
@@ -164,6 +176,7 @@ function addCookieBannerEventHandlers() {
 export default function initCookieBanner() {
   setDefaultCookies();
   addCookieBannerEventHandlers();
+  addCookiePreferencePageEventHandler();
 }
 
 // need to add gtm classes to button in view, depending on cookie acceptance status
