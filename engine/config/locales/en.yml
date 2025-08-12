@@ -55,7 +55,8 @@ en:
         <p>We use these cookies so you can watch videos on our site from places like YouTube.</p> 
         <p>If you accept these cookies, you can watch videos and the player will remember your preferences, like the volume. The cookies will also remember which videos you've watched and how many times you watched them. If you don’t accept these cookies, you won’t be able to watch videos on our site.</p>
         <p>YouTube adds their own analytics cookies to your device even if you’ve rejected our analytics cookies.</p>
-    more_info_html: >
+    change_your_mind_html: >
       <p>You can change your mind about additional cookies at any time by coming back to this page.</p>
+    ico_info_html: >
       <p>You can <a href="https://ico.org.uk/for-the-public/online/cookies/">find out more about cookies and how to delete them on the Information Commissioner's Office (ICO) website.</a></p>
 
