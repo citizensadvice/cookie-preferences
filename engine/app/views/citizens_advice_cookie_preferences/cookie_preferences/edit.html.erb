@@ -1,6 +1,6 @@
 <%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
-    <h1 class="cads-page-title">Your cookie settings</h1>
+    <h1 class="cads-page-title"><%=t("cookie_preferences.title")%></h1>
 
     <div class="cads-prose">
       <%= t("cookie_preferences.summary_html") %>
@@ -36,7 +36,7 @@
         </fieldset>
       </div>
 
-      <%= form.cads_button "Save changes" %>
+      <%= form.cads_button t("cookie_preferences.form.button_text") %>
       <%= t("cookie_preferences.change_your_mind_html") %>
     <% end %>
     <%= t("cookie_preferences.ico_info_html") %>
