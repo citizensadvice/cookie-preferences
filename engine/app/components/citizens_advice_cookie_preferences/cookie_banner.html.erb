@@ -23,10 +23,10 @@
             <%= t("cookie_banner.description.html") %>
             <div class="cookie-banner__button-link-container">
               <div class="cookie-banner__button-container">
-                <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "js-cookie-banner__button-accept", class: accept_all_cookies_button_classes }) do %>
+                <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "js-cookie-banner__button-accept", class: base_button_classes }) do %>
                   <%= t("cookie_banner.accept_button") %>
                 <% end %>
-                <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "js-cookie-banner__button-reject", class: reject_all_cookies_button_classes }) do %>
+                <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "js-cookie-banner__button-reject", class: base_button_classes }) do %>
                   <%= t("cookie_banner.reject_button") %>
                 <% end %>
               </div>
