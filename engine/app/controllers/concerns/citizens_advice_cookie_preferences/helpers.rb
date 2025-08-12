@@ -7,7 +7,6 @@
 # end
 module CitizensAdviceCookiePreferences
   module Helpers
-    VERSION_NUM = "1"
     extend ActiveSupport::Concern
 
     included do
@@ -36,7 +35,7 @@ module CitizensAdviceCookiePreferences
     end
 
     def check_cookie_version
-      return if cookies[:cookie_preference_set].blank? || cookies[:cookie_preference_set] == VERSION_NUM
+      return if cookies[:cookie_preference_set].blank? || cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
 
       reset_cookie_consent
     end
