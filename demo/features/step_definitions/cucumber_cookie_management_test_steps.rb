@@ -72,5 +72,5 @@ end
 
 And("the version number is set") do
   cookie_preference_set = cookie_metadata_helper("cookie_preference_set")
-  expect(cookie_preference_set[:value]).to eq VERSION_NUM
+  expect(cookie_preference_set[:value]).to eq CitizensAdviceCookiePreferences::COOKIE_CURRENT_VERSION
 end
