@@ -123,6 +123,10 @@ function acceptCookiesGTMEvent () {
   window.dataLayer.push({
     event: 'acceptAllCookies',
   });
+
+  window.dataLayer.push({
+    setCookiePreference: "True",
+  });
 }
 
 function setDefaultCookies() {
