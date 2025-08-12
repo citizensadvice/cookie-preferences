@@ -23,3 +23,42 @@ en:
         <p>We'd also like to use additional cookies to remember your settings and to understand how you use our website. This helps us improve our services for you.</p>
         <p>Some additional cookies come from other websites. These cookies help us show you things from those sites, like videos.</p>
         <p>You can <a href="/about-us/information/how-we-use-cookies/">find out more about the cookies we use</a>.</p>
+  cookie_preferences:
+    title: Your cookie settings
+    summary_html: >
+      <p>We add small text files called 'cookies' to your phone, tablet or computer when you use our website.</p>
+      <p>We use 2 types of cookies:</p>
+      <ul>
+        <li>essential cookies - we have to use these to make our website work</li>
+        <li>additional cookies - we’ll only use these if you give us your permission</li>
+      </ul>
+      <p>You can see <a href="/about-us/information/how-we-use-cookies/"> a full list of all the cookies we use</a>.</p>
+      <h2>Essential cookies</h2>
+      <p>We add essential cookies to your device as soon as you use our website. Without them our website won’t work properly.</p>
+      <p>You can block essential cookies in your browser settings, but you won’t be able to:</p>
+      <ul>
+        <li>save your preferences, like the country you live in</li>
+        <li>fill in forms on our website</li>
+        <li>use our online chat service</li>
+        <li>log in, if you work or volunteer for us</li>
+      </ul>
+      <h2>Additional cookies</h2>
+      <p>We won't add additional cookies unless you give us permission.</p>
+    form:
+      analytic_cookies_header_html: >
+        <h2>Accept or reject analytics cookies</h2>
+      analytic_cookies_summary_html: >
+        <p>These cookies help us improve our website by showing us how people use it. For example, which pages are most popular or where people are having problems.</p> 
+        <p>We use tools like Google Analytics and Mouseflow to see how people are using our site.</p>
+      video_player_cookies_header_html: >
+        <h2>Accept or reject video player cookies</h2>
+      video_player_cookies_summmary_html: >
+        <p>We use these cookies so you can watch videos on our site from places like YouTube.</p> 
+        <p>If you accept these cookies, you can watch videos and the player will remember your preferences, like the volume. The cookies will also remember which videos you've watched and how many times you watched them. If you don’t accept these cookies, you won’t be able to watch videos on our site.</p>
+        <p>YouTube adds their own analytics cookies to your device even if you’ve rejected our analytics cookies.</p>
+      button_text: Save changes
+    change_your_mind_html: >
+      <p>You can change your mind about additional cookies at any time by coming back to this page.</p>
+    ico_info_html: >
+      <p>You can <a href="https://ico.org.uk/for-the-public/online/cookies/">find out more about cookies and how to delete them on the Information Commissioner's Office (ICO) website.</a></p>
+

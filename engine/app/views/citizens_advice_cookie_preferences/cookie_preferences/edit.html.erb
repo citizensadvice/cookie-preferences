@@ -1,30 +1,17 @@
 <%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
-    <h1 class="cads-page-title">Your cookie settings</h1>
+    <h1 class="cads-page-title"><%=t("cookie_preferences.title")%></h1>
 
     <div class="cads-prose">
-      <p> We’d like to add small text files called ‘cookies’ to your phone, tablet or computer when you use our website.</p>
-      <p> We use 3 types of cookies. They’re called:</p>
-      <ul>
-        <li>essential cookies</li>
-        <li>analytics cookies</li>
-        <li>video player cookies</li>
-      </ul>
-      <p> We’ll always add essential cookies to your device when you use our website. These cookies make sure our website works properly.</p>
-      <p> We’ll only add additional cookies if you give us permission. Additional cookies help us remember your preferences and show you things from other websites, like videos. They also help us find out how you use our website so we can keep improving it.</p>
-      <p>You can <a href="/about-us/information/how-we-use-cookies/">read detailed information about how we use cookies.</a></p>
+      <%= t("cookie_preferences.summary_html") %>
 
     <%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
       <div class="cads-form-field">
         <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
           <legend>
-            <h2>Accept or reject analytics cookies</h2>
+            <%= t("cookie_preferences.form.analytic_cookies_header_html") %>
           </legend>
-          <p>Analytics text here</p>
-          <p>You might not be able to:</p>
-          <ul>
-            <li>help us improve our website</li>
-          </ul>
+          <%= t("cookie_preferences.form.analytic_cookies_summary_html") %>
           <%= form.collection_radio_buttons :analytics, @cookie_preferences.analytics_cookies_options, :id, :name, required: true, label: "" do |b| %>
             <div class="cads-form-group__item">
               <%= b.radio_button(class: "cads-form-group__input") %>
@@ -37,14 +24,9 @@
       <div class="cads-form-field">
         <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
           <legend>
-            <h2>Accept or reject video player cookies</h2>
+            <%= t("cookie_preferences.form.video_player_cookies_header_html") %>
           </legend>
-          <p>Video player text here</p>
-          <p>You might not be able to:</p>
-          <ul>
-            <li>watch embedded videos</li>
-            <li>have your video player preferences remembered</li>
-          </ul>
+          <%= t("cookie_preferences.form.video_player_cookies_summmary_html") %>
           <%= form.collection_radio_buttons :video_players, @cookie_preferences.video_players_cookies_options, :id, :name, required: true, label: "" do |b| %>
             <div class="cads-form-group__item">
               <%= b.radio_button(class: "cads-form-group__input") %>
@@ -54,24 +36,10 @@
         </fieldset>
       </div>
 
-      <%= form.cads_button "Save changes" %>
-
-        <h2>If you'd like to block all cookies</h2>
-        <p>If you block all cookies you won’t be able to:</p>
-        <ul>
-          <li>have your preferences remembered, like what country you live in</li>
-          <li>fill in forms on our website</li>
-          <li>use our chat service</li>
-          <li>see content from other companies like Youtube videos or SurveyMonkey feedback forms</li>
-          <li>log in - if you work or volunteer for Citizens Advice</li>
-        </ul>
-        <p>To block cookies, you should change the settings in your web browser. You can also delete cookies that have already been added. Search for 'cookies' in the ‘Help’ section of your browser.</p>
-        <p>Cookies from Google Analytics or Mouseflow tell us how you're using our site. You can stop these cookies being added to your device by ‘opting out’.</p>
-        <p><a href="https://tools.google.com/dlpage/gaoptout">Opt out from Google Analytics cookies.</a></p>
-        <p><a href="https://mouseflow.com/opt-out/">Opt out from Mouseflow cookies.</a></p>
-
-        <p>You can <a href="https://ico.org.uk/for-the-public/online/cookies/">find out more about cookies and how to delete them on the Information Commissioner's Office (ICO) website.</a></p>
-      </div>
+      <%= form.cads_button t("cookie_preferences.form.button_text") %>
+      <%= t("cookie_preferences.change_your_mind_html") %>
     <% end %>
+    <%= t("cookie_preferences.ico_info_html") %>
+    </div>
   <% end %>
 <% end %>
