@@ -1,3 +1,5 @@
+import { loadAnalytics, acceptCookiesGTMEvent } from "../helpers/analytics";
+
 const selectors = {
   cookieBanner: ".js-cookie-banner",
   acceptBtn: "#js-cookie-banner__button-accept",
@@ -19,9 +21,6 @@ const cookieDomain =
   document.location.hostname === "localhost"
     ? "localhost"
     : "citizensadvice.org.uk";
-
-const form = document.querySelector('.edit_cookie_preference');
-const submitButton = form.querySelector('button')
 
 function setCookie(cname, cvalue, exdays) {
   // set expiry date in milliseconds
@@ -83,7 +82,9 @@ const rejectCookies = () => {
 
 function hideCookieBanner() {
   const cookieBanner = document.querySelector(selectors.cookieBanner);
-  cookieBanner.hidden = true;
+  if (cookieBanner) {
+    cookieBanner.hidden = true;
+  }
 }
 
 function showConfirmationMessage() {
@@ -96,40 +97,6 @@ function showConfirmationMessage() {
   confirmationMessageContainer.hidden = false;
   confirmationMessageContainer.focus();
   cookieBanner.classList.add("cookie-banner--no-decoration");
-}
-
-function loadAnalytics() {
-  if (!window.gaGlobal) {
-    // Load gtm script
-    // Script based on snippet at https://developers.google.com/tag-manager/quickstart
-    // prettier-ignore
-    ;(function (w, d, s, l, i) {
-      w[l] = w[l] || []
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      })
-
-      const j = d.createElement(s)
-      const dl = l !== 'dataLayer' ? `&l=${l}` : ''
-
-      var csp_nonce = document.getElementsByName('csp-nonce')[0].getAttribute('content');
-      j.async = true
-      j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`
-      j.setAttribute('nonce',csp_nonce)
-      document.head.appendChild(j)
-    })(window, document, 'script', 'dataLayer', 'GTM-T5MB575')
-  }
-}
-
-function acceptCookiesGTMEvent () {
-  window.dataLayer.push({
-    event: 'acceptAllCookies',
-  });
-
-  window.dataLayer.push({
-    setCookiePreference: "True",
-  });
 }
 
 function setDefaultCookies() {
@@ -145,15 +112,6 @@ function setDefaultCookies() {
       365,
     );
   }
-}
-
-function addCookiePreferencePageEventHandler() {
-  submitButton.addEventListener(
-    "click", (e) => {
-      e.preventDefault();
-      console.log("in the cookie preferences event handler")
-    }
-  )
 }
 
 function addCookieBannerEventHandlers() {
@@ -175,13 +133,10 @@ function addCookieBannerEventHandlers() {
 }
 
 export default function initCookieBanner() {
-  setDefaultCookies();
-  addCookieBannerEventHandlers();
-  addCookiePreferencePageEventHandler();
+  const cookieBanner = document.querySelector(selectors.cookieBanner);
+
+  if (cookieBanner) {
+    setDefaultCookies();
+    addCookieBannerEventHandlers();
+  }
 }
-
-// need to add gtm classes to button in view, depending on cookie acceptance status
-
-// need datalayer push for accept & reject cookies
-
-// make confirmation banner accessible - e.g. focus or live region?
