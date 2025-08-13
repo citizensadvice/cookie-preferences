@@ -23,12 +23,15 @@ export function loadAnalytics() {
   }
 }
 
+// TODO: do we need a separate event for the references page - we don't have to accept all cookies there. We can probably pass a parameter to say where it comes from
 export function acceptCookiesGTMEvent() {
   window.dataLayer.push({
     event: "acceptAllCookies",
   });
+}
 
-  window.dataLayer.push({
-    setCookiePreference: "True",
-  });
+export function setCookiePreferenceDlv() {
+    window.dataLayer.push({
+        setCookiePreference: "True",
+    });
 }
