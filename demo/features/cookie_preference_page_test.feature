@@ -70,3 +70,8 @@ Feature: Cookie Preference Page
     And the video player cookies are accepted
     And my cookie preference is saved
     And the version number is set
+
+  Scenario: I have all my analytics cookies deleted
+    Given I have previously consented to cookies and have a boatload of them
+    Then I am on the cookie preference page
+    Then all the analytics cookies are deleted
