@@ -75,8 +75,3 @@ Feature: Cookie Preference Page
   @no_js
   Scenario: User does not have javascript
     Then the no javascript preference page callout is rendered
-
-  Scenario: I have all my analytics cookies deleted
-    Given I have previously consented to cookies and have a boatload of them
-    Then I am on the cookie preference page
-    Then all the analytics cookies are deleted

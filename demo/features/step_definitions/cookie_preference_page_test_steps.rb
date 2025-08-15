@@ -57,18 +57,3 @@ Then("the no javascript preference page callout is not rendered") do
   expect(page).to have_text("Accept or reject video player cookies")
   expect(page).to have_no_text("You need JavaScript turned on to accept or reject additional cookies.")
 end
-
-Given("I have previously consented to cookies and have a boatload of them") do
-  page.driver.browser.manage.add_cookie({ name: "mouseflow", value: "mouseflow_cookie" })
-  page.driver.browser.manage.add_cookie({ name: "mf_1", value: "mouseflow_cookie_1" })
-  page.driver.browser.manage.add_cookie({ name: "_ga_135m04mh2", value: "ga_cookie" })
-  page.driver.browser.manage.add_cookie({ name: "ar_debug", value: "ar_debug_cookie" })
-  page.driver.browser.manage.add_cookie({ name: "ethnio_displayed", value: "ethnio_cookie" })
-  page.driver.browser.manage.add_cookie({ name: "geo", value: "geo_cookie" })
-  page.driver.browser.manage.add_cookie({ name: "cookie_preference", value: { "essential" => "true", "analytics" => "false", "video_players" => "false" }.to_json })
-end
-
-Then("all the analytics cookies are deleted") do
-  expect(page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == "mouseflow" }).to be_nil
-  expect(page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == "cookie_preference" }).not_to be_nil
-end

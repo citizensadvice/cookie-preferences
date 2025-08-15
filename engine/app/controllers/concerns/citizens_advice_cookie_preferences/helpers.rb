@@ -40,7 +40,7 @@ module CitizensAdviceCookiePreferences
       # 1. Do we store a list/hash of both essential and non-essential cookies so that we don't ever end up in a situation where someone
       # adds a cookie without going through the process and makes us non-compliant as we'll write code to just throw any unknown cookies away
       # 2. Does the version number need to become a hash made up of all the cookies?
-      
+
       return if cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
 
       # return if cookies[:cookie_preference_set].blank? || cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
@@ -49,7 +49,7 @@ module CitizensAdviceCookiePreferences
     end
 
     def reset_cookie_consent
-      cookies[:cokie_preference] = {
+      cookies[:cookie_preference] = {
         value: { essential: true, analytics: false, video_players: false }.to_json,
         expires: 1.year,
         domain: :all
@@ -58,13 +58,37 @@ module CitizensAdviceCookiePreferences
       # Delete cookie_preference_set so that banner is rendered and a user can re-consent
       cookies.delete :cookie_preference_set
 
-      # Delete all analytics cookies
-      ANAYLTICS_COOKIES.each do |cookie_abbreviation|
-        cookies.each do |cookie|
-          cookie_name = cookie[0]
-          cookies.delete cookie_name if cookie_name.start_with?(cookie_abbreviation)
+      category_consent = JSON.parse(cookies[:cookie_preference])
+      wildcard_cookies = COOKIE_CATEGORIES.select { |name| name.end_with?("*") }.keys
+
+      # rubocop:disable Style/HashEachMethods
+      cookies.each do |cookie, _|
+        # Find category where cookie name exactly matches
+        category = COOKIE_CATEGORIES[cookie.to_sym]
+
+        # Find category where cookie name matches a wildcard
+        if category.nil?
+          matched_wildcard_cookie = wildcard_cookies.detect do |wildcard_cookie|
+            start_string = wildcard_cookie.to_s[0..-2]
+
+            cookie.start_with?(start_string)
+          end
+
+          if matched_wildcard_cookie.nil?
+            cookies.delete(cookie)
+            next
+          end
+
+          category = COOKIE_CATEGORIES[matched_wildcard_cookie.to_sym]
         end
+
+        # ignore 'essential' cookies
+        next if category == "essential"
+
+        # delete unconsented cookies
+        cookies.delete(cookie) unless category_consent[category]
       end
+      # rubocop:enable Style/HashEachMethods
     end
   end
 end
