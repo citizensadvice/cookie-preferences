@@ -1,4 +1,8 @@
-import { loadAnalytics, acceptCookiesGTMEvent, setCookiePreferenceDlv } from "../helpers/analytics";
+import {
+  loadAnalytics,
+  acceptCookiesGTMEvent,
+  setCookiePreferenceDlv,
+} from "../helpers/analytics";
 
 const selectors = {
   cookieBanner: ".js-cookie-banner",

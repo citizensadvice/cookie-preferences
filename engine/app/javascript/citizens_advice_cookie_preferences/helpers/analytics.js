@@ -1,4 +1,3 @@
-// TODO: we need to figure out if all the projects use the same container and if some projects don't use analytics at all
 export function loadAnalytics() {
   console.log("in the loadAnalytics function");
   if (!window.gaGlobal) {
@@ -24,7 +23,6 @@ export function loadAnalytics() {
   }
 }
 
-// TODO: do we need a separate event for the references page - we don't have to accept all cookies there. We can probably pass a parameter to say where it comes from
 export function acceptCookiesGTMEvent() {
   window.dataLayer.push({
     event: "acceptAllCookies",
@@ -32,7 +30,7 @@ export function acceptCookiesGTMEvent() {
 }
 
 export function setCookiePreferenceDlv() {
-    window.dataLayer.push({
-        setCookiePreference: "True",
-    });
+  window.dataLayer.push({
+    setCookiePreference: "True",
+  });
 }
