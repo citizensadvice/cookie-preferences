@@ -1,4 +1,19 @@
-<div class="cookie-banner js-cookie-banner" hidden>
+<noscript>
+  <div class="cookie-banner">
+    <div class="cads-grid-container">
+      <div class="cads-grid-row">
+        <div class="cads-grid-col-md-12 cads-grid-col-lg-8">
+          <div class="cads-prose">
+            <h2><%= t("cookie_banner.title") %></h2>
+            <%= t("cookie_banner.no_js_banner_html") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</noscript>
+
+<div class="cookie-banner js-cookie-banner" hidden aria-hidden="true">
   <div class="cads-grid-container">
     <div class="cads-grid-row">
       <div class="cads-grid-col-md-12 cads-grid-col-lg-8">
