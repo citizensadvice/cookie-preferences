@@ -64,7 +64,7 @@ module CitizensAdviceCookiePreferences
       # rubocop:disable Style/HashEachMethods
       cookies.each do |cookie, _|
         # Find category where cookie name exactly matches
-        category = COOKIE_CATEGORIES[cookie.to_sym]
+        category = COOKIE_CATEGORIES[cookie]
 
         # Find category where cookie name matches a wildcard
         if category.nil?
@@ -79,7 +79,7 @@ module CitizensAdviceCookiePreferences
             next
           end
 
-          category = COOKIE_CATEGORIES[matched_wildcard_cookie.to_sym]
+          category = COOKIE_CATEGORIES[matched_wildcard_cookie]
         end
 
         # ignore 'essential' cookies
