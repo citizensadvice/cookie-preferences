@@ -29,8 +29,8 @@ export function acceptCookiesGTMEvent() {
   });
 }
 
-export function setCookiePreferenceDlv() {
+export function analyticsCookiesAcceptedDlv() {
   window.dataLayer.push({
-    setCookiePreference: "True",
+    analyticsCookiesAccepted: "True",
   });
 }

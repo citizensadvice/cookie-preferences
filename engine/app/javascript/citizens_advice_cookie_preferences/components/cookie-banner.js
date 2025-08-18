@@ -1,7 +1,7 @@
 import {
   loadAnalytics,
   acceptCookiesGTMEvent,
-  setCookiePreferenceDlv,
+  analyticsCookiesAcceptedDlv,
 } from "../helpers/analytics";
 
 const selectors = {
@@ -123,7 +123,7 @@ function addCookieBannerEventHandlers() {
     acceptCookies();
     loadAnalytics();
     acceptCookiesGTMEvent();
-    setCookiePreferenceDlv();
+    analyticsCookiesAcceptedDlv();
   });
 
   document.querySelector(selectors.rejectBtn).addEventListener("click", () => {
