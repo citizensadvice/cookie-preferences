@@ -25,6 +25,27 @@ Capybara.register_driver :firefox_with_headless_toggle do |app|
                                  options: firefox_options)
 end
 
+Capybara.register_driver :no_js do |app|
+  firefox_options = Selenium::WebDriver::Firefox::Options.new
+  # Enable headless unless HEADLESS=false
+  firefox_options.args << "--headless" unless ENV["HEADLESS"] == "false"
+
+  profile = Selenium::WebDriver::Firefox::Profile.new
+  profile["javascript.enabled"] = false
+
+  firefox_options.profile = profile
+  Capybara::Selenium::Driver.new(app,
+                                 browser: :firefox,
+                                 options: firefox_options)
+end
+
+Around "@no_js" do |_, block|
+  Capybara.current_driver = :no_js
+  block.call
+ensure
+  Capybara.use_default_driver
+end
+
 Capybara.default_driver = :firefox_with_headless_toggle
 Capybara.javascript_driver = :firefox_with_headless_toggle
 
