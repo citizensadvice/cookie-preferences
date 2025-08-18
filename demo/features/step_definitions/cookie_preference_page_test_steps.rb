@@ -57,4 +57,3 @@ Then("the no javascript preference page callout is not rendered") do
   expect(page).to have_text("Accept or reject video player cookies")
   expect(page).to have_no_text("You need JavaScript to accept or reject additional cookies.")
 end
-
