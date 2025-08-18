@@ -1,5 +1,6 @@
 // TODO: we need to figure out if all the projects use the same container and if some projects don't use analytics at all
 export function loadAnalytics() {
+  console.log("in the loadAnalytics function");
   if (!window.gaGlobal) {
     // Load gtm script
     // Script based on snippet at https://developers.google.com/tag-manager/quickstart
