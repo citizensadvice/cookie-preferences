@@ -101,6 +101,7 @@ function setDefaultCookies() {
   } else {
     const cookieBanner = document.querySelector(selectors.cookieBanner);
     cookieBanner.hidden = false;
+    cookieBanner.removeAttribute("aria-hidden");
     setCookie(
       "cookie_preference",
       encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)),

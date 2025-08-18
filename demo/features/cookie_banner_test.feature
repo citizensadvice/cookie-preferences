@@ -9,6 +9,7 @@ Feature: Cookie Banner
     And the analytics cookies are rejected
     And the video player cookies are rejected
     And my cookie preferences are not set
+    And the javascript cookie banner is rendered
 
   Scenario: User accepts cookies
     When I click the "Accept additional cookies" button
@@ -42,3 +43,7 @@ Feature: Cookie Banner
     Given I have set my cookie preferences
     Then the cookie_preference domain is set
     And the cookie_preference expiry is set for 1 year
+
+  @no_js
+  Scenario: User does not have javascript
+    Then the no javascript cookie banner is rendered
