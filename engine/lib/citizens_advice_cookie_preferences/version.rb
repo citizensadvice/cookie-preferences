@@ -10,6 +10,8 @@ module CitizensAdviceCookiePreferences
     "_demo_session" => "essential",
     "_content_platform_forms_session" => "essential",
     "_energy_apps_session" => "essential",
+    "cookie_preference" => "essential",
+    "cookie_preference_set" => "essential",
     "_dd_s" => "essential",
     "_forms_key" => "essential",
     "_grecaptcha" => "essential",

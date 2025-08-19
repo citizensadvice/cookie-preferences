@@ -70,7 +70,6 @@ module CitizensAdviceCookiePreferences
 
       def delete_unconsented_cookies!
         category_consent = JSON.parse(cookies[:cookie_preference])
-        wildcard_cookies = COOKIE_CATEGORIES.select { |name| name.end_with?("*") }.keys
 
         # rubocop:disable Style/HashEachMethods
         cookies.each do |cookie, _|
@@ -100,6 +99,12 @@ module CitizensAdviceCookiePreferences
           cookies.delete(cookie) unless category_consent[category]
         end
         # rubocop:enable Style/HashEachMethods
+      end
+
+      private
+
+      def wildcard_cookies
+        @wildcard_cookies ||= COOKIE_CATEGORIES.select { |name| name.end_with?("*") }.keys
       end
     end
   end
