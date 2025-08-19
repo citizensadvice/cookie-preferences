@@ -1,3 +1,9 @@
+import {
+  loadAnalytics,
+  acceptCookiesGTMEvent,
+  analyticsCookiesAcceptedDlv,
+} from "../helpers/analytics";
+
 const selectors = {
   cookieBanner: ".js-cookie-banner",
   acceptBtn: "#js-cookie-banner__button-accept",
@@ -80,7 +86,9 @@ const rejectCookies = () => {
 
 function hideCookieBanner() {
   const cookieBanner = document.querySelector(selectors.cookieBanner);
-  cookieBanner.hidden = true;
+  if (cookieBanner) {
+    cookieBanner.hidden = true;
+  }
 }
 
 function showConfirmationMessage() {
@@ -113,6 +121,9 @@ function setDefaultCookies() {
 function addCookieBannerEventHandlers() {
   document.querySelector(selectors.acceptBtn).addEventListener("click", () => {
     acceptCookies();
+    loadAnalytics();
+    acceptCookiesGTMEvent();
+    analyticsCookiesAcceptedDlv();
   });
 
   document.querySelector(selectors.rejectBtn).addEventListener("click", () => {
@@ -127,12 +138,10 @@ function addCookieBannerEventHandlers() {
 }
 
 export default function initCookieBanner() {
-  setDefaultCookies();
-  addCookieBannerEventHandlers();
+  const cookieBanner = document.querySelector(selectors.cookieBanner);
+
+  if (cookieBanner) {
+    setDefaultCookies();
+    addCookieBannerEventHandlers();
+  }
 }
-
-// need to add gtm classes to button in view, depending on cookie acceptance status
-
-// need datalayer push for accept & reject cookies
-
-// make confirmation banner accessible - e.g. focus or live region?
