@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
-  subject(:cookie_management) { described_class.new(cookies_hash).delete_unconsented_cookies! }
+  subject(:cookie_management) { described_class.new(cookies_hash) }
 
   let(:cookies_hash) { ActiveSupport::HashWithIndifferentAccess.new(cookies) }
 
@@ -18,18 +18,24 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
   end
 
   it "does not delete essential cookies" do
-    expect(cookie_management).to include("_demo_session", "cookie_preference")
+    cookie_management.delete_unconsented_cookies!
+
+    expect(cookie_management.cookies).to include("_demo_session", "cookie_preference")
   end
 
   it "deletes analytics cookies" do
-    expect(cookie_management).not_to include("ethnio_displayed", "_ga_wildcard")
+    cookie_management.delete_unconsented_cookies!
+
+    expect(cookie_management.cookies).not_to include("ethnio_displayed", "_ga_wildcard")
   end
 
   it "deletes unexpected cookies" do
-    expect(cookie_management).not_to include("evil_tracking_cookie")
+    cookie_management.delete_unconsented_cookies!
+
+    expect(cookie_management.cookies).not_to include("evil_tracking_cookie")
   end
 
-  context "user has consented to analytics cookies" do
+  context "with user consent for analytics cookies" do
     let(:cookies) do
       {
         cookie_preference: { analytics: true }.to_json,
@@ -38,7 +44,9 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
     end
 
     it "does not delete analytics cookies" do
-      expect(cookie_management).to include("ethnio_displayed")
+      cookie_management.delete_unconsented_cookies!
+
+      expect(cookie_management.cookies).to include("ethnio_displayed")
     end
   end
 end
