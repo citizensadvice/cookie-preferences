@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CitizensAdviceCookiePreferences::Helpers::CookieManagement do
+RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
   subject(:cookie_management) { described_class.new(cookies_hash).delete_unconsented_cookies! }
 
   let(:cookies_hash) { ActiveSupport::HashWithIndifferentAccess.new(cookies) }
