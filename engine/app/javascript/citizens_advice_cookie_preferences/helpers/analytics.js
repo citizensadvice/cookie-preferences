@@ -1,5 +1,4 @@
 export function loadAnalytics() {
-  console.log("in the loadAnalytics function");
   if (!window.gaGlobal) {
     // Load gtm script
     // Script based on snippet at https://developers.google.com/tag-manager/quickstart
