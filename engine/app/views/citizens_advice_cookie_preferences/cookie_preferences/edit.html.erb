@@ -1,5 +1,11 @@
 <%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
+    <% if flash[:notice] %>
+      <div class="cookie-success-message" autofocus="true" role="alert" aria-live="assertive" tabindex="0">
+        <%= render(CitizensAdviceComponents::SuccessMessage.new(message: flash[:notice])) %>
+      </div>
+    <% end %>
+
     <h1 class="cads-page-title"><%=t("cookie_preferences.title")%></h1>
 
     <div class="cads-prose">
