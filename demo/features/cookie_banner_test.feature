@@ -14,6 +14,7 @@ Feature: Cookie Banner
   Scenario: User accepts cookies
     When I click the "Accept additional cookies" button
     Then my cookie preference is saved
+    And the version number is set
     Then the essential cookies are accepted
     And the analytics cookies are accepted
     And the video player cookies are accepted
@@ -21,6 +22,7 @@ Feature: Cookie Banner
   Scenario: User rejects cookies
     When I click the "Reject additional cookies" button
     Then my cookie preference is saved
+    And the version number is set
     And the essential cookies are accepted
     And the analytics cookies are rejected
     And the video player cookies are rejected
@@ -43,6 +45,16 @@ Feature: Cookie Banner
     Given I have set my cookie preferences
     Then the cookie_preference domain is set
     And the cookie_preference expiry is set for 1 year
+
+  Scenario: User has to re-consent when the current cookie version changes
+    Given I have previously consented to cookie version "old_version"
+    Then I visit another page
+    Then the cookie banner is visible
+
+  Scenario: User does not have to re-consent when the current cookie version stays the same
+    Given I have previously consented to cookie version "1"
+    Then I visit another page
+    Then the cookie banner is no longer visible
 
   @no_js
   Scenario: User does not have javascript

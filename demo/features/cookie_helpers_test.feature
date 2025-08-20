@@ -18,3 +18,11 @@ Feature: Cookie Helpers
     And I visit a page that uses the cookie helpers
     Then I see a message that the "analytics" cookies are rejected
     And I see a message that the "video_players" cookies are rejected
+
+  Scenario: User hasn't accepted current cookies version
+    Given I have previously consented to cookie version "old_version"
+    And I have essential, non-essential and unapproved cookies
+    When I visit a page that uses the cookie helpers
+    Then the non-essential cookies are deleted
+    And the non-approved cookies are deleted
+    And the essential cookies are not deleted
