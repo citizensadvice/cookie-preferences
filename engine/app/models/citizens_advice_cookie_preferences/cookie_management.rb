@@ -8,43 +8,37 @@ module CitizensAdviceCookiePreferences
       @cookies = cookies
     end
 
+    # rubocop:disable Style/HashEachMethods
     def delete_unconsented_cookies!
-      category_consent = JSON.parse(cookies[:cookie_preference])
-
-      # rubocop:disable Style/HashEachMethods
       cookies.each do |cookie, _|
-        # Find category where cookie name exactly matches
-        category = COOKIE_CATEGORIES[cookie]
+        next if permitted_cookie?(cookie)
 
-        # Find category where cookie name matches a wildcard
-        if category.nil?
-          matched_wildcard_cookie = wildcard_cookies.detect do |wildcard_cookie|
-            start_string = wildcard_cookie.to_s[0..-2]
-
-            cookie.start_with?(start_string)
-          end
-
-          if matched_wildcard_cookie.nil?
-            cookies.delete(cookie)
-            next
-          end
-
-          category = COOKIE_CATEGORIES[matched_wildcard_cookie]
-        end
-
-        # ignore 'essential' cookies
-        next if category == "essential"
-
-        # delete unconsented cookies
-        cookies.delete(cookie) unless category_consent[category]
+        cookies.delete(cookie)
       end
-      # rubocop:enable Style/HashEachMethods
     end
+    # rubocop:enable Style/HashEachMethods
 
     private
 
+    def permitted_cookie?(cookie)
+      if cookie.in?(COOKIE_CATEGORIES.keys)
+        COOKIE_CATEGORIES[cookie].in?(consented_categories)
+      else
+        wildcard_cookies.any? do |wildcard_cookie|
+          wildcard_cookie_category = COOKIE_CATEGORIES[wildcard_cookie]
+          start_string = wildcard_cookie.delete_suffix("*")
+          cookie.start_with?(start_string) && wildcard_cookie_category.in?(consented_categories)
+        end
+      end
+    end
+
     def wildcard_cookies
       @wildcard_cookies ||= COOKIE_CATEGORIES.select { |name| name.end_with?("*") }.keys
+    end
+
+    def consented_categories
+      # Return an array of cookie categories where the value is true e.g. essential
+      @consented_categories ||= JSON.parse(cookies[:cookie_preference]).select { |_categtory, value| value }.keys
     end
   end
 end

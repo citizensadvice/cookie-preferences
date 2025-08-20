@@ -11,9 +11,9 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
     {
       _demo_session: "something",
       ethnio_displayed: "something",
+      _ga_wildcard: "something",
       cookie_preference: { essential: true, analytics: false }.to_json,
-      evil_tracking_cookie: "muhaha",
-      _ga_wildcard: "something"
+      evil_tracking_cookie: "muhaha"
     }
   end
 
@@ -29,7 +29,7 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
     expect(cookie_management).not_to include("evil_tracking_cookie")
   end
 
-  context "user has consented to analytics cookies" do
+  context "when a user has consented to analytics cookies" do
     let(:cookies) do
       {
         cookie_preference: { analytics: true }.to_json,
