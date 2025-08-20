@@ -22,7 +22,7 @@ module CitizensAdviceCookiePreferences
 
       if @cookie_preferences.valid?
         update_cookie_preferences
-
+        CookieManagement.new(cookies).delete_unconsented_cookies!
         flash.now[:notice] = t("cookie_preferences.update.success")
       end
 

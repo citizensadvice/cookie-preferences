@@ -30,3 +30,12 @@ end
 And("the non-approved cookies are deleted") do
   expect(page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == ".CitizensAdviceLogin" }).to be_nil
 end
+
+Then("the non-essential cookies are not deleted") do
+  expect(page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == "ethnio_displayed" }).to be_present
+  expect(page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == "_ga_wildcard" }).to be_present
+end
+
+And("I have essential cookies") do
+  page.driver.browser.manage.add_cookie({ name: "activeChat", value: "essential_cookie" })
+end

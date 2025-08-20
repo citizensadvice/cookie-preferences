@@ -3,6 +3,10 @@ Feature: Cookie Preference Page
   Background:
     Given I am on the cookie preference page
 
+  @no_js
+  Scenario: User does not have javascript
+    Then the no javascript preference page callout is rendered
+
   Scenario: Default cookies are set
   I visit the site and haven't interacted with the cookie banner
     Then the cookie banner is not visible
@@ -77,6 +81,34 @@ Feature: Cookie Preference Page
     And my cookie preference is saved
     And the version number is set
 
-  @no_js
-  Scenario: User does not have javascript
-    Then the no javascript preference page callout is rendered
+  Scenario: I update my analytics preferences from accepted to rejected
+    Given I have previously accepted all cookies
+    Then I have essential, non-essential and unapproved cookies
+    When I click to reject "analytics" cookies
+    And I click to save my choices
+    Then the non-essential cookies are deleted
+    And the non-approved cookies are deleted
+    And the essential cookies are not deleted
+
+  Scenario: I update my analytics preferences from rejected to accepted
+    Given I have previously rejected all cookies
+    And I have essential cookies
+    When I click to reject "analytics" cookies
+    And I click to save my choices
+    And the essential cookies are not deleted
+
+  Scenario: I re-confirm my analytics preferences to be accepted
+    Given I have previously accepted all cookies
+    And I have essential, non-essential and unapproved cookies
+    When I click to accept "analytics" cookies
+    And I click to save my choices
+    Then the non-essential cookies are not deleted
+    And the non-approved cookies are deleted
+    And the essential cookies are not deleted
+
+  Scenario: I re-confirm my analytics preferences to be rejected
+    Given I have previously rejected all cookies
+    And I have essential cookies
+    When I click to reject "analytics" cookies
+    And I click to save my choices
+    And the essential cookies are not deleted
