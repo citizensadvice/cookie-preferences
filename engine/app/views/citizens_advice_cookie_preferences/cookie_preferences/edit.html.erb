@@ -1,7 +1,7 @@
 <%= render CitizensAdviceComponents::PageContent.new do |c| %>
   <% c.with_main do %>
     <% if flash[:notice] %>
-      <div class="cookie-success-message" autofocus="true" role="alert" aria-live="assertive" tabindex="0">
+      <div class="cookie-success-message" autofocus="true" role="status" aria-live="polite" tabindex="0">
         <%= render(CitizensAdviceComponents::SuccessMessage.new(message: flash[:notice])) %>
       </div>
     <% end %>
