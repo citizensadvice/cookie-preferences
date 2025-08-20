@@ -49,11 +49,11 @@ Then("the accept {string} radio button is checked") do |text|
 end
 
 Then("the no javascript preference page callout is rendered") do
-  expect(page).to have_text("You need JavaScript to accept or reject additional cookies.")
+  expect(page).to have_text("You need JavaScript turned on to accept or reject additional cookies.")
   expect(page).to have_no_text("Accept or reject video player cookies")
 end
 
 Then("the no javascript preference page callout is not rendered") do
   expect(page).to have_text("Accept or reject video player cookies")
-  expect(page).to have_no_text("You need JavaScript to accept or reject additional cookies.")
+  expect(page).to have_no_text("You need JavaScript turned on to accept or reject additional cookies.")
 end

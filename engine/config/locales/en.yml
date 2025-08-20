@@ -63,10 +63,10 @@ en:
         <p>YouTube adds their own analytics cookies to your device even if you’ve rejected our analytics cookies.</p>
       button_text: Save changes
     no_js_title: >
-      If you have JavaScript turned off
+      You have JavaScript turned off
     no_js_callout_content_html: >
-      <p>You need JavaScript to accept or reject additional cookies. If you have it turned off, we can’t ask for your permission, so we’ll only use essential cookies.</p>
-      <p>Some parts of our site, like embedded videos, also won’t work. We'll give you links to watch videos on YouTube instead.</p>
+      <p>You need JavaScript turned on to accept or reject additional cookies. We’ll only use essential cookies on your device.</p>
+      <p>Some parts of our site might not work, including videos. We'll give you links to watch videos on another website, like YouTube.</p>
     change_your_mind_html: >
       <p>You can change your mind about additional cookies at any time by coming back to this page.</p>
     ico_info_html: >
