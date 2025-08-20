@@ -10,10 +10,14 @@ module CitizensAdviceCookiePreferences
     before_action :set_default_cookie, only: :edit
 
     def show
+      @page_title = "Your cookie settings"
+      @page_description = "Your cookie settings choice page"
       redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path
     end
 
     def edit
+      @page_title = "Your cookie settings"
+      @page_description = "Your cookie settings choice page"
       @cookie_preferences = CookiePreference.new(prefs_from_cookie)
     end
 
