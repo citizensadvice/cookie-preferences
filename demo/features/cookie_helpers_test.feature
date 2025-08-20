@@ -21,7 +21,7 @@ Feature: Cookie Helpers
 
   Scenario: User hasn't accepted current cookies version
     Given I have previously consented to cookie version "old_version"
-    And I have a boatload of cookies
+    And I have essential, non-essential and unapproved cookies
     When I visit a page that uses the cookie helpers
     Then the non-essential cookies are deleted
     And the non-approved cookies are deleted
