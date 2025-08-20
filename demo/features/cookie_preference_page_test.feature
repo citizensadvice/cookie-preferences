@@ -6,6 +6,7 @@ Feature: Cookie Preference Page
   Scenario: Default cookies are set
   I visit the site and haven't interacted with the cookie banner
     Then the cookie banner is not visible
+    And the success banner is not visible
     And the reject "analytics" radio button is checked
     And the reject "video_players" radio button is checked
     And the essential cookies are accepted
@@ -17,7 +18,8 @@ Feature: Cookie Preference Page
   Scenario: I accept only the analytics cookies
     When I click to accept "analytics" cookies
     And I click to save my choices
-    Then the accept "analytics" radio button is checked
+    Then the success banner is visible
+    And the accept "analytics" radio button is checked
     And the reject "video_players" radio button is checked
     And the essential cookies are accepted
     And the analytics cookies are accepted
@@ -28,7 +30,8 @@ Feature: Cookie Preference Page
   Scenario: I accept only the video players cookies
     When I click to accept "video_players" cookies
     And I click to save my choices
-    Then the reject "analytics" radio button is checked
+    Then the success banner is visible
+    And the reject "analytics" radio button is checked
     And the accept "video_players" radio button is checked
     And the essential cookies are accepted
     And the analytics cookies are rejected
@@ -51,7 +54,8 @@ Feature: Cookie Preference Page
     When I click to reject "analytics" cookies
     And I click to reject "video_players" cookies
     And I click to save my choices
-    Then the reject "analytics" radio button is checked
+    Then the success banner is visible
+    And the reject "analytics" radio button is checked
     And the reject "video_players" radio button is checked
     And the essential cookies are accepted
     And the analytics cookies are rejected
@@ -64,7 +68,8 @@ Feature: Cookie Preference Page
     When I click to accept "analytics" cookies
     And I click to accept "video_players" cookies
     And I click to save my choices
-    Then the accept "analytics" radio button is checked
+    Then the success banner is visible
+    And the accept "analytics" radio button is checked
     And the accept "video_players" radio button is checked
     And the essential cookies are accepted
     And the analytics cookies are accepted
