@@ -5,40 +5,57 @@
     <div class="cads-prose">
       <%= t("cookie_preferences.summary_html") %>
 
-    <%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
-      <div class="cads-form-field">
-        <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
-          <legend>
-            <%= t("cookie_preferences.form.analytic_cookies_header_html") %>
-          </legend>
-          <%= t("cookie_preferences.form.analytic_cookies_summary_html") %>
-          <%= form.collection_radio_buttons :analytics, @cookie_preferences.analytics_cookies_options, :id, :name, required: true, label: "" do |b| %>
-            <div class="cads-form-group__item">
-              <%= b.radio_button(class: "cads-form-group__input") %>
-              <%= b.label(class: "cads-form-group__label") %>
-            </div>
-          <% end %>
-        </fieldset>
-      </div>
+    <noscript>
+      <%= render(CitizensAdviceComponents::Callout.new(type: :standard)) do %>
+        <h3><%= t("cookie_preferences.no_js_title") %></h3>
+        <%= t("cookie_preferences.no_js_callout_content_html") %>
+    <% end%>
+    </noscript>
 
-      <div class="cads-form-field">
-        <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
-          <legend>
-            <%= t("cookie_preferences.form.video_player_cookies_header_html") %>
-          </legend>
-          <%= t("cookie_preferences.form.video_player_cookies_summmary_html") %>
-          <%= form.collection_radio_buttons :video_players, @cookie_preferences.video_players_cookies_options, :id, :name, required: true, label: "" do |b| %>
-            <div class="cads-form-group__item">
-              <%= b.radio_button(class: "cads-form-group__input") %>
-              <%= b.label(class: "cads-form-group__label") %>
-            </div>
-          <% end %>
-        </fieldset>
-      </div>
+    <div id="js-enabled-cookie-form" style="display:none">
+      <%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
+        <div class="cads-form-field">
+          <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
+            <legend>
+              <%= t("cookie_preferences.form.analytic_cookies_header_html") %>
+            </legend>
+            <%= t("cookie_preferences.form.analytic_cookies_summary_html") %>
+            <%= form.collection_radio_buttons :analytics, @cookie_preferences.analytics_cookies_options, :id, :name, required: true, label: "" do |b| %>
+              <div class="cads-form-group__item">
+                <%= b.radio_button(class: "cads-form-group__input") %>
+                <%= b.label(class: "cads-form-group__label") %>
+              </div>
+            <% end %>
+          </fieldset>
+        </div>
 
-      <%= form.cads_button t("cookie_preferences.form.button_text") %>
-      <%= t("cookie_preferences.change_your_mind_html") %>
-    <% end %>
+        <div class="cads-form-field">
+          <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
+            <legend>
+              <%= t("cookie_preferences.form.video_player_cookies_header_html") %>
+            </legend>
+            <%= t("cookie_preferences.form.video_player_cookies_summmary_html") %>
+            <%= form.collection_radio_buttons :video_players, @cookie_preferences.video_players_cookies_options, :id, :name, required: true, label: "" do |b| %>
+              <div class="cads-form-group__item">
+                <%= b.radio_button(class: "cads-form-group__input") %>
+                <%= b.label(class: "cads-form-group__label") %>
+              </div>
+            <% end %>
+          </fieldset>
+        </div>
+
+        <%= form.cads_button t("cookie_preferences.form.button_text") %>
+        <%= t("cookie_preferences.change_your_mind_html") %>
+      <% end %>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const formContainer = document.getElementById("js-enabled-cookie-form");
+            if (formContainer) {
+                formContainer.style.display = "block";
+            }
+        });
+    </script>
     <%= t("cookie_preferences.ico_info_html") %>
     </div>
   <% end %>

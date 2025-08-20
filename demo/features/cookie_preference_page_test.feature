@@ -12,6 +12,7 @@ Feature: Cookie Preference Page
     And the analytics cookies are rejected
     And the video player cookies are rejected
     And my cookie preferences are not set
+    And the no javascript preference page callout is not rendered
 
   Scenario: I accept only the analytics cookies
     When I click to accept "analytics" cookies
@@ -65,3 +66,7 @@ Feature: Cookie Preference Page
     And the analytics cookies are accepted
     And the video player cookies are accepted
     And my cookie preference is saved
+
+  @no_js
+  Scenario: User does not have javascript
+    Then the no javascript preference page callout is rendered
