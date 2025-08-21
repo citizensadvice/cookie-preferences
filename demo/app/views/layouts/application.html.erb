@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js" lang="<%= I18n.locale %>">
 <head>
+  <%= display_meta_tags site: "Citizens Advice", reverse: true, separator: "-", title: @page_title, description: @page_description %>
   <meta charset="utf-8">
-  <title>Your cookie settings - Citizens Advice</title>
-  <meta name="description" content="Your cookie settings choice page">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= cads_meta_preload_fonts %>
   <%= csrf_meta_tags %>
