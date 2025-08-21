@@ -14,6 +14,8 @@ module CitizensAdviceCookiePreferences
     end
 
     def edit
+      @page_title = t("cookie_preferences.title")
+      @page_description = t("cookie_preferences.description")
       @cookie_preferences = CookiePreference.new(prefs_from_cookie)
     end
 

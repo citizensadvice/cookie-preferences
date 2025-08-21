@@ -39,6 +39,8 @@ gem "view_component"
 
 gem "citizens_advice_cookie_preferences", path: "../engine"
 
+gem "meta-tags"
+
 group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false

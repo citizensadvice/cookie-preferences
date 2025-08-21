@@ -30,6 +30,7 @@ en:
     no_js_button: Close this message
   cookie_preferences:
     title: Your cookie settings
+    description: Manage your cookie settings. Find out how we use essential cookies to make our site work, and choose whether to accept additional cookies for analytics and videos.
     summary_html: >
       <p>We add small text files called 'cookies' to your phone, tablet or computer when you use our website.</p>
       <p>We use 2 types of cookies:</p>
