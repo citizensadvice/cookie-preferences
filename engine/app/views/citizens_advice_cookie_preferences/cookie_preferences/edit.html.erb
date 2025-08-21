@@ -18,7 +18,7 @@
     <% end%>
     </noscript>
 
-    <div id="js-enabled-cookie-form" style="display:none">
+    <div id="js-enabled-cookie-form" hidden aria-hidden="true">
       <%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
         <div class="cads-form-field">
           <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
@@ -54,14 +54,6 @@
         <%= t("cookie_preferences.change_your_mind_html") %>
       <% end %>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const formContainer = document.getElementById("js-enabled-cookie-form");
-            if (formContainer) {
-                formContainer.style.display = "block";
-            }
-        });
-    </script>
     <%= t("cookie_preferences.ico_info_html") %>
     </div>
   <% end %>
