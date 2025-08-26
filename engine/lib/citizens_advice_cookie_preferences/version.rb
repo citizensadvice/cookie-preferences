@@ -22,7 +22,6 @@ module CitizensAdviceCookiePreferences
     "CustomizationObject" => "essential",
     "cwr_s" => "essential",
     "cwr_u" => "essential",
-    "eprivacy" => "essential",
     "lpLastVisit-*" => "essential",
     "lpPmCalleeDfs" => "essential",
     "LPSID-*" => "essential",
@@ -39,6 +38,7 @@ module CitizensAdviceCookiePreferences
     "mf_initialDomQueue" => "analytics",
     "mf_transmitQueue" => "analytics",
     "mf_user" => "analytics",
-    "mouseflow" => "analytics"
+    "mouseflow" => "analytics",
+    "ca_ab_*" => "analytics"
   }.freeze
 end
