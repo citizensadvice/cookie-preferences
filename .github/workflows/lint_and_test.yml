@@ -103,6 +103,8 @@ jobs:
 
       - name: "Run Cucumber"
         run: bundle exec cucumber --profile reports
+        env:
+          FF_NEW_COOKIE_MANAGEMENT: true
 
       - name: "Upload Cucumber report"
         uses: actions/upload-artifact@v4
