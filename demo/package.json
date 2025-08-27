@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "@citizensadvice/design-system": "8.0.3",
-    "sass": "^1.90.0"
+    "sass": "^1.91.0"
   },
   "devDependencies": {
-    "esbuild": "^0.25.8",
+    "esbuild": "^0.25.9",
     "prettier": "3.6.2"
   }
 }
