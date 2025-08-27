@@ -35,7 +35,7 @@ module CitizensAdviceCookiePreferences
     end
 
     def check_cookie_version
-      return if cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
+      return if !Feature.enabled?("FF_NEW_COOKIE_MANAGEMENT") || cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
 
       reset_cookie_consent
     end
