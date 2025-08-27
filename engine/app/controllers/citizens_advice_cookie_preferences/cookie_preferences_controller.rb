@@ -24,8 +24,8 @@ module CitizensAdviceCookiePreferences
 
       if @cookie_preferences.valid?
         update_cookie_preferences
-        CookieManagement.new(cookies).delete_unconsented_cookies!
         flash[:notice] = "Current cookies: #{debug_cookie_array(cookies)}, categories: #{COOKIE_CATEGORIES}, consented: #{JSON.parse(cookies[:cookie_preference]).select { |_categtory, value| value }.keys}"
+        CookieManagement.new(cookies).delete_unconsented_cookies!
       end
 
       render :edit
