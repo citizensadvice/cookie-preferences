@@ -29,13 +29,15 @@ module CitizensAdviceCookiePreferences
     protected
 
     def set_cookie_preferences
+      return unless Feature.enabled?("FF_NEW_COOKIE_MANAGEMENT")
       return if cookies[:cookie_preference].blank?
 
       CurrentCookies.preference = JSON.parse(cookies[:cookie_preference])
     end
 
     def check_cookie_version
-      return if !Feature.enabled?("FF_NEW_COOKIE_MANAGEMENT") || cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
+      return unless Feature.enabled?("FF_NEW_COOKIE_MANAGEMENT")
+      return if cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
 
       reset_cookie_consent
     end
