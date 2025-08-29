@@ -5,7 +5,6 @@ module CitizensAdviceCookiePreferences
     default_form_builder CitizensAdviceComponents::FormBuilder
 
     DEFAULT_PREFERENCES = { essential: true, analytics: false, video_players: false }.freeze
-
     include Rails.application.routes.url_helpers
 
     before_action :set_default_cookie, only: :edit
@@ -15,6 +14,8 @@ module CitizensAdviceCookiePreferences
     end
 
     def edit
+      @page_title = t("cookie_preferences.title")
+      @page_description = t("cookie_preferences.description")
       @cookie_preferences = CookiePreference.new(prefs_from_cookie)
     end
 
@@ -22,16 +23,9 @@ module CitizensAdviceCookiePreferences
       @cookie_preferences = CookiePreference.new(analytics: prefs_from_form["analytics"], video_players: prefs_from_form["video_players"])
 
       if @cookie_preferences.valid?
-        cookies[:cookie_preference] = {
-          value: @cookie_preferences.serializable_hash.to_json,
-          expires: 1.year,
-          domain: :all
-        }
-        cookies[:cookie_preference_set] = {
-          value: true,
-          expires: 1.year,
-          domain: :all
-        }
+        update_cookie_preferences
+        CookieManagement.new(cookies).delete_unconsented_cookies!
+        flash.now[:notice] = t("cookie_preferences.update.success")
       end
 
       render :edit
@@ -63,6 +57,19 @@ module CitizensAdviceCookiePreferences
 
     def cookies_preference_page?
       true
+    end
+
+    def update_cookie_preferences
+      cookies[:cookie_preference] = {
+        value: @cookie_preferences.serializable_hash.to_json,
+        expires: 1.year,
+        domain: :all
+      }
+      cookies[:cookie_preference_set] = {
+        value: COOKIE_CURRENT_VERSION,
+        expires: 1.year,
+        domain: :all
+      }
     end
   end
 end

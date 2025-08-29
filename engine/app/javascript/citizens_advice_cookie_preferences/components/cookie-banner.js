@@ -1,3 +1,9 @@
+import {
+  loadAnalytics,
+  acceptCookiesGTMEvent,
+  analyticsCookiesAcceptedDlv,
+} from "../helpers/analytics";
+
 const selectors = {
   cookieBanner: ".js-cookie-banner",
   acceptBtn: "#js-cookie-banner__button-accept",
@@ -62,7 +68,11 @@ const acceptCookies = () => {
     ),
     365,
   );
-  setCookie("cookie_preference_set", true, 365);
+
+  var cookie_current_version = document
+    .getElementsByClassName("js-cookie-banner")[0]
+    .getAttribute("data-cookie-current-version");
+  setCookie("cookie_preference_set", cookie_current_version, 365);
   showConfirmationMessage();
   document.querySelector(selectors.confirmationMessageAccept).hidden = false;
 };
@@ -73,14 +83,20 @@ const rejectCookies = () => {
     encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)),
     365,
   );
-  setCookie("cookie_preference_set", true, 365);
+
+  var cookie_current_version = document
+    .getElementsByClassName("js-cookie-banner")[0]
+    .getAttribute("data-cookie-current-version");
+  setCookie("cookie_preference_set", cookie_current_version, 365);
   showConfirmationMessage();
   document.querySelector(selectors.confirmationMessageReject).hidden = false;
 };
 
 function hideCookieBanner() {
   const cookieBanner = document.querySelector(selectors.cookieBanner);
-  cookieBanner.hidden = true;
+  if (cookieBanner) {
+    cookieBanner.hidden = true;
+  }
 }
 
 function showConfirmationMessage() {
@@ -101,6 +117,7 @@ function setDefaultCookies() {
   } else {
     const cookieBanner = document.querySelector(selectors.cookieBanner);
     cookieBanner.hidden = false;
+    cookieBanner.removeAttribute("aria-hidden");
     setCookie(
       "cookie_preference",
       encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)),
@@ -112,6 +129,9 @@ function setDefaultCookies() {
 function addCookieBannerEventHandlers() {
   document.querySelector(selectors.acceptBtn).addEventListener("click", () => {
     acceptCookies();
+    loadAnalytics();
+    acceptCookiesGTMEvent();
+    analyticsCookiesAcceptedDlv();
   });
 
   document.querySelector(selectors.rejectBtn).addEventListener("click", () => {
@@ -126,12 +146,10 @@ function addCookieBannerEventHandlers() {
 }
 
 export default function initCookieBanner() {
-  setDefaultCookies();
-  addCookieBannerEventHandlers();
+  const cookieBanner = document.querySelector(selectors.cookieBanner);
+
+  if (cookieBanner) {
+    setDefaultCookies();
+    addCookieBannerEventHandlers();
+  }
 }
-
-// need to add gtm classes to button in view, depending on cookie acceptance status
-
-// need datalayer push for accept & reject cookies
-
-// make confirmation banner accessible - e.g. focus or live region?

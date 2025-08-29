@@ -23,8 +23,14 @@ en:
         <p>We'd also like to use additional cookies to remember your settings and to understand how you use our website. This helps us improve our services for you.</p>
         <p>Some additional cookies come from other websites. These cookies help us show you things from those sites, like videos.</p>
         <p>You can <a href="/about-us/information/how-we-use-cookies/">find out more about the cookies we use</a>.</p>
+    no_js_banner_html: >
+      <p>It looks like you have JavaScript turned off. You need it to accept or reject cookies on our site.</p>
+      <p>As it’s turned off, we’ll only use the essential cookies our website needs to work. This means some things, like videos, might not work for you.</p>
+      <p>You can <a href="/about-us/information/how-we-use-cookies/">find out more about the cookies we use</a>.</p>
+    no_js_button: Close this message
   cookie_preferences:
     title: Your cookie settings
+    description: Manage your cookie settings. Find out how we use essential cookies to make our site work, and choose whether to accept additional cookies for analytics and videos.
     summary_html: >
       <p>We add small text files called 'cookies' to your phone, tablet or computer when you use our website.</p>
       <p>We use 2 types of cookies:</p>
@@ -57,8 +63,14 @@ en:
         <p>If you accept these cookies, you can watch videos and the player will remember your preferences, like the volume. The cookies will also remember which videos you've watched and how many times you watched them. If you don’t accept these cookies, you won’t be able to watch videos on our site.</p>
         <p>YouTube adds their own analytics cookies to your device even if you’ve rejected our analytics cookies.</p>
       button_text: Save changes
+    update:
+      success: Your cookie settings have been updated
+    no_js_title: >
+      You have JavaScript turned off
+    no_js_callout_content_html: >
+      <p>You need JavaScript turned on to accept or reject additional cookies. We’ll only use essential cookies on your device.</p>
+      <p>Some parts of our site might not work, including videos. We'll give you links to watch videos on another website, like YouTube.</p>
     change_your_mind_html: >
       <p>You can change your mind about additional cookies at any time by coming back to this page.</p>
     ico_info_html: >
       <p>You can <a href="https://ico.org.uk/for-the-public/online/cookies/">find out more about cookies and how to delete them on the Information Commissioner's Office (ICO) website.</a></p>
-

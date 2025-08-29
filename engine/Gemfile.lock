@@ -33,6 +33,7 @@ PATH
   specs:
     citizens_advice_cookie_preferences (0.1.0)
       citizens_advice_components (> 8.0.0)
+      meta-tags
       rails (>= 7.1.0)
       view_component (>= 2.0.0, < 4.0)
 
@@ -151,6 +152,8 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
+    meta-tags (2.22.1)
+      actionpack (>= 6.0.0, < 8.1)
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.5)
@@ -253,7 +256,7 @@ GEM
     rspec-mocks (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (8.0.1)
+    rspec-rails (8.0.2)
       actionpack (>= 7.2)
       activesupport (>= 7.2)
       railties (>= 7.2)
@@ -261,7 +264,7 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
-    rspec-support (3.13.4)
+    rspec-support (3.13.5)
     rubocop (1.78.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)

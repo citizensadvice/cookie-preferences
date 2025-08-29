@@ -29,7 +29,7 @@ end
 
 Then("my cookie preference is saved") do
   cookie_preference_set = cookie_metadata_helper("cookie_preference_set")
-  expect(cookie_preference_set[:value]).to eq "true"
+  expect(cookie_preference_set).to_not be nil
 end
 
 Then("my cookie preferences are not set") do
@@ -68,4 +68,9 @@ end
 
 def cookie_metadata_helper(cookie_name)
   page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == cookie_name }
+end
+
+And("the version number is set") do
+  cookie_preference_set = cookie_metadata_helper("cookie_preference_set")
+  expect(cookie_preference_set[:value]).to eq CitizensAdviceCookiePreferences::COOKIE_CURRENT_VERSION
 end

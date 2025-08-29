@@ -47,3 +47,23 @@ Then("the accept {string} radio button is checked") do |text|
   label = text == "analytics" ? "Accept analytics cookies" : "Accept video players cookies"
   expect(page).to have_checked_field(label, visible: :hidden)
 end
+
+Then("the no javascript preference page callout is rendered") do
+  expect(page).to have_text("You need JavaScript turned on to accept or reject additional cookies.")
+  expect(page).to have_no_text("Accept or reject video player cookies")
+end
+
+Then("the no javascript preference page callout is not rendered") do
+  expect(page).to have_text("Accept or reject video player cookies")
+  expect(page).to have_no_text("You need JavaScript turned on to accept or reject additional cookies.")
+end
+
+Then("the success banner is visible") do
+  expect(page).to have_css(".cads-success-message")
+  expect(page).to have_text("Your cookie settings have been updated")
+end
+
+Then("the success banner is not visible") do
+  expect(page).to have_no_css(".cads-success-message")
+  expect(page).to have_no_text("Your cookie settings have been updated")
+end
