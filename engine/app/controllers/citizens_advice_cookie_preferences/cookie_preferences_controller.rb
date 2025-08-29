@@ -25,10 +25,12 @@ module CitizensAdviceCookiePreferences
       if @cookie_preferences.valid?
         update_cookie_preferences
         CookieManagement.new(cookies).delete_unconsented_cookies!
-        flash.now[:notice] = t("cookie_preferences.update.success")
-      end
+        flash[:notice] = t("cookie_preferences.update.success")
 
-      render :edit
+        redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path
+      else
+        render :edit
+      end
     end
 
     private
