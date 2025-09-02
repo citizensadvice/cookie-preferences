@@ -22,11 +22,11 @@ GIT
 
 GIT
   remote: https://github.com/citizensadvice/design-system.git
-  revision: abea66c928ebe755372da567f5db8d339d3532ea
-  tag: v8.0.3
+  revision: 4b7c6f0bd9f315ea15438b4ab8a832f3bbccc71d
+  tag: v8.2.0
   glob: engine/*.gemspec
   specs:
-    citizens_advice_components (8.0.3)
+    citizens_advice_components (8.2.0)
       actionpack (>= 7.1.0, < 9.0)
       actionview (>= 7.1.0, < 9.0)
       activemodel (>= 7.1.0, < 9.0)
@@ -34,7 +34,7 @@ GIT
       activesupport (>= 7.1.0, < 9.0)
       rails-i18n (>= 7.0.10)
       railties (>= 7.1.0, < 9.0)
-      view_component (>= 2.0.0, < 4.0)
+      view_component (>= 2.0.0, < 5.0)
 
 PATH
   remote: ../engine
@@ -43,7 +43,7 @@ PATH
       citizens_advice_components (> 8.0.0)
       meta-tags
       rails (>= 7.1.0)
-      view_component (>= 2.0.0, < 4.0)
+      view_component (>= 2.0.0, < 5.0)
 
 GEM
   remote: https://rubygems.org/

@@ -28,7 +28,7 @@ gem "bootsnap", require: false
 # Pin to the same version as the npm package
 gem "citizens_advice_components",
     github: "citizensadvice/design-system",
-    tag: "v8.0.3",
+    tag: "v8.2.0",
     glob: "engine/*.gemspec"
 
 # This line is optional. The citizens_advice_components gem is built
