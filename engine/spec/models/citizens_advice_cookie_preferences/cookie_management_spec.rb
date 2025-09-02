@@ -5,7 +5,8 @@ require "rails_helper"
 RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
   subject(:cookie_management) { described_class.new(cookies_hash).delete_unconsented_cookies! }
 
-  let(:cookies_hash) { ActiveSupport::HashWithIndifferentAccess.new(cookies) }
+  let(:request) { ActionController::TestRequest.create({}) }
+  let(:cookies_hash) { ActionDispatch::Cookies::CookieJar.build(request, cookies.to_hash) }
 
   let(:cookies) do
     {
