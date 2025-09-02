@@ -50,7 +50,7 @@ module CitizensAdviceCookiePreferences
       }
 
       # Delete cookie_preference_set so that banner is rendered and a user can re-consent
-      cookies.delete :cookie_preference_set
+      cookies.delete(:cookie_preference_set, domain: :all)
 
       CookieManagement.new(cookies).delete_unconsented_cookies!
     end
