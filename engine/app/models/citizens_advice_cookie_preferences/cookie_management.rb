@@ -13,7 +13,7 @@ module CitizensAdviceCookiePreferences
       cookies.each do |cookie, _|
         next if permitted_cookie?(cookie)
 
-        cookies.delete(cookie)
+        cookies.delete(cookie, domain: :all)
       end
     end
     # rubocop:enable Style/HashEachMethods

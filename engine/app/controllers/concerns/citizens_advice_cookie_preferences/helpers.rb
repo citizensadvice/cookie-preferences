@@ -29,13 +29,15 @@ module CitizensAdviceCookiePreferences
     protected
 
     def set_cookie_preferences
+      return unless Feature.enabled?("FF_NEW_COOKIE_MANAGEMENT")
       return if cookies[:cookie_preference].blank?
 
       CurrentCookies.preference = JSON.parse(cookies[:cookie_preference])
     end
 
     def check_cookie_version
-      return if !Feature.enabled?("FF_NEW_COOKIE_MANAGEMENT") || cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
+      return unless Feature.enabled?("FF_NEW_COOKIE_MANAGEMENT")
+      return if cookies[:cookie_preference_set] == COOKIE_CURRENT_VERSION
 
       reset_cookie_consent
     end
@@ -48,7 +50,7 @@ module CitizensAdviceCookiePreferences
       }
 
       # Delete cookie_preference_set so that banner is rendered and a user can re-consent
-      cookies.delete :cookie_preference_set
+      cookies.delete(:cookie_preference_set, domain: :all)
 
       CookieManagement.new(cookies).delete_unconsented_cookies!
     end
