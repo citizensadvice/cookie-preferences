@@ -33,5 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "citizens_advice_components", "> 8.0.0"
   spec.add_dependency "meta-tags"
   spec.add_dependency "rails", ">= 7.1.0"
-  spec.add_dependency "view_component", [">= 2.0.0", "< 4.0"]
+  spec.add_dependency "view_component", [">= 2.0.0", "< 5.0"]
 end
