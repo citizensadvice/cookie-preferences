@@ -4,11 +4,11 @@ module CitizensAdviceCookiePreferences
   class CookieBanner < ViewComponent::Base
 
     def initialize(current_country:)
-      @current_country = current_country
+      @current_country = current_country.downcase
     end
 
     def country_url
-      "/#{@current_country}/cookie-preferences"
+      @current_country == "england" ? "/cookie-preferences" : "/#{@current_country}/cookie-preferences"
     end
     def base_button_classes
       %w[
