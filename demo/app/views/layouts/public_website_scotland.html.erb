@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="no-js" lang="<%= I18n.locale %>">
+<head>
+  <%= display_meta_tags site: "Citizens Advice", reverse: true, separator: "-", title: @page_title, description: @page_description %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= cads_meta_preload_fonts %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <script>document.querySelector('html').classList.remove('no-js');</script>
+</head>
+<body>
+<% unless cookies_preference_page? %>
+  <%= render CitizensAdviceCookiePreferences::CookieBanner.new %>
+<% end %>
+<div class="cads-page">
+  <div class="cads-page-header">
+    <%= render AppHeaderComponent.new %>
+  </div>
+  <div class="cads-page-wrapper">
+    <div id="cads-main-content"><%= yield %></div>
+  </div>
+  <div class="cads-page-footer">
+    <%= render AppFooterComponent.new %>
+  </div>
+  <%= javascript_include_tag "citizens_advice_cookie_preferences/application" %>
+</div>
+</body>
+</html>
