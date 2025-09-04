@@ -9,9 +9,11 @@ module CitizensAdviceCookiePreferences
   module Helpers
     extend ActiveSupport::Concern
 
+    # rubocop:disable Metrics/BlockLength
     included do
       before_action :set_cookie_preferences, :check_cookie_version
-      helper_method :cookies_preference_page?, :allow_analytics_cookies?, :allow_video_players_cookies?
+      helper_method :cookies_preference_page?, :allow_analytics_cookies?, :allow_video_players_cookies?, :how_we_use_cookies_url,
+                    :pref_page_url
 
       def cookies_preference_page?
         false
@@ -24,7 +26,30 @@ module CitizensAdviceCookiePreferences
       def allow_video_players_cookies?
         CitizensAdviceCookiePreferences::CurrentCookies.video_players?
       end
+
+      def how_we_use_cookies_url
+        country = params[:country]
+
+        if country.nil? || country == "england"
+          "/about-us/information/how-we-use-cookies/"
+        elsif country == "scotland"
+          "/scotland/about-us/information/privacy-and-cookies-scotland/"
+        elsif country == "wales"
+          "/wales/about-us/information/how-we-use-cookies/"
+        end
+      end
+
+      def pref_page_url
+        country = params[:country]
+
+        if country.nil? || country == "england"
+          "/cookie-preferences"
+        else
+          "/#{country}/cookie-preferences"
+        end
+      end
     end
+    # rubocop:enable Metrics/BlockLength
 
     protected
 

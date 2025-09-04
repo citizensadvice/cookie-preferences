@@ -9,8 +9,7 @@
     <h1 class="cads-page-title"><%=t("cookie_preferences.title")%></h1>
 
     <div class="cads-prose">
-      <%= t("cookie_preferences.summary_html") %>
-
+      <%= t("cookie_preferences.summary_html", page_url: how_we_use_cookies_url) %>
     <noscript>
       <%= render(CitizensAdviceComponents::Callout.new(type: :standard)) do %>
         <h3><%= t("cookie_preferences.no_js_title") %></h3>

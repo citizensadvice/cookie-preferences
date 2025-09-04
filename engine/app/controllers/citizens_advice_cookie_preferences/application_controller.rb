@@ -6,16 +6,10 @@ module CitizensAdviceCookiePreferences
 
     # TODO: make it configurable per app
     # public-website application
-    layout "application"
+    layout :layout_type
 
-    helper_method :homepage_url
-
-    def homepage_url
-      if request.params[:country].present?
-        main_app.extent_root_path(country: request.params[:country])
-      else
-        main_app.root_path
-      end
+    def layout_type
+      request.params[:country] == "scotland" ? "public_website_scotland" : "application"
     end
   end
 end

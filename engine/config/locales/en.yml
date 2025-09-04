@@ -22,11 +22,11 @@ en:
         <p>We use essential cookies to make our website work properly.</p>
         <p>We'd also like to use additional cookies to remember your settings and to understand how you use our website. This helps us improve our services for you.</p>
         <p>Some additional cookies come from other websites. These cookies help us show you things from those sites, like videos.</p>
-        <p>You can <a href="/about-us/information/how-we-use-cookies/">find out more about the cookies we use</a>.</p>
+        <p>You can <a href="%{page_url}">find out more about the cookies we use</a>.</p>
     no_js_banner_html: >
       <p>It looks like you have JavaScript turned off. You need it to accept or reject cookies on our site.</p>
       <p>As it’s turned off, we’ll only use the essential cookies our website needs to work. This means some things, like videos, might not work for you.</p>
-      <p>You can <a href="/about-us/information/how-we-use-cookies/">find out more about the cookies we use</a>.</p>
+      <p>You can <a href="%{page_url}">find out more about the cookies we use</a>.</p>
     no_js_button: Close this message
   cookie_preferences:
     title: Your cookie settings
@@ -38,7 +38,7 @@ en:
         <li>essential cookies - we have to use these to make our website work</li>
         <li>additional cookies - we’ll only use these if you give us your permission</li>
       </ul>
-      <p>You can see <a href="/about-us/information/how-we-use-cookies/"> a full list of all the cookies we use</a>.</p>
+      <p>You can <a href="%{page_url}">find out more about the cookies we use</a>.</p>
       <h2>Essential cookies</h2>
       <p>We add essential cookies to your device as soon as you use our website. Without them our website won’t work properly.</p>
       <p>You can block essential cookies in your browser settings, but you won’t be able to:</p>
