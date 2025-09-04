@@ -36,7 +36,7 @@ en:
         <li>essential cookies - we have to use these to make our website work</li>
         <li>additional cookies - we’ll only use these if you give us your permission</li>
       </ul>
-      <p>You can see <a href="/about-us/information/how-we-use-cookies/"> a full list of all the cookies we use</a>.</p>
+    cookie_categories_html: >
       <h2>Essential cookies</h2>
       <p>We add essential cookies to your device as soon as you use our website. Without them our website won’t work properly.</p>
       <p>You can block essential cookies in your browser settings, but you won’t be able to:</p>

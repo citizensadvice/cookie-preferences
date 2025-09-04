@@ -10,6 +10,8 @@
 
     <div class="cads-prose">
       <%= t("cookie_preferences.summary_html") %>
+      <p>You can <a href="<%= how_we_use_cookies_url(@current_country) %>">find out more about the cookies we use</a>.</p>
+      <%= t("cookie_preferences.cookie_categories_html") %>
 
     <noscript>
       <%= render(CitizensAdviceComponents::Callout.new(type: :standard)) do %>

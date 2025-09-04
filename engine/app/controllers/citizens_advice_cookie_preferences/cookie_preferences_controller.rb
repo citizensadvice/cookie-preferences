@@ -10,10 +10,11 @@ module CitizensAdviceCookiePreferences
     before_action :set_default_cookie, only: :edit
 
     def show
-      redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path
+      redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path, country: params[:country]
     end
 
     def edit
+      @current_country = params[:country]
       @page_title = t("cookie_preferences.title")
       @page_description = t("cookie_preferences.description")
       @cookie_preferences = CookiePreference.new(prefs_from_cookie)
