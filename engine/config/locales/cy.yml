@@ -54,11 +54,17 @@ cy:
     form:
       analytic_cookies_header_html: >
         <h2>Cwcis dadansoddi</h2>
+      analytic_cookies_options:
+        accept: Derbyn cwcis dadansoddi
+        reject: Gwrthod cwcis dadansoddi
       analytic_cookies_summary_html: >
         <p>Mae'r cwcis hyn yn ein helpu ni i wella ein gwefan drwy ddangos sut mae pobl yn ei defnyddio. Er enghraifft, pa dudalennau sydd fwyaf poblogaidd neu lle mae pobl yn cael trafferth.</p> 
         <p>Rydym yn defnyddio teclynnau fel Google Analytics a Mouseflow i weld sut mae pobl yn defnyddio ein gwefan.</p>
       video_player_cookies_header_html: >
         <h2>Cwcis chwaraewyr fideo</h2>
+      video_player_cookies_options:
+        accept: Derbyn cwcis chwaraewr fideo
+        reject: Gwrthod cwcis chwaraewr fideo
       video_player_cookies_summmary_html: >
         <p>Rydyn ni'n defnyddio'r cwcis hyn fel bod modd i chi wylio fideos ar ein gwefan o leoedd fel YouTube.</p> 
         <p>Os byddwch chi'n derbyn y cwcis hyn, gallwch wylio fideos a bydd y chwaraewr yn cofio eich dewisiadau, fel y lefel sain. Bydd y cwcis hefyd yn cofio pa fideos rydych chi wedi eu gwylio a faint o weithiau rydych chi wedi eu gwylio. Os na dderbyniwch y cwcis hyn, fyddwch chi ddim yn gallu gwylio fideos ar ein gwefan.</p>
