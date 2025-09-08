@@ -21,6 +21,7 @@ gem "sprockets-rails"
 group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit"
+  gem "capybara"
   gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v12.0.0"
   gem "pry"
   gem "rspec-rails"
