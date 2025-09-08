@@ -1,0 +1,30 @@
+---
+cy:
+  cookie_banner:
+    title: Cwcis ar ein gwefan
+    accept_button: Derbyn pob cwci ychwanegol
+    hide_button: Hide this message
+    reject_button: Gwrthod pob cwci ychwanegol
+    link: Dewiswch gwcis
+    accept_confirmation:
+      html: >
+        You’ve accepted additional cookies. You can
+        <a href="/cookie-preferences/">change your cookie settings</a>
+        at any time
+    reject_confirmation:
+      html: >
+        You’ve rejected additional cookies. You can
+        <a href="/cookie-preferences/">change your cookie settings</a>
+        at any time
+
+    description:
+      html: >
+        <p>Rydym yn defnyddio cwcis hanfodol i sicrhau bod ein gwefan yn gweithio'n iawn.</p>
+        <p>Hoffem hefyd ddefnyddio cwcis ychwanegol er mwyn cofio eich gosodiadau a deall sut rydych chi'n defnyddio ein gwefan. Mae hyn yn ein helpu ni i wella ein gwasanaethau ar eich cyfer chi.</p>
+        <p>Mae cwcis ychwanegol yn dod o wefannau eraill. Mae'r cwcis hyn yn ein helpu i ddangos pethau i chi o'r gwefannau hynny, fel fideos.</p>
+        <p>Gallwch <a href="%{page_url}">ddysgu mwy am y cwcis rydym yn eu defnyddio</a>.</p>
+    no_js_banner_html: >
+      <p>Mae'n ymddangos bod JavaScript i ffwrdd gennych. Mae angen i chi dderbyn neu wrthod cwcis ar ein gwefan.</p>
+      <p>Gan ei fod i ffwrdd, byddwn ddim ond yn defnyddio'r cwcis hanfodol y mae ein gwefan eu hangen i weithio. Mae hyn yn golygu y gallai rhai pethau, fel fideos, ddim gweithio i chi.</p>
+      <p>Gallwch <a href="%{page_url}">ddysgu mwy am y cwcis rydym yn eu defnyddio</a>.</p>
+    no_js_button: Cau'r neges hon
