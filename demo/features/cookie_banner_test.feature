@@ -56,6 +56,28 @@ Feature: Cookie Banner
     Then I visit another page
     Then the cookie banner is no longer visible
 
+  Scenario Outline: User accepts additional cookies and sees a link to the cookie preferences page
+    Given I am on the Demo App <country> show page
+    When I click the "Accept additional cookies" button
+    Then I can see a link to the cookie preferences page for <country>
+
+    Examples:
+      | country  |
+      | England  |
+      | Wales    |
+      | Scotland |
+
+  Scenario Outline: User rejects additional cookies and has the correct link to the cookie preferences page
+    Given I am on the Demo App <country> show page
+    When I click the "Reject additional cookies" button
+    Then I can see a link to the cookie preferences page for <country>
+
+    Examples:
+      | country  |
+      | England  |
+      | Wales    |
+      | Scotland |
+
   @no_js
   Scenario: User does not have javascript
     Then the no javascript cookie banner is rendered

@@ -1,5 +1,29 @@
 # frozen_string_literal: true
 
+Given("I am on the Demo App England show page") do
+  visit "/show-page"
+end
+
+Then("I can see a link to the cookie preferences page for England") do
+  expect(page).to have_link("change your cookie settings", href: "/cookie-preferences")
+end
+
+Given("I am on the Demo App Wales show page") do
+  visit "/wales/show-page"
+end
+
+Then("I can see a link to the cookie preferences page for Wales") do
+  expect(page).to have_link("change your cookie settings", href: "/wales/cookie-preferences")
+end
+
+Given("I am on the Demo App Scotland show page") do
+  visit "/scotland/show-page"
+end
+
+Then("I can see a link to the cookie preferences page for Scotland") do
+  expect(page).to have_link("change your cookie settings", href: "/scotland/cookie-preferences")
+end
+
 When("I click the {string} button") do |text|
   within(".cookie-banner") do
     click_button text
