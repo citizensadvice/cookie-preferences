@@ -8,8 +8,11 @@ require_relative "test_app/config/environment"
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
 require "rspec/rails"
+require "view_component/test_helpers"
 
 RSpec.configure do |config|
+  config.include ViewComponent::TestHelpers, type: :component
+
   # To enable this behaviour uncomment the line below.
   config.infer_spec_type_from_file_location!
 
