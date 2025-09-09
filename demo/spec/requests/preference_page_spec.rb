@@ -39,5 +39,17 @@ RSpec.describe "Preference page", type: :request do
       expect(response.body).to include("/scotland/about-us/information/privacy-and-cookies-scotland/")
     end
   end
+
+  context "when Welsh language request" do
+    before { get "/cymraeg/cookie-preferences/edit" }
+
+    it "renders the application template" do
+      expect(response).to render_template(layout: "application")
+    end
+
+    it "render the Welsh how we use cookies page link" do
+      expect(response.body).to include("/cymraeg/amdanom-ni/gwybodaeth/sut-rydym-yn-defnyddio-cwcis/")
+    end
+  end
 end
 # rubocop:enable RSpecRails/InferredSpecType

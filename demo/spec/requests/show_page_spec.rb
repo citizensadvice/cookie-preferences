@@ -39,5 +39,17 @@ RSpec.describe "Show page", type: :request do
       expect(response.body).to include("/scotland/cookie-preferences")
     end
   end
+
+  context "when Welsh language request" do
+    before { get "/cymraeg/show-page" }
+
+    it "renders the Welsh how we use cookies page link" do
+      expect(response.body).to include("/cymraeg/amdanom-ni/gwybodaeth/sut-rydym-yn-defnyddio-cwcis/")
+    end
+
+    it "renders the Welsh cookies preference page link" do
+      expect(response.body).to include("/cymraeg/cookie-preferences")
+    end
+  end
 end
 # rubocop:enable RSpecRails/InferredSpecType

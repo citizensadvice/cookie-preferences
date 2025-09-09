@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get "(/:country)/show-page", to: "home#show"
   get "/helpers-page", to: "helpers_page#index"
 
   localized do
+    get "(/:country)/show-page", to: "home#show"
     root "home#index", as: :home
     mount CitizensAdviceCookiePreferences::Engine, at: "(/:country)/cookie-preferences"
   end
