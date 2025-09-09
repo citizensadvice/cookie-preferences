@@ -14,15 +14,15 @@ module CitizensAdviceCookiePreferences
 
     def analytics_cookies_options
       [
-        FormOption.new(id: "true", name: "Accept analytics cookies"),
-        FormOption.new(id: "false", name: "Reject analytics cookies")
+        FormOption.new(id: "true", name: I18n.t("cookie_preferences.form.analytic_cookies_options.accept")),
+        FormOption.new(id: "false", name: I18n.t("cookie_preferences.form.analytic_cookies_options.reject"))
       ]
     end
 
     def video_players_cookies_options
       [
-        FormOption.new(id: "true", name: "Accept video players cookies"),
-        FormOption.new(id: "false", name: "Reject video players cookies")
+        FormOption.new(id: "true", name: I18n.t("cookie_preferences.form.video_player_cookies_options.accept")),
+        FormOption.new(id: "false", name: I18n.t("cookie_preferences.form.video_player_cookies_options.reject"))
       ]
     end
 

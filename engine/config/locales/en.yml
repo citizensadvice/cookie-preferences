@@ -53,11 +53,17 @@ en:
     form:
       analytic_cookies_header_html: >
         <h2>Accept or reject analytics cookies</h2>
+      analytic_cookies_options:
+        accept: Accept analytics cookies
+        reject: Reject analytics cookies
       analytic_cookies_summary_html: >
         <p>These cookies help us improve our website by showing us how people use it. For example, which pages are most popular or where people are having problems.</p> 
         <p>We use tools like Google Analytics and Mouseflow to see how people are using our site.</p>
       video_player_cookies_header_html: >
         <h2>Accept or reject video player cookies</h2>
+      video_player_cookies_options:
+        accept: Accept video players cookies
+        reject: Reject video players cookies
       video_player_cookies_summmary_html: >
         <p>We use these cookies so you can watch videos on our site from places like YouTube.</p> 
         <p>If you accept these cookies, you can watch videos and the player will remember your preferences, like the volume. The cookies will also remember which videos you've watched and how many times you watched them. If you don’t accept these cookies, you won’t be able to watch videos on our site.</p>

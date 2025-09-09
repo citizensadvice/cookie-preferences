@@ -10,10 +10,11 @@ module CitizensAdviceCookiePreferences
     before_action :set_default_cookie, only: :edit
 
     def show
-      redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path, country: params[:country]
+      redirect_to localised_engine_namespace.edit_cookie_preference_path, country: params[:country]
     end
 
     def edit
+      @localised_engine_namespace = localised_engine_namespace
       @current_country = params[:country]
       @page_title = t("cookie_preferences.title")
       @page_description = t("cookie_preferences.description")
@@ -29,7 +30,7 @@ module CitizensAdviceCookiePreferences
         CookieManagement.new(cookies).delete_unconsented_cookies!
         flash[:notice] = t("cookie_preferences.update.success")
 
-        redirect_to citizens_advice_cookie_preferences.edit_cookie_preference_path
+        redirect_to localised_engine_namespace.edit_cookie_preference_path
       else
         render :edit
       end
@@ -75,6 +76,17 @@ module CitizensAdviceCookiePreferences
         expires: 1.year,
         domain: :all
       }
+    end
+
+    def localised_engine_namespace
+      case params[:locale]
+      when "en"
+        citizens_advice_cookie_preferences_en
+      when "cy"
+        citizens_advice_cookie_preferences_cy
+      else
+        citizens_advice_cookie_preferences
+      end
     end
   end
 end

@@ -28,6 +28,8 @@ module CitizensAdviceCookiePreferences
       end
 
       def how_we_use_cookies_url
+        return "/cymraeg/amdanom-ni/gwybodaeth/sut-rydym-yn-defnyddio-cwcis/" if welsh_language?
+
         country = params[:country]
 
         if country.nil? || country == "england"
@@ -40,6 +42,8 @@ module CitizensAdviceCookiePreferences
       end
 
       def pref_page_url
+        return "/cymraeg/cookie-preferences" if welsh_language?
+
         country = params[:country]
 
         if country.nil? || country == "england"
@@ -78,6 +82,12 @@ module CitizensAdviceCookiePreferences
       cookies.delete(:cookie_preference_set, domain: :all)
 
       CookieManagement.new(cookies).delete_unconsented_cookies!
+    end
+
+    private
+
+    def welsh_language?
+      params[:locale] == "cy"
     end
   end
 end

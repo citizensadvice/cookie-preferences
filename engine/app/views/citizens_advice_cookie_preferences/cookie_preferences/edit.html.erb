@@ -18,7 +18,7 @@
     </noscript>
 
     <div id="js-enabled-cookie-form" hidden aria-hidden="true">
-      <%= form_for @cookie_preferences, url: citizens_advice_cookie_preferences.cookie_preference_path, method: :patch do |form| %>
+      <%= form_for @cookie_preferences, url: @localised_engine_namespace.cookie_preference_path, method: :patch do |form| %>
         <div class="cads-form-field">
           <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
             <legend>

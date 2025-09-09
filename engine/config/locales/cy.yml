@@ -28,3 +28,56 @@ cy:
       <p>Gan ei fod i ffwrdd, byddwn ddim ond yn defnyddio'r cwcis hanfodol y mae ein gwefan eu hangen i weithio. Mae hyn yn golygu y gallai rhai pethau, fel fideos, ddim gweithio i chi.</p>
       <p>Gallwch <a href="%{page_url}">ddysgu mwy am y cwcis rydym yn eu defnyddio</a>.</p>
     no_js_button: Cau'r neges hon
+
+  cookie_preferences:
+    title: Eich gosodiadau cwcis
+    description: Rheolwch eich gosodiadau cwcis. Darganfyddwch sut rydyn ni'n defnyddio cwcis hanfodol i gael ein gwefan i weithio'n gywir, a dewiswch a ydych chi am dderbyn cwcis ychwanegol ar gyfer dadansoddeg a fideos.
+    summary_html: >
+      <p>Rydym yn ychwanegu ffeiliau testun bach o'r enw 'cwcis' at eich ffôn, tabled neu gyfrifiadur pan fyddwch chi'n defnyddio ein gwefan.</p>
+      <p>Rydym yn defnyddio 2 fath o gwcis:</p>
+      <ul>
+        <li>cwcis hanfodol - mae'n rhaid i ni eu defnyddio er mwyn i'n gwefan weithio</li>
+        <li>cwcis ychwanegol - dim ond os byddwch chi'n rhoi caniatâd i ni y byddwn ni'n defnyddio'r rhain</li>
+      </ul>
+      <p>Mae modd i chi <a href="%{page_url}">weld rhestr lawn o'r holl gwcis rydym yn eu defnyddio</a>.</p>
+      <h2>Cwcis hanfodol</h2>
+      <p>Rydym yn ychwanegu cwcis hanfodol at eich dyfais cyn gynted ag y byddwch chi'n defnyddio ein gwefan. Hebddyn nhw, fydd ein gwefan ddim yn gweithio'n iawn.</p>
+      <p>Gallwch rwystro cwcis hanfodol yn eich gosodiadau porwr, ond ni fyddwch yn gallu:</p>
+      <ul>
+        <li>cadw eich dewisiadau, fel y wlad rydych chi'n byw ynddi</li>
+        <li>llenwi ffurflenni ar ein gwefan</li>
+        <li>defnyddio ein gwasanaeth sgwrsio ar-lein</li>
+        <li>mewngofnodi, os ydych chi'n gweithio neu'n gwirfoddoli i ni</li>
+      </ul>
+      <h2>Cwcis ychwanegol</h2>
+      <p>Fyddwn ni ddim yn ychwanegu cwcis ychwanegol heb eich caniatâd chi.</p>
+    form:
+      analytic_cookies_header_html: >
+        <h2>Cwcis dadansoddi</h2>
+      analytic_cookies_options:
+        accept: Derbyn cwcis dadansoddi
+        reject: Gwrthod cwcis dadansoddi
+      analytic_cookies_summary_html: >
+        <p>Mae'r cwcis hyn yn ein helpu ni i wella ein gwefan drwy ddangos sut mae pobl yn ei defnyddio. Er enghraifft, pa dudalennau sydd fwyaf poblogaidd neu lle mae pobl yn cael trafferth.</p> 
+        <p>Rydym yn defnyddio teclynnau fel Google Analytics a Mouseflow i weld sut mae pobl yn defnyddio ein gwefan.</p>
+      video_player_cookies_header_html: >
+        <h2>Cwcis chwaraewyr fideo</h2>
+      video_player_cookies_options:
+        accept: Derbyn cwcis chwaraewr fideo
+        reject: Gwrthod cwcis chwaraewr fideo
+      video_player_cookies_summmary_html: >
+        <p>Rydyn ni'n defnyddio'r cwcis hyn fel bod modd i chi wylio fideos ar ein gwefan o leoedd fel YouTube.</p> 
+        <p>Os byddwch chi'n derbyn y cwcis hyn, gallwch wylio fideos a bydd y chwaraewr yn cofio eich dewisiadau, fel y lefel sain. Bydd y cwcis hefyd yn cofio pa fideos rydych chi wedi eu gwylio a faint o weithiau rydych chi wedi eu gwylio. Os na dderbyniwch y cwcis hyn, fyddwch chi ddim yn gallu gwylio fideos ar ein gwefan.</p>
+        <p>Mae YouTube yn ychwanegu cwcis dadansoddi eu hunain at eich dyfais hyd yn oed os ydych chi wedi gwrthod ein cwcis dadansoddi.</p>
+      button_text: Save changes
+    update:
+      success: Mae eich gosodiadau cwci wedi cael eu cadw.
+    no_js_title: >
+      Mae JavaScript i ffwrdd gennych
+    no_js_callout_content_html: >
+      <p>Mae angen JavaScript ymlaen gennych er mwyn derbyn neu wrthod cwcis ychwanegol. Dim ond cwcis hanfodol y byddwn ni yn eu defnyddio ar eich dyfais.</p>
+      <p>Efallai na fydd rhai rhannau o'n gwefan yn gweithio'n iawn, gan gynnwys fideos. Byddwn yn rhoi dolenni i chi wylio fideos ar wefan arall, fel YouTube.</p>
+    change_your_mind_html: >
+      <p>Gallwch newid eich meddwl am gwcis ychwanegol ar unrhyw adeg drwy ddychwelyd i'r dudalen hon.</p>
+    ico_info_html: >
+      <p>Gallwch <a href="https://ico.org.uk/for-the-public/online/cookies/">ddod o hyd i ragor o wybodaeth am gwcis a sut i'w rheoli neu eu dileu ar wefan Swyddfa'r Comisiynydd Gwybodaeth (ICO).</a></p>
