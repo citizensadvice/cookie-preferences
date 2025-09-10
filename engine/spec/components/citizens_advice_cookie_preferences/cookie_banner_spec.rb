@@ -14,7 +14,7 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieBanner, type: :component d
 
   describe "CookieBanner" do
     context "when English language" do
-      it { is_expected.to have_text "Cookies on Citizens Advice" }
+      it { is_expected.to have_text "Cookies on our website" }
     end
 
     context "when Welsh language" do
