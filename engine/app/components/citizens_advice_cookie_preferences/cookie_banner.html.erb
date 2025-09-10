@@ -34,8 +34,8 @@
             </div>
           </div>
           <div class="cookie-banner__confirmation-message js-cookie-banner__confirmation-message" tabindex="-1" hidden>
-            <p class="cookie-banner__confirmation-message-text js-cookie-banner__confirmation-accept" hidden><%= t("cookie_banner.accept_confirmation.html") %></p>
-            <p class="cookie-banner__confirmation-message-text js-cookie-banner__confirmation-reject" hidden><%= t("cookie_banner.reject_confirmation.html") %></p>
+            <p class="cookie-banner__confirmation-message-text js-cookie-banner__confirmation-accept" hidden><%= t("cookie_banner.accept_confirmation.html",  pref_page_url: pref_page_url) %></p>
+            <p class="cookie-banner__confirmation-message-text js-cookie-banner__confirmation-reject" hidden><%= t("cookie_banner.reject_confirmation.html",  pref_page_url: pref_page_url) %></p>
             <%= render CitizensAdviceComponents::Button.new(variant: :primary, attributes: { id: "js-cookie-banner__button-hide" }) do %>
               <%= t("cookie_banner.hide_button") %>
             <% end %>
