@@ -3,7 +3,7 @@ $cookie-banner-bg: #f2f8ff;
 
 .cookie-banner {
   background-color: $cookie-banner-bg;
-  padding: 1.5rem 0 1rem;
+  padding: 1rem 0;
 
   @media (min-width: 1024px) {
     background-image: url('data:image/svg+xml,<svg width="415" height="245" viewBox="0 0 415 245" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M414.987 -2C414.996 -1.17247 415 -0.343367 415 0.486328C415 134.053 306.171 245.001 195.27 245.001L207.708 209.454C92.6606 209.454 0.415776 121.127 0.415527 0.486328C0.415528 -0.343368 0.421375 -1.17247 0.430176 -2H414.987Z" fill="white"/></svg>');

@@ -1,11 +1,11 @@
 ---
 en:
   cookie_banner:
-    title: Cookies on Citizens Advice
+    title: Cookies on our website
     accept_button: Accept additional cookies
     hide_button: Hide this message
     reject_button: Reject additional cookies
-    link: Manage cookies
+    link: Choose cookies
     accept_confirmation:
       html: >
         You’ve accepted additional cookies. You can
@@ -22,7 +22,7 @@ en:
         <p>We use essential cookies to make our website work properly.</p>
         <p>We'd also like to use additional cookies to remember your settings and to understand how you use our website. This helps us improve our services for you.</p>
         <p>Some additional cookies come from other websites. These cookies help us show you things from those sites, like videos.</p>
-        <p>You can <a href="%{page_url}">find out more about the cookies we use</a>.</p>
+        <p>You can <a href="%{page_url}">see a full list of all the cookies we use</a>.</p>
     no_js_banner_html: >
       <p>It looks like you have JavaScript turned off. You need it to accept or reject cookies on our site.</p>
       <p>As it’s turned off, we’ll only use the essential cookies our website needs to work. This means some things, like videos, might not work for you.</p>
@@ -52,7 +52,7 @@ en:
       <p>We won't add additional cookies unless you give us permission.</p>
     form:
       analytic_cookies_header_html: >
-        <h2>Accept or reject analytics cookies</h2>
+        <h2>Analytics cookies</h2>
       analytic_cookies_options:
         accept: Accept analytics cookies
         reject: Reject analytics cookies
@@ -60,7 +60,7 @@ en:
         <p>These cookies help us improve our website by showing us how people use it. For example, which pages are most popular or where people are having problems.</p> 
         <p>We use tools like Google Analytics and Mouseflow to see how people are using our site.</p>
       video_player_cookies_header_html: >
-        <h2>Accept or reject video player cookies</h2>
+        <h2>Video player cookies</h2>
       video_player_cookies_options:
         accept: Accept video players cookies
         reject: Reject video players cookies
@@ -70,7 +70,7 @@ en:
         <p>YouTube adds their own analytics cookies to your device even if you’ve rejected our analytics cookies.</p>
       button_text: Save changes
     update:
-      success: Your cookie settings have been updated
+      success: Your cookie settings have been saved
     no_js_title: >
       You have JavaScript turned off
     no_js_callout_content_html: >
