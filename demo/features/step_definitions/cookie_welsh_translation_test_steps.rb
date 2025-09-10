@@ -20,3 +20,7 @@ Then("I am taken to the Welsh version of the cookie preferences page") do
   expect(page).to have_link("weld rhestr lawn o'r holl gwcis rydym yn eu defnyddio",
                             href: "/cymraeg/amdanom-ni/gwybodaeth/sut-rydym-yn-defnyddio-cwcis/")
 end
+
+Then("I can see a link to the Welsh version of the cookie preferences page") do
+  expect(page).to have_link("change your cookie settings", href: "/cymraeg/cookie-preferences/")
+end
