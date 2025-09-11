@@ -3,19 +3,19 @@ cy:
   cookie_banner:
     title: Cwcis ar ein gwefan
     accept_button: Derbyn pob cwci ychwanegol
-    hide_button: Hide this message
+    hide_button: Cuddio’r neges yma
     reject_button: Gwrthod pob cwci ychwanegol
     link: Dewiswch gwcis
     accept_confirmation:
       html: >
-        You’ve accepted additional cookies. You can
-        <a href="/cymraeg/cookie-preferences/">change your cookie settings</a>
-        at any time
+        Rydych wedi derbyn cwcis ychwanegol. Gallwch
+        <a href="/cymraeg/cookie-preferences/">newid gosodiadau eich cwcis</a>
+        unrhyw dro
     reject_confirmation:
       html: >
-        You’ve rejected additional cookies. You can
-        <a href="/cymraeg/cookie-preferences/">change your cookie settings</a>
-        at any time
+        Rydych wedi gwrthod cwcis ychwanegol. Gallwch
+        <a href="/cymraeg/cookie-preferences/">newid gosodiadau eich cwcis</a>
+        unrhyw dro
 
     description:
       html: >
@@ -69,7 +69,7 @@ cy:
         <p>Rydyn ni'n defnyddio'r cwcis hyn fel bod modd i chi wylio fideos ar ein gwefan o leoedd fel YouTube.</p> 
         <p>Os byddwch chi'n derbyn y cwcis hyn, gallwch wylio fideos a bydd y chwaraewr yn cofio eich dewisiadau, fel y lefel sain. Bydd y cwcis hefyd yn cofio pa fideos rydych chi wedi eu gwylio a faint o weithiau rydych chi wedi eu gwylio. Os na dderbyniwch y cwcis hyn, fyddwch chi ddim yn gallu gwylio fideos ar ein gwefan.</p>
         <p>Mae YouTube yn ychwanegu cwcis dadansoddi eu hunain at eich dyfais hyd yn oed os ydych chi wedi gwrthod ein cwcis dadansoddi.</p>
-      button_text: Save changes
+      button_text: Arbed newidiadau
     update:
       success: Mae eich gosodiadau cwci wedi cael eu cadw.
     no_js_title: >
