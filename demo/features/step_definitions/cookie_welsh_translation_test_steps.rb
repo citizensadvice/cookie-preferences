@@ -22,5 +22,5 @@ Then("I am taken to the Welsh version of the cookie preferences page") do
 end
 
 Then("I can see a link to the Welsh version of the cookie preferences page") do
-  expect(page).to have_link("change your cookie settings", href: "/cymraeg/cookie-preferences/")
+  expect(page).to have_link("newid gosodiadau eich cwcis", href: "/cymraeg/cookie-preferences/")
 end
