@@ -14,7 +14,8 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
       ethnio_displayed: "something",
       _ga_wildcard: "something",
       cookie_preference: { essential: true, analytics: false }.to_json,
-      evil_tracking_cookie: "muhaha"
+      evil_tracking_cookie: "muhaha",
+      "16%20Sep%202026%2009:50:40%20GMT": "ouch"
     }
   end
 
@@ -28,6 +29,10 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
 
   it "deletes unexpected cookies" do
     expect(cookie_management).not_to include("evil_tracking_cookie")
+  end
+
+  it "does not delete malformed cookies" do
+    expect(cookie_management).to include("16%20Sep%202026%2009:50:40%20GMT")
   end
 
   context "when a user has consented to analytics cookies" do
