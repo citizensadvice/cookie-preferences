@@ -12,6 +12,7 @@ module CitizensAdviceCookiePreferences
     def delete_unconsented_cookies!
       cookies.each do |cookie, _|
         next if permitted_cookie?(cookie)
+        next if malformed_cookie?(cookie)
 
         cookies.delete(cookie, domain: :all)
       end
@@ -30,6 +31,10 @@ module CitizensAdviceCookiePreferences
           cookie.start_with?(start_string) && wildcard_cookie_category.in?(consented_categories)
         end
       end
+    end
+
+    def malformed_cookie?(cookie)
+      CGI.unescape(cookie) != cookie
     end
 
     def wildcard_cookies
