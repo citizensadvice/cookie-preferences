@@ -52,7 +52,7 @@ en:
       <p>We won't add additional cookies unless you give us permission.</p>
     form:
       analytic_cookies_header_html: >
-        <h2>Analytics cookies</h2>
+        <h3>Analytics cookies</h3>
       analytic_cookies_options:
         accept: Accept analytics cookies
         reject: Reject analytics cookies
@@ -60,7 +60,7 @@ en:
         <p>These cookies help us improve our website by showing us how people use it. For example, which pages are most popular or where people are having problems.</p> 
         <p>We use tools like Google Analytics and Mouseflow to see how people are using our site.</p>
       video_player_cookies_header_html: >
-        <h2>Video player cookies</h2>
+        <h3>Video player cookies</h3>
       video_player_cookies_options:
         accept: Accept video players cookies
         reject: Reject video players cookies

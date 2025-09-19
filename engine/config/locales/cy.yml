@@ -53,7 +53,7 @@ cy:
       <p>Fyddwn ni ddim yn ychwanegu cwcis ychwanegol heb eich caniatâd chi.</p>
     form:
       analytic_cookies_header_html: >
-        <h2>Cwcis dadansoddi</h2>
+        <h3>Cwcis dadansoddi</h3>
       analytic_cookies_options:
         accept: Derbyn cwcis dadansoddi
         reject: Gwrthod cwcis dadansoddi
@@ -61,7 +61,7 @@ cy:
         <p>Mae'r cwcis hyn yn ein helpu ni i wella ein gwefan drwy ddangos sut mae pobl yn ei defnyddio. Er enghraifft, pa dudalennau sydd fwyaf poblogaidd neu lle mae pobl yn cael trafferth.</p> 
         <p>Rydym yn defnyddio teclynnau fel Google Analytics a Mouseflow i weld sut mae pobl yn defnyddio ein gwefan.</p>
       video_player_cookies_header_html: >
-        <h2>Cwcis chwaraewyr fideo</h2>
+        <h3>Cwcis chwaraewyr fideo</h3>
       video_player_cookies_options:
         accept: Derbyn cwcis chwaraewr fideo
         reject: Gwrthod cwcis chwaraewr fideo
