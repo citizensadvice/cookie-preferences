@@ -4,7 +4,7 @@ Date: 2025-09-10
 
 ## Status
 
-Proposed
+Accepted
 
 ## Context
 
@@ -75,4 +75,7 @@ Cons:
 
 ## Decision
 
-TBD
+We have decided to go with Option 1 - continue using the current process.
+Handling two release processes will add unnecessary complexity.
+Unlike the design system, the SCSS and JS for the cookie preferences gem is a key part of the engine and meant to always be used with together with it.
+Our projects use mixture of Sprockets and Propshaft, but when we move to Propshaft consistently, it will be even easier to import SCSS and JS.
