@@ -6,6 +6,12 @@
       </div>
     <% end %>
 
+    <% if @return_url %>
+      <p>======= RETURN URL START =======</p>
+      <%= @return_url %>
+      <p>======= RETURN URL END =======</p>
+    <% end %>
+
     <h1 class="cads-page-title"><%=t("cookie_preferences.title")%></h1>
 
     <div class="cads-prose">
