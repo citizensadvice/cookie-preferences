@@ -14,7 +14,7 @@ module CitizensAdviceCookiePreferences
     end
 
     def edit
-      @return_url = params[:return_url]
+      @return_url = set_return_url(params[:return_url])
       @localised_engine_namespace = localised_engine_namespace
       @current_country = params[:country]
       @page_title = t("cookie_preferences.title")
@@ -88,6 +88,16 @@ module CitizensAdviceCookiePreferences
       else
         citizens_advice_cookie_preferences
       end
+    end
+
+    def set_return_url(url)
+      return if url.blank?
+
+      uri = URI.parse(url)
+
+      return unless uri.host.ends_with?(".citizensadvice.org.uk") || uri.host == "localhost"
+
+      url
     end
   end
 end

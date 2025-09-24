@@ -2,7 +2,7 @@
   <% c.with_main do %>
     <% if flash[:notice] %>
       <div class="cookie-preferences__success-message" autofocus="true" role="status" aria-live="polite" tabindex="0">
-        <%= render(CitizensAdviceCookiePreferences::SuccessMessage.new(message: flash[:notice], cookie_prefs_return_url: params[:return_url])) %>
+        <%= render(CitizensAdviceCookiePreferences::SuccessMessage.new(message: flash[:notice], cookie_prefs_return_url: @return_url)) %>
       </div>
     <% end %>
 
@@ -48,7 +48,7 @@
             <% end %>
           </fieldset>
         </div>
-        <%= form.hidden_field :return_url, value: params[:return_url] %>
+        <%= form.hidden_field :return_url, value: @return_url %>
 
         <%= form.cads_button t("cookie_preferences.form.button_text") %>
         <%= t("cookie_preferences.change_your_mind_html") %>
