@@ -1,6 +1,6 @@
 <div class="cads-success-message">
   <p class="cads-paragraph-small"><%= message %></p>
-  <% if cookie_prefs_return_url %>
+  <% if cookie_prefs_return_url.present? %>
     <p class="cads-paragraph-small"><a href="<%= cookie_prefs_return_url %>"><%= t("cookie_preferences.update.success_return_url") %></a></p>
   <% end %>
 </div>
