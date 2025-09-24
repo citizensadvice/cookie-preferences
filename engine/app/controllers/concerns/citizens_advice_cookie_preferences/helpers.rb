@@ -47,9 +47,9 @@ module CitizensAdviceCookiePreferences
         country = params[:country]
 
         if country.nil? || country == "england"
-          "/cookie-preferences"
+          localised_engine_namespace.cookie_preference_path(return_url: request.path)
         else
-          "/#{country}/cookie-preferences"
+          localised_engine_namespace.cookie_preference_path(country: country, return_url: request.path)
         end
       end
     end
@@ -86,6 +86,17 @@ module CitizensAdviceCookiePreferences
 
     def welsh_language?
       params[:locale] == "cy"
+    end
+
+    def localised_engine_namespace
+      case params[:locale]
+      when "en"
+        citizens_advice_cookie_preferences_en
+      when "cy"
+        citizens_advice_cookie_preferences_cy
+      else
+        citizens_advice_cookie_preferences
+      end
     end
   end
 end

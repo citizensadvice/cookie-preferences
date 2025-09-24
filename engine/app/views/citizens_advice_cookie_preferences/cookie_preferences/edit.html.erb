@@ -48,6 +48,7 @@
             <% end %>
           </fieldset>
         </div>
+        <%= form.hidden_field :return_url, value: params[:return_url] %>
 
         <%= form.cads_button t("cookie_preferences.form.button_text") %>
         <%= t("cookie_preferences.change_your_mind_html") %>
