@@ -10,11 +10,11 @@ module CitizensAdviceCookiePreferences
     before_action :set_default_cookie, only: :edit
 
     def show
-      redirect_to localised_engine_namespace.edit_cookie_preference_path(country: params[:country], return_url: params[:return_url])
+      redirect_to localised_engine_namespace.edit_cookie_preference_path(country: params[:country], cookie_prefs_return_url: params[:cookie_prefs_return_url])
     end
 
     def edit
-      @return_url = set_return_url(params[:return_url])
+      @cookie_prefs_return_url = set_cookie_prefs_return_url(params[:cookie_prefs_return_url])
       @localised_engine_namespace = localised_engine_namespace
       @current_country = params[:country]
       @page_title = t("cookie_preferences.title")
@@ -31,7 +31,7 @@ module CitizensAdviceCookiePreferences
         CookieManagement.new(cookies).delete_unconsented_cookies!
         flash[:notice] = t("cookie_preferences.update.success")
 
-        redirect_to localised_engine_namespace.edit_cookie_preference_path(return_url: params[:cookie_preference][:return_url])
+        redirect_to localised_engine_namespace.edit_cookie_preference_path(cookie_prefs_return_url: params[:cookie_preference][:cookie_prefs_return_url])
       else
         render :edit
       end
@@ -90,7 +90,7 @@ module CitizensAdviceCookiePreferences
       end
     end
 
-    def set_return_url(url)
+    def set_cookie_prefs_return_url(url)
       return if url.blank?
 
       uri = URI.parse(url)

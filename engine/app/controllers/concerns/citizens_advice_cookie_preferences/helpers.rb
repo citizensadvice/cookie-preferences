@@ -47,9 +47,9 @@ module CitizensAdviceCookiePreferences
         country = params[:country]
 
         if country.nil? || country == "england"
-          localised_engine_namespace.cookie_preference_path(return_url: set_return_url)
+          localised_engine_namespace.cookie_preference_path(cookie_prefs_return_url: set_cookie_prefs_return_url)
         else
-          localised_engine_namespace.cookie_preference_path(country: country, return_url: return_url)
+          localised_engine_namespace.cookie_preference_path(country: country, cookie_prefs_return_url: set_cookie_prefs_return_url)
         end
       end
     end
@@ -99,7 +99,7 @@ module CitizensAdviceCookiePreferences
       end
     end
 
-    def set_return_url
+    def set_cookie_prefs_return_url
       return unless request.host.ends_with?("citizensadvice.org.uk") || request.host.ends_with?("localhost")
 
       request.url
