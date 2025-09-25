@@ -42,11 +42,9 @@ module CitizensAdviceCookiePreferences
       end
 
       def pref_page_url
-        return "/cymraeg/cookie-preferences" if welsh_language?
-
         country = params[:country]
 
-        if country.nil? || country == "england"
+        if welsh_language? || country.nil? || country == "england"
           localised_engine_namespace.cookie_preference_path(cookie_prefs_return_url: set_cookie_prefs_return_url)
         else
           localised_engine_namespace.cookie_preference_path(country: country, cookie_prefs_return_url: set_cookie_prefs_return_url)
