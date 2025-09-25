@@ -2,7 +2,7 @@
   &__success-message {
     margin-top: $cads-spacing-6;
 
-    .cads-success-message {
+    &.cads-success-message {
       > :last-child {
         margin-bottom: 0;
       }
