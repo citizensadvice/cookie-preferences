@@ -42,14 +42,14 @@ module CitizensAdviceCookiePreferences
       end
 
       def pref_page_url
-        return "/cymraeg/cookie-preferences/?cookie_prefs_return_url=#{CGI.escape(set_cookie_prefs_return_url)}" if welsh_language?
+        return "/cymraeg/cookie-preferences/?cookie_prefs_return_url=#{set_cookie_prefs_return_url}" if welsh_language?
 
         country = params[:country]
 
         if country.nil? || country == "england"
-          "/cookie-preferences/?cookie_prefs_return_url=#{CGI.escape(set_cookie_prefs_return_url)}"
+          "/cookie-preferences/?cookie_prefs_return_url=#{set_cookie_prefs_return_url}"
         else
-          "/#{country}/cookie-preferences/?cookie_prefs_return_url=#{CGI.escape(set_cookie_prefs_return_url)}"
+          "/#{country}/cookie-preferences/?cookie_prefs_return_url=#{set_cookie_prefs_return_url}"
         end
       end
     end
@@ -91,7 +91,9 @@ module CitizensAdviceCookiePreferences
     def set_cookie_prefs_return_url
       return unless request.host.ends_with?("citizensadvice.org.uk") || request.host.ends_with?("localhost")
 
-      request.url
+      return if request.url.blank?
+
+      CGI.escape(request.url)
     end
   end
 end
