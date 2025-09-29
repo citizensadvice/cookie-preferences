@@ -5,7 +5,8 @@ Given("I am on the Demo App England show page") do
 end
 
 Then("I can see a link to the cookie preferences page for England") do
-  expect(page).to have_link("change your cookie settings", href: "/cookie-preferences")
+  expect(page).to have_link("change your cookie settings",
+                            href: "/cookie-preferences/?cookie_prefs_return_url=http%3A%2F%2Flocalhost%3A3000%2Fshow-page")
 end
 
 Given("I am on the Demo App Wales show page") do
@@ -13,16 +14,20 @@ Given("I am on the Demo App Wales show page") do
 end
 
 Then("I can see a link to the cookie preferences page for Wales") do
-  expect(page).to have_link("change your cookie settings", href: "/wales/cookie-preferences")
+  expect(page).to have_link("change your cookie settings",
+                            href: "/wales/cookie-preferences/?cookie_prefs_return_url=http%3A%2F%2Flocalhost%3A3000%2Fwales%2Fshow-page")
 end
 
 Given("I am on the Demo App Scotland show page") do
   visit "/scotland/show-page"
 end
 
+# rubocop:disable Layout/LineLength
 Then("I can see a link to the cookie preferences page for Scotland") do
-  expect(page).to have_link("change your cookie settings", href: "/scotland/cookie-preferences")
+  expect(page).to have_link("change your cookie settings",
+                            href: "/scotland/cookie-preferences/?cookie_prefs_return_url=http%3A%2F%2Flocalhost%3A3000%2Fscotland%2Fshow-page")
 end
+# rubocop:enable Layout/LineLength
 
 When("I click the {string} button") do |text|
   within(".cookie-banner") do
