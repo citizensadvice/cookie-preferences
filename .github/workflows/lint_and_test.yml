@@ -112,6 +112,22 @@ jobs:
           path: demo/log/cucumber_report.*
           retention-days: 7
 
+  test-demo-app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: demo
+    needs: lint-demo-app
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v5
+
+      - name: "Install dependencies"
+        uses: ./.github/actions/install-demo-dependencies
+
+      - name: "Rspec"
+        run: bundle exec rspec
+
   test-engine:
     runs-on: ubuntu-latest
     defaults:
