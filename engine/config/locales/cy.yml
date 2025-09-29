@@ -9,12 +9,12 @@ cy:
     accept_confirmation:
       html: >
         Rydych wedi derbyn cwcis ychwanegol. Gallwch
-        <a href="/cymraeg/cookie-preferences/">newid gosodiadau eich cwcis</a>
+        <a href="%{pref_page_url}">newid gosodiadau eich cwcis</a>
         unrhyw dro
     reject_confirmation:
       html: >
         Rydych wedi gwrthod cwcis ychwanegol. Gallwch
-        <a href="/cymraeg/cookie-preferences/">newid gosodiadau eich cwcis</a>
+        <a href="%{pref_page_url}">newid gosodiadau eich cwcis</a>
         unrhyw dro
 
     description:
