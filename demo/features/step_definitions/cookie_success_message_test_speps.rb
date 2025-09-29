@@ -6,7 +6,6 @@ end
 
 Then("I can see the success message with a return url") do
   expect(page).to have_text("Your cookie settings have been saved")
-  puts Rails.env.production?
   expect(page).to have_link("Go back to the page you were looking at", href: "http://localhost:3000/show-page")
 end
 
