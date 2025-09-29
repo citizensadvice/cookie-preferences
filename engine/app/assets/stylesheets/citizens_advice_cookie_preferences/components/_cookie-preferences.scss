@@ -1,3 +1,11 @@
-.cookie-success-message {
-  margin-top: $cads-spacing-6;
+.cookie-preferences {
+  &__success-message {
+    margin-top: $cads-spacing-6;
+
+    &.cads-success-message {
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
