@@ -97,9 +97,7 @@ module CitizensAdviceCookiePreferences
 
       parsed_url = URI.parse(url)
 
-      return url unless Rails.env.production?
-
-      return unless parsed_url.host.ends_with?(".citizensadvice.org.uk")
+      return unless parsed_url.host.ends_with?(".citizensadvice.org.uk") || parsed_url.host == "localhost"
 
       url
     end
