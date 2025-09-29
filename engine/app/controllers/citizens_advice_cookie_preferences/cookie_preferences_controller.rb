@@ -95,9 +95,9 @@ module CitizensAdviceCookiePreferences
     def set_cookie_prefs_return_url(url)
       return if url.blank?
 
-      uri = URI.parse(url)
+      parsed_url = URI.parse(url)
 
-      return unless uri.host.ends_with?(".citizensadvice.org.uk") || uri.host == "localhost"
+      return unless parsed_url.host.ends_with?(".citizensadvice.org.uk") || parsed_url.host == "localhost"
 
       url
     end
