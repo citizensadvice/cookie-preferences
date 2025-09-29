@@ -125,6 +125,9 @@ jobs:
       - name: "Install dependencies"
         uses: ./.github/actions/install-demo-dependencies
 
+      - name: "Precompile assets"
+        run: bundle exec rails assets:precompile
+
       - name: "Rspec"
         run: bundle exec rspec
 
