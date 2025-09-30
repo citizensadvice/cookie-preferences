@@ -97,6 +97,8 @@ module CitizensAdviceCookiePreferences
 
       parsed_url = URI.parse(url)
 
+      return if parsed_url.host.blank?
+
       return unless parsed_url.host.ends_with?(".citizensadvice.org.uk") || parsed_url.host == "localhost"
 
       url

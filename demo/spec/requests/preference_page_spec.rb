@@ -78,6 +78,14 @@ RSpec.describe "Preference page", type: :request do
       end
     end
 
+    context "when the ReturnUrl doesn't have a host" do
+      before { get "/cookie-preferences/edit?ReturnUrl=%2Flaw-and-courts" }
+
+      it "include the hidden ReturnUrl field has no value" do
+        expect(response.body).to include "<input autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+      end
+    end
+
     context "when the hidden field value is modified" do
       before do
         patch "/cookie-preferences/", params: { cookie_preference: { analytics: "false", video_players: "false", ReturnUrl: "http://evilurl.com/" } }
