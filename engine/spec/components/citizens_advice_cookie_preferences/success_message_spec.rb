@@ -17,9 +17,9 @@ RSpec.describe CitizensAdviceCookiePreferences::SuccessMessage, type: :component
     it { is_expected.to have_no_link "Go back to the page you were looking at" }
   end
 
-  context "with cookie_prefs_return_url" do
+  context "with return_url" do
     before do
-      render_inline described_class.new(message: "Your cookie settings have been saved", cookie_prefs_return_url: "/some-page")
+      render_inline described_class.new(message: "Your cookie settings have been saved", return_url: "/some-page")
     end
 
     it { is_expected.to have_link "Go back to the page you were looking at", href: "/some-page" }

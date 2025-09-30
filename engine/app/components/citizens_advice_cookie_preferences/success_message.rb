@@ -2,12 +2,12 @@
 
 module CitizensAdviceCookiePreferences
   class SuccessMessage < ViewComponent::Base
-    attr_reader :message, :cookie_prefs_return_url
+    attr_reader :message, :return_url
 
-    def initialize(message:, cookie_prefs_return_url: nil)
+    def initialize(message:, return_url: nil)
       super()
       @message = message
-      @cookie_prefs_return_url = cookie_prefs_return_url
+      @return_url = return_url
     end
 
     def render?
