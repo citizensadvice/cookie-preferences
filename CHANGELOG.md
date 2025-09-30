@@ -1,3 +1,6 @@
+**New**
+- adding return url when visiting the cookie preferences page from the cookie banner
+
 ## v0.1.0
 
 #### _Sep. 16, 2025_

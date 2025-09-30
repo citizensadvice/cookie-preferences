@@ -71,6 +71,7 @@ en:
       button_text: Save changes
     update:
       success: Your cookie settings have been saved
+      success_return_url: Go back to the page you were looking at
     no_js_title: >
       You have JavaScript turned off
     no_js_callout_content_html: >

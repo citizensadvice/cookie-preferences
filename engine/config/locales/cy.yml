@@ -9,12 +9,12 @@ cy:
     accept_confirmation:
       html: >
         Rydych wedi derbyn cwcis ychwanegol. Gallwch
-        <a href="/cymraeg/cookie-preferences/">newid gosodiadau eich cwcis</a>
+        <a href="%{pref_page_url}">newid gosodiadau eich cwcis</a>
         unrhyw dro
     reject_confirmation:
       html: >
         Rydych wedi gwrthod cwcis ychwanegol. Gallwch
-        <a href="/cymraeg/cookie-preferences/">newid gosodiadau eich cwcis</a>
+        <a href="%{pref_page_url}">newid gosodiadau eich cwcis</a>
         unrhyw dro
 
     description:
@@ -72,6 +72,7 @@ cy:
       button_text: Arbed newidiadau
     update:
       success: Mae eich gosodiadau cwci wedi cael eu cadw.
+      success_return_url: Ewch yn ôl i'r dudalen roeddech chi'n edrych arni
     no_js_title: >
       Mae JavaScript i ffwrdd gennych
     no_js_callout_content_html: >
