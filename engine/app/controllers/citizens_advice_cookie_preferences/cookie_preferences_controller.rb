@@ -11,11 +11,11 @@ module CitizensAdviceCookiePreferences
 
     def show
       redirect_to localised_engine_namespace.edit_cookie_preference_path(country: params[:country],
-                                                                         cookie_prefs_return_url: params[:cookie_prefs_return_url])
+                                                                         ReturnUrl: params[:ReturnUrl])
     end
 
     def edit
-      @cookie_prefs_return_url = set_cookie_prefs_return_url(params[:cookie_prefs_return_url])
+      @cookie_prefs_return_url = set_cookie_prefs_return_url(params[:ReturnUrl])
       @localised_engine_namespace = localised_engine_namespace
       @current_country = params[:country]
       @page_title = t("cookie_preferences.title")
@@ -32,8 +32,8 @@ module CitizensAdviceCookiePreferences
         CookieManagement.new(cookies).delete_unconsented_cookies!
         flash[:notice] = t("cookie_preferences.update.success")
 
-        cookie_prefs_return_url = params[:cookie_preference][:cookie_prefs_return_url]
-        redirect_to localised_engine_namespace.edit_cookie_preference_path(cookie_prefs_return_url: cookie_prefs_return_url)
+        cookie_prefs_return_url = params[:cookie_preference][:ReturnUrl]
+        redirect_to localised_engine_namespace.edit_cookie_preference_path(ReturnUrl: cookie_prefs_return_url)
       else
         render :edit
       end
@@ -43,7 +43,7 @@ module CitizensAdviceCookiePreferences
     private
 
     def prefs_from_form
-      params.fetch(:cookie_preference).permit(:analytics, :video_players, :cookie_prefs_return_url)
+      params.fetch(:cookie_preference).permit(:analytics, :video_players, :ReturnUrl)
     end
 
     def prefs_from_cookie

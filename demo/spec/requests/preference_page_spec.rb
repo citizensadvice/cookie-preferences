@@ -53,37 +53,37 @@ RSpec.describe "Preference page", type: :request do
     end
   end
 
-  describe "cookie_prefs_return_url as a url param" do
+  describe "ReturnUrl as a url param" do
     context "when unknown url in params" do
-      before { get "/cookie-preferences/edit?cookie_prefs_return_url=http%3A%2F%2Fevilurl.com%2F" }
+      before { get "/cookie-preferences/edit?ReturnUrl=http%3A%2F%2Fevilurl.com%2F" }
 
-      it "filters out the value from the hidden cookie_prefs_return_url field" do
-        expect(response.body).to include "<input autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[cookie_prefs_return_url]\" id=\"cookie_preference_cookie_prefs_return_url\" />"
+      it "filters out the value from the hidden ReturnUrl field" do
+        expect(response.body).to include "<input autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end
 
     context "when subdomain" do
-      before { get "/cookie-preferences/edit?cookie_prefs_return_url=https%3A%2F%2Fsmartmetercheck.citizensadvice.org.uk%2F" }
+      before { get "/cookie-preferences/edit?ReturnUrl=https%3A%2F%2Fsmartmetercheck.citizensadvice.org.uk%2F" }
 
-      it "includes the subdomain as in the value of the hidden cookie_prefs_return_url field" do
-        expect(response.body).to include "<input value=\"https://smartmetercheck.citizensadvice.org.uk/\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[cookie_prefs_return_url]\" id=\"cookie_preference_cookie_prefs_return_url\" />"
+      it "includes the subdomain as in the value of the hidden ReturnUrl field" do
+        expect(response.body).to include "<input value=\"https://smartmetercheck.citizensadvice.org.uk/\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end
 
     context "when public citizensadvice domain" do
-      before { get "/cookie-preferences/edit?cookie_prefs_return_url=https%3A%2F%2Fwww.citizensadvice.org.uk%2Fimmigration" }
+      before { get "/cookie-preferences/edit?ReturnUrl=https%3A%2F%2Fwww.citizensadvice.org.uk%2Fimmigration" }
 
-      it "includes the citizensadvice domain in the value of the hidden cookie_prefs_return_url field" do
-        expect(response.body).to include "<input value=\"https://www.citizensadvice.org.uk/immigration\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[cookie_prefs_return_url]\" id=\"cookie_preference_cookie_prefs_return_url\" />"
+      it "includes the citizensadvice domain in the value of the hidden ReturnUrl field" do
+        expect(response.body).to include "<input value=\"https://www.citizensadvice.org.uk/immigration\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end
 
     context "when the hidden field value is modified" do
       before do
-        patch "/cookie-preferences/", params: { cookie_preference: { analytics: "false", video_players: "false", cookie_prefs_return_url: "http://evilurl.com/" } }
+        patch "/cookie-preferences/", params: { cookie_preference: { analytics: "false", video_players: "false", ReturnUrl: "http://evilurl.com/" } }
       end
 
-      it "includes the citizensadvice domain in the value of the hidden cookie_prefs_return_url field" do
+      it "includes the citizensadvice domain in the value of the hidden ReturnUrl field" do
         follow_redirect!
         expect(response.body).not_to include "<a href=\"http://evilurl.com/\">Go back to the page you were looking at</a>"
       end
