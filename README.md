@@ -28,13 +28,7 @@ gem "citizens_advice_cookie_preferences",
 And then execute:
 
 ```bash
-$ bundle
-```
-
-Or install it yourself as:
-
-```bash
-$ gem install citizens_advice_cookie_preferences
+$ bundle install
 ```
 
 ### Configure /cookie-preferences route
