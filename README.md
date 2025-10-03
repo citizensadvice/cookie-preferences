@@ -131,6 +131,3 @@ In the head analytics tag:
     n&&j.setAttribute('nonce',n.nonce||n.getAttribute('nonce'));f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','<GTM container id>>');
 ```
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
