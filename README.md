@@ -91,11 +91,7 @@ In data_layer.rb (or equivalent file)
 # e.g. from energy-apps
 def default_data_layer_properties
   properties = {
-    platform: "content-platform",
-    siteType: "Public Website",
-    # language confusingly represents the current country: England, Wales etc.
-    # but needs to have this name to match up with Episerver page data.
-    language: (helpers.current_country || "england").to_s.capitalize
+    #data layer properties go here
   }
 
   if  allow_analytics_cookies?
