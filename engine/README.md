@@ -43,6 +43,10 @@ You may need to run `nvm install` if you are running into front end asset compil
 To test the app locally without it being mounted in a host app you need to navigate to the demo app within the repo and
 run that app to load a website and test functionality.
 
+## Testing
+
+The majority of the testing is held within the demo app, however there are some rspec tests which can be run using 
+`bundle exec rspec`
 
 ## Changing cookies
 
