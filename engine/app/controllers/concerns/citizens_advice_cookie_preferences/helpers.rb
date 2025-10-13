@@ -89,7 +89,7 @@ module CitizensAdviceCookiePreferences
     end
 
     def set_return_url
-      return unless request.host.ends_with?("citizensadvice.org.uk") || request.host.ends_with?("localhost")
+      return unless request.host.ends_with?(".citizensadvice.org.uk") || request.host == "localhost"
 
       return if request.url.blank?
 
