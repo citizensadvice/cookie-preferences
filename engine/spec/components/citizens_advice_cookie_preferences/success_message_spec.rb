@@ -12,7 +12,7 @@ RSpec.describe CitizensAdviceCookiePreferences::SuccessMessage, type: :component
 
     it { is_expected.to have_css ".cads-success-message", text: "Your cookie settings have been saved" }
 
-    it { is_expected.to have_css "[aria-live=polite]" }
+    it { is_expected.to have_css "[role=status]" }
 
     it { is_expected.to have_no_link "Go back to the page you were looking at" }
   end
