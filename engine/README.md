@@ -58,4 +58,5 @@ list of cookies and their purpose. In this mapping you can add, delete or change
 
 Once you have amended the list you must make sure to increment the `COOKIE_CURRENT_VERSION` and the `VERSION`. This will
 allow you to create a new release which will bump the cookie version and the gem version - therefore allowing the host
-apps to update their implementation and retrigger consent from users with the new cookie set up.
+apps to update their implementation and retrigger consent from users with the new cookie set up. You should inform all 
+the teams of the `cookie-preferences` version bump so they can update it in their Gemfiles and remain compliant.
