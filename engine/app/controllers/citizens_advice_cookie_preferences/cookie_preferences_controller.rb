@@ -5,15 +5,18 @@ module CitizensAdviceCookiePreferences
     default_form_builder CitizensAdviceComponents::FormBuilder
 
     DEFAULT_PREFERENCES = { essential: true, analytics: false, video_players: false }.freeze
+    ALLOWED_HOSTS = ["localhost", "172.17.0.1"].freeze
     include Rails.application.routes.url_helpers
 
     before_action :set_default_cookie, only: :edit
 
     def show
-      redirect_to localised_engine_namespace.edit_cookie_preference_path, country: params[:country]
+      redirect_to localised_engine_namespace.edit_cookie_preference_path(country: params[:country],
+                                                                         ReturnUrl: params[:ReturnUrl])
     end
 
     def edit
+      @return_url = set_return_url(params[:ReturnUrl])
       @localised_engine_namespace = localised_engine_namespace
       @current_country = params[:country]
       @page_title = t("cookie_preferences.title")
@@ -30,7 +33,8 @@ module CitizensAdviceCookiePreferences
         CookieManagement.new(cookies).delete_unconsented_cookies!
         flash[:notice] = t("cookie_preferences.update.success")
 
-        redirect_to localised_engine_namespace.edit_cookie_preference_path
+        return_url = params[:cookie_preference][:ReturnUrl]
+        redirect_to localised_engine_namespace.edit_cookie_preference_path(ReturnUrl: return_url)
       else
         render :edit
       end
@@ -40,7 +44,7 @@ module CitizensAdviceCookiePreferences
     private
 
     def prefs_from_form
-      params.fetch(:cookie_preference).permit(:analytics, :video_players)
+      params.fetch(:cookie_preference).permit(:analytics, :video_players, :ReturnUrl)
     end
 
     def prefs_from_cookie
@@ -87,6 +91,18 @@ module CitizensAdviceCookiePreferences
       else
         citizens_advice_cookie_preferences
       end
+    end
+
+    def set_return_url(url)
+      return if url.blank?
+
+      parsed_url = URI.parse(url)
+
+      return if parsed_url.host.blank?
+
+      return unless parsed_url.host.ends_with?(".citizensadvice.org.uk") || ALLOWED_HOSTS.include?(parsed_url.host)
+
+      url
     end
   end
 end
