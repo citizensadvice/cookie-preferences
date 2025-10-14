@@ -1,3 +1,10 @@
+## v0.2.1
+
+#### _Oct. 15, 2025_
+
+**Fix**
+- add localhost IP to allowed hosts for return url - some of our apps use the IP for feature tests
+
 ## v0.2.0
 
 #### _Oct. 14, 2025_
