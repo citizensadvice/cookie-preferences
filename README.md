@@ -50,10 +50,20 @@ Add cookie banner to application.html.haml:
 - unless cookies_preference_page?
   = render CitizensAdviceCookiePreferences::CookieBanner.new
 ```
+or to the erb file:
+```erb
+<% unless cookies_preference_page? %>
+  <%= render CitizensAdviceCookiePreferences::CookieBanner.new %>
+```
 
 Include cookies javascript in application.html.haml:
 ```haml
 = javascript_include_tag "citizens_advice_cookie_preferences/application", nonce: true
+```
+
+or to the erb file:
+```erb
+<% javascript_include_tag "citizens_advice_cookie_preferences/application", nonce: true %>
 ```
 
 ### Import the engine stylesheets
