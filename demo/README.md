@@ -26,7 +26,7 @@ bundle exec cucumber
 
 ## Running the rspec tests
 
-Most of the tests in the demo app are cucumber tests, but we do have a few rspec 
+Most of the tests in the demo app are cucumber tests, but we do have a few rspec
 request specs which can be run by
 
 ```shell

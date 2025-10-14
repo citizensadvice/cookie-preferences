@@ -45,7 +45,7 @@ run that app to load a website and test functionality.
 
 ## Testing
 
-The majority of the testing is held within the demo app, however there are some rspec tests which can be run using 
+The majority of the testing is held within the demo app, however there are some rspec tests which can be run using
 `bundle exec rspec`
 
 ## Changing cookies
