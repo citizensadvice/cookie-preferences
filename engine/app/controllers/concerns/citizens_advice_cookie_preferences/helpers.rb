@@ -9,6 +9,7 @@ module CitizensAdviceCookiePreferences
   module Helpers
     extend ActiveSupport::Concern
 
+    ALLOWED_HOSTS = ["localhost", "172.17.0.1"].freeze
     # rubocop:disable Metrics/BlockLength
     included do
       before_action :set_cookie_preferences, :check_cookie_version
@@ -42,14 +43,14 @@ module CitizensAdviceCookiePreferences
       end
 
       def pref_page_url
-        return "/cymraeg/cookie-preferences" if welsh_language?
+        return "/cymraeg/cookie-preferences/?ReturnUrl=#{set_return_url}" if welsh_language?
 
         country = params[:country]
 
         if country.nil? || country == "england"
-          "/cookie-preferences"
+          "/cookie-preferences/?ReturnUrl=#{set_return_url}"
         else
-          "/#{country}/cookie-preferences"
+          "/#{country}/cookie-preferences/?ReturnUrl=#{set_return_url}"
         end
       end
     end
@@ -86,6 +87,14 @@ module CitizensAdviceCookiePreferences
 
     def welsh_language?
       params[:locale] == "cy"
+    end
+
+    def set_return_url
+      return unless request.host.ends_with?(".citizensadvice.org.uk") || ALLOWED_HOSTS.include?(request.host)
+
+      return if request.url.blank?
+
+      CGI.escape(request.url)
     end
   end
 end
