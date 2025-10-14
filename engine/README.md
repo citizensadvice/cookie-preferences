@@ -10,7 +10,7 @@ Running the project locally requires a few dependencies.
 
 ### Ruby
 
-Ruby version ruby-3.3.1 is required. We include a `.ruby-version` file in the root of the project so if you are using a version manager like [rvm](https://rvm.io/) it should pick this up.
+The minimum Ruby version we require is ruby-3.3.1. We include a `.ruby-version` file in the root of the project so if you are using a version manager like [rvm](https://rvm.io/) it should pick this up.
 
 `rbenv` has known issues during setup, and running rspec, so it is best to avoid `rbenv` and use `rvm` instead.
 
@@ -58,5 +58,14 @@ list of cookies and their purpose. In this mapping you can add, delete or change
 
 Once you have amended the list you must make sure to increment the `COOKIE_CURRENT_VERSION` and the `VERSION`. This will
 allow you to create a new release which will bump the cookie version and the gem version - therefore allowing the host
-apps to update their implementation and retrigger consent from users with the new cookie set up. You should inform all 
+apps to update their implementation and retrigger consent from users with the new cookie set up. You should inform all
 the teams of the `cookie-preferences` version bump so they can update it in their Gemfiles and remain compliant.
+
+## Creating a release
+
+To create a new release, once you have update the version number you should go to `releases` on the right hand side of the
+code window on Github, and click `Draft a new release`. From here you can click `select tag` and create a new tag with a
+version number matching the one you just incremented to in the `version.rb` file.
+
+From here check your changelog has all the relevant changes to that release, and if not add them in, and then publish the
+release. This will then allow host apps to bump to match this new latest version.
