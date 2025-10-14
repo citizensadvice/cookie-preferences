@@ -9,7 +9,7 @@ module CitizensAdviceCookiePreferences
   module Helpers
     extend ActiveSupport::Concern
 
-    ALLOWED_HOSTS = ["localhost", "172.17.0.1"].freeze
+    ALLOWED_HOSTS = ["localhost", "172.17.0.1", "127.0.0.1"].freeze
     # rubocop:disable Metrics/BlockLength
     included do
       before_action :set_cookie_preferences, :check_cookie_version
