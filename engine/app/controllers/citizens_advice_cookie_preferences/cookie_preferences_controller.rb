@@ -5,6 +5,7 @@ module CitizensAdviceCookiePreferences
     default_form_builder CitizensAdviceComponents::FormBuilder
 
     DEFAULT_PREFERENCES = { essential: true, analytics: false, video_players: false }.freeze
+    ALLOWED_HOSTS = ["localhost", "172.17.0.1"].freeze
     include Rails.application.routes.url_helpers
 
     before_action :set_default_cookie, only: :edit
@@ -99,7 +100,7 @@ module CitizensAdviceCookiePreferences
 
       return if parsed_url.host.blank?
 
-      return unless parsed_url.host.ends_with?(".citizensadvice.org.uk") || parsed_url.host == "localhost"
+      return unless parsed_url.host.ends_with?(".citizensadvice.org.uk") || ALLOWED_HOSTS.include?(parsed_url.host)
 
       url
     end

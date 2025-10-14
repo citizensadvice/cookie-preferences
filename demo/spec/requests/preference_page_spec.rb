@@ -3,7 +3,7 @@
 require "rails_helper"
 
 # rubocop:disable RSpecRails/InferredSpecType
-# rubocop:disable RSpecRails/Layout/LineLength
+# rubocop:disable Layout/LineLength
 RSpec.describe "Preference page", type: :request do
   context "when the request country is England" do
     before { get "/cookie-preferences/edit" }
@@ -78,6 +78,14 @@ RSpec.describe "Preference page", type: :request do
       end
     end
 
+    context "when localhost" do
+      before { get "/cookie-preferences/edit?ReturnUrl=http%3A%2F%2F172.17.0.1%3A3000%2Fimmigration" }
+
+      it "includes the localhost domain in the value of the hidden ReturnUrl field" do
+        expect(response.body).to include "<input value=\"http://172.17.0.1:3000/immigration\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+      end
+    end
+
     context "when the ReturnUrl doesn't have a host" do
       before { get "/cookie-preferences/edit?ReturnUrl=%2Flaw-and-courts" }
 
@@ -99,4 +107,4 @@ RSpec.describe "Preference page", type: :request do
   end
 end
 # rubocop:enable RSpecRails/InferredSpecType
-# rubocop:enable RSpecRails/Layout/LineLength
+# rubocop:enable Layout/LineLength

@@ -9,6 +9,7 @@ module CitizensAdviceCookiePreferences
   module Helpers
     extend ActiveSupport::Concern
 
+    ALLOWED_HOSTS = ["localhost", "172.17.0.1"].freeze
     # rubocop:disable Metrics/BlockLength
     included do
       before_action :set_cookie_preferences, :check_cookie_version
@@ -89,7 +90,7 @@ module CitizensAdviceCookiePreferences
     end
 
     def set_return_url
-      return unless request.host.ends_with?(".citizensadvice.org.uk") || request.host == "localhost"
+      return unless request.host.ends_with?(".citizensadvice.org.uk") || ALLOWED_HOSTS.include?(request.host)
 
       return if request.url.blank?
 
