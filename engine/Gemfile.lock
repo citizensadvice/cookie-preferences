@@ -31,7 +31,7 @@ GIT
 PATH
   remote: .
   specs:
-    citizens_advice_cookie_preferences (0.2.1)
+    citizens_advice_cookie_preferences (0.3.0)
       citizens_advice_components (> 8.0.0)
       meta-tags
       rails (>= 7.1.0)

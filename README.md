@@ -23,7 +23,7 @@ version of the engine:
 ```ruby
 gem "citizens_advice_cookie_preferences",
     github: "citizensadvice/cookie-preferences",
-    tag: "v0.2.1"
+    tag: "v0.3.0"
 ```
 
 And then execute:

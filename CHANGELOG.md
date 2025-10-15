@@ -1,9 +1,10 @@
-## v0.2.1
+## v0.3.0
 
-#### _Oct. 15, 2025_
+#### _Oct. 16, 2025_
 
-**Fix**
-- add LOCAL_RETURN_HOST env var. This allows configuring return url for local development and feature tests
+**Breaking change**
+- add LOCAL_RETURN_HOST env var. This allows configuring return url for local development and feature tests. 
+Any feature tests which check that the cookie banner has the correct "Choose cookies" link need to be updated to use the new env var in their GitHub workflow configuration.
 
 ## v0.2.0
 
