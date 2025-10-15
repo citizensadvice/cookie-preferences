@@ -3,7 +3,7 @@
 #### _Oct. 15, 2025_
 
 **Fix**
-- add localhost IP to allowed hosts for return url - some of our apps use the IP for feature tests
+- add LOCAL_RETURN_HOST env var. This allows configuring return url for local development and feature tests
 
 ## v0.2.0
 
