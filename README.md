@@ -153,3 +153,9 @@ In the head analytics tag:
     n&&j.setAttribute('nonce',n.nonce||n.getAttribute('nonce'));f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','<GTM container id>>');
 ```
+
+### Env vars
+
+We use `LOCAL_RETURN_HOST` for the return url functionality of the success message banner on the preferences page. 
+It needs to be configured to point to the localhost host for local development. It is also configurable for feature tests running in GitHub Actions.
+The host apps don't need the env var set up for production - we also check if `.citizensadvice.org.uk` part the host, which also allows using subdomains.
