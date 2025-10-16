@@ -84,6 +84,8 @@ jobs:
 
   cucumber-test-demo-app:
     name: Cucumber tests on demo app
+    env:
+      LOCAL_RETURN_HOST: "localhost"
     runs-on: ubuntu-latest
     defaults:
       run:

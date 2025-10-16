@@ -54,6 +54,15 @@ RSpec.configure do |config|
   # To enable this behaviour uncomment the line below.
   # config.infer_spec_type_from_file_location!
 
+  # Add dummy env vars for tests so rspec can run without env vars
+  config.around do |example|
+    ClimateControl.modify({
+      LOCAL_RETURN_HOST: "localhost"
+    }) do
+      example.run
+    end
+  end
+
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:

@@ -79,10 +79,10 @@ RSpec.describe "Preference page", type: :request do
     end
 
     context "when localhost" do
-      before { get "/cookie-preferences/edit?ReturnUrl=http%3A%2F%2F172.17.0.1%3A3000%2Fimmigration" }
+      before { get "/cookie-preferences/edit?ReturnUrl=http%3A%2F%2Flocalhost%3A3000%2Fimmigration" }
 
       it "includes the localhost domain in the value of the hidden ReturnUrl field" do
-        expect(response.body).to include "<input value=\"http://172.17.0.1:3000/immigration\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+        expect(response.body).to include "<input value=\"http://localhost:3000/immigration\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end
 
