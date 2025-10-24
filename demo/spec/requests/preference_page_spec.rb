@@ -94,6 +94,15 @@ RSpec.describe "Preference page", type: :request do
       end
     end
 
+    context "when the ReturnUrl is not ASCII-encoded" do
+      # NB: params passed separately to avoid RSpec helpers raising the exception we're trying to test for!
+      before { get "/cookie-preferences/edit", params: { ReturnUrl: "https://example.citizensadvice.org.uk/cysylltwch-\u00E2-ni/" } }
+
+      it "includes a correctly-encoded URL to link back to" do
+        expect(response.body).to include "<input value=\"https://example.citizensadvice.org.uk/cysylltwch-%C3%A2-ni/\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+      end
+    end
+
     context "when the hidden field value is modified" do
       before do
         patch "/cookie-preferences/", params: { cookie_preference: { analytics: "false", video_players: "false", ReturnUrl: "http://evilurl.com/" } }

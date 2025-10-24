@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "addressable"
+
 module CitizensAdviceCookiePreferences
   class CookiePreferencesController < ApplicationController
     default_form_builder CitizensAdviceComponents::FormBuilder
@@ -10,8 +12,9 @@ module CitizensAdviceCookiePreferences
     before_action :set_default_cookie, only: :edit
 
     def show
+      return_url = set_return_url(params[:ReturnUrl])
       redirect_to localised_engine_namespace.edit_cookie_preference_path(country: params[:country],
-                                                                         ReturnUrl: params[:ReturnUrl])
+                                                                         ReturnUrl: return_url)
     end
 
     def edit
@@ -95,13 +98,13 @@ module CitizensAdviceCookiePreferences
     def set_return_url(url)
       return if url.blank?
 
-      parsed_url = URI.parse(url)
+      parsed_url = Addressable::URI.parse(url).normalize
 
       return if parsed_url.host.blank?
 
       return unless parsed_url.host.ends_with?(".citizensadvice.org.uk") || parsed_url.host == ENV.fetch("LOCAL_RETURN_HOST", nil)
 
-      url
+      parsed_url.to_s
     end
   end
 end
