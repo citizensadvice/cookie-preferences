@@ -18,7 +18,7 @@ export function loadAnalytics() {
             j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`
             j.setAttribute('nonce',csp_nonce)
             document.head.appendChild(j)
-        })(window, document, 'script', 'dataLayer', 'GTM-T5MB575')
+        })(window, document, 'script', 'dataLayer', 'GTM-P3B74464')
   }
 }
 
