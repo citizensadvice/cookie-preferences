@@ -98,7 +98,12 @@ module CitizensAdviceCookiePreferences
     def set_return_url(url)
       return if url.blank?
 
-      parsed_url = Addressable::URI.parse(url).normalize
+      begin
+        parsed_url = Addressable::URI.parse(url).normalize
+      rescue Addressable::URI::InvalidURIError
+        # Don't set return_url if unparseable
+        return
+      end
 
       return if parsed_url.host.blank?
 

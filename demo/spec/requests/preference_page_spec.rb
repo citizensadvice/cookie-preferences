@@ -103,6 +103,14 @@ RSpec.describe "Preference page", type: :request do
       end
     end
 
+    context "when the ReturnUrl is malformed" do
+      before { get "/cookie-preferences/edit", params: { ReturnUrl: "8888://bad.citizensadvice.org.uk/" } }
+
+      it "include the hidden ReturnUrl field has no value" do
+        expect(response.body).to include "<input autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+      end
+    end
+
     context "when the hidden field value is modified" do
       before do
         patch "/cookie-preferences/", params: { cookie_preference: { analytics: "false", video_players: "false", ReturnUrl: "http://evilurl.com/" } }
