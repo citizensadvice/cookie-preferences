@@ -89,7 +89,24 @@ RSpec.describe "Preference page", type: :request do
     context "when the ReturnUrl doesn't have a host" do
       before { get "/cookie-preferences/edit?ReturnUrl=%2Flaw-and-courts" }
 
-      it "include the hidden ReturnUrl field has no value" do
+      it "filters out the value from the hidden ReturnUrl field" do
+        expect(response.body).to include "<input autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+      end
+    end
+
+    context "when the ReturnUrl is not ASCII-encoded" do
+      # NB: params passed separately to avoid RSpec helpers raising the exception we're trying to test for!
+      before { get "/cookie-preferences/edit", params: { ReturnUrl: "https://example.citizensadvice.org.uk/cysylltwch-\u00E2-ni/" } }
+
+      it "includes a correctly-encoded URL to link back to" do
+        expect(response.body).to include "<input value=\"https://example.citizensadvice.org.uk/cysylltwch-%C3%A2-ni/\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+      end
+    end
+
+    context "when the ReturnUrl is malformed" do
+      before { get "/cookie-preferences/edit", params: { ReturnUrl: "8888://bad.citizensadvice.org.uk/" } }
+
+      it "filters out the value from the hidden ReturnUrl field" do
         expect(response.body).to include "<input autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end

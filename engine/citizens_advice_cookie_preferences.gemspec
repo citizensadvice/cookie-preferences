@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
     Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
   end
 
+  spec.add_dependency "addressable", "~> 2.7"
   spec.add_dependency "citizens_advice_components", "> 8.0.0"
   spec.add_dependency "meta-tags"
   spec.add_dependency "rails", ">= 7.1.0"
