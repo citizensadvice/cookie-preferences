@@ -1,3 +1,9 @@
+## v0.4.0
+
+#### _Nov. 13, 2025_
+
+- Updated cookie banner text
+
 ## v0.3.1
 
 #### _Oct. 28, 2025_
