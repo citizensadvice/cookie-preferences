@@ -1,3 +1,9 @@
+## v0.4.1
+
+#### _Nov. 24, 2025_
+
+- Added more resilient handling of cookie preferences setting when the value becomes malformed.
+ 
 ## v0.4.0
 
 #### _Nov. 13, 2025_
