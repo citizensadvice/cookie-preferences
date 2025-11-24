@@ -60,7 +60,11 @@ module CitizensAdviceCookiePreferences
     def set_cookie_preferences
       return if cookies[:cookie_preference].blank?
 
-      CurrentCookies.preference = JSON.parse(cookies[:cookie_preference])
+      begin
+        CurrentCookies.preference = JSON.parse(cookies[:cookie_preference])
+      rescue JSON::ParserError
+        reset_cookie_consent
+      end
     end
 
     def check_cookie_version
