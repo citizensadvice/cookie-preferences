@@ -33,8 +33,12 @@ module CitizensAdviceCookiePreferences
       end
     end
 
+    # this is the regexp defined in Rack::Utils, but that is a private so is replicated here
+    VALID_COOKIE_KEY = /\A[!#$%&'*+\-.\^_`|~0-9a-zA-Z]+\z/
+    private_constant :VALID_COOKIE_KEY
+
     def malformed_cookie?(cookie)
-      CGI.unescape(cookie) != cookie
+      !VALID_COOKIE_KEY.match?(cookie)
     end
 
     def wildcard_cookies
