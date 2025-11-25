@@ -1,3 +1,9 @@
+## v0.4.2
+
+#### _Nov. 25, 2025_
+
+- Added more resilient handling of clearing cookies when the cookies presented have invalid keys
+
 ## v0.4.1
 
 #### _Nov. 24, 2025_

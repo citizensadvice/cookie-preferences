@@ -15,7 +15,8 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
       _ga_wildcard: "something",
       cookie_preference: { essential: true, analytics: false }.to_json,
       evil_tracking_cookie: "muhaha",
-      "16%20Sep%202026%2009:50:40%20GMT": "ouch"
+      "16%20Sep%202026%2009:50:40%20GMT": "ouch",
+      "cookie[consent]": "1"
     }
   end
 
@@ -33,6 +34,10 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
 
   it "does not delete malformed cookies" do
     expect(cookie_management).to include("16%20Sep%202026%2009:50:40%20GMT")
+  end
+
+  it "does not delete cookies with invalid characters" do
+    expect(cookie_management).to include("cookie[consent]")
   end
 
   context "when a user has consented to analytics cookies" do
