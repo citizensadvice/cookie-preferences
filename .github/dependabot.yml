@@ -4,6 +4,8 @@ updates:
     directory: "/demo"
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     ignore:
       # Design system upgrade should be performed for npm and bundler at the same time, this should happen manually
       - dependency-name: 'citizens_advice_components'
@@ -22,6 +24,8 @@ updates:
     directory: "/engine"
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     ignore:
       # Design system upgrade should be performed for npm and bundler at the same time, this should happen manually
       - dependency-name: 'citizens_advice_components'
@@ -40,6 +44,8 @@ updates:
     directory: '/demo'
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     ignore:
       - dependency-name: '@citizensadvice/design-system'
     commit-message:
@@ -54,6 +60,8 @@ updates:
     directory: '/engine'
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     ignore:
       - dependency-name: '@citizensadvice/design-system'
     commit-message:
@@ -68,6 +76,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: '[dependabot:actions] '
     groups:
