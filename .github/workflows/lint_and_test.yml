@@ -107,7 +107,7 @@ jobs:
         run: bundle exec cucumber --profile reports
 
       - name: "Upload Cucumber report"
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: '!cancelled()'
         with:
           name: cucumber
