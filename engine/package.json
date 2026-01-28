@@ -22,7 +22,7 @@
     "esbuild": "^0.27.2",
     "eslint": "^9.39.2",
     "globals": "^17.0.0",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^39.0.1",
     "stylelint-config-standard-scss": "^16.0.0",
