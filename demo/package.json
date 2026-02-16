@@ -13,7 +13,7 @@
     "sass": "^1.97.3"
   },
   "devDependencies": {
-    "esbuild": "^0.27.2",
+    "esbuild": "^0.27.3",
     "prettier": "3.8.1"
   }
 }
