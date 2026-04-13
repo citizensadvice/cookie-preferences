@@ -1,7 +1,5 @@
 import {
-  loadAnalytics,
   acceptCookiesGTMEvent,
-  analyticsCookiesAcceptedDlv,
 } from "../helpers/analytics";
 
 const selectors = {
@@ -15,6 +13,7 @@ const selectors = {
   hideBannerBtn: "#js-cookie-banner__button-hide",
 };
 
+console.log('updated cookies 3');
 const DEFAULT_COOKIE_CONSENT = {
   essential: true,
   analytics: false,
@@ -129,9 +128,7 @@ function setDefaultCookies() {
 function addCookieBannerEventHandlers() {
   document.querySelector(selectors.acceptBtn).addEventListener("click", () => {
     acceptCookies();
-    loadAnalytics();
     acceptCookiesGTMEvent();
-    analyticsCookiesAcceptedDlv();
   });
 
   document.querySelector(selectors.rejectBtn).addEventListener("click", () => {
