@@ -39,6 +39,7 @@ module CitizensAdviceCookiePreferences
     "mf_transmitQueue" => "analytics",
     "mf_user" => "analytics",
     "mouseflow" => "analytics",
-    "ca_ab_*" => "analytics"
+    "ca_ab_*" => "analytics",
+    "__TAG_ASSISTANT" => "analytics"
   }.freeze
 end
