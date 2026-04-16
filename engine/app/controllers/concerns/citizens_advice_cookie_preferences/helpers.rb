@@ -75,7 +75,7 @@ module CitizensAdviceCookiePreferences
 
     def reset_cookie_consent
       cookies[:cookie_preference] = {
-        value: { essential: true, analytics: false, video_players: false }.to_json,
+        value: { essential: true, analytics: true, video_players: false }.to_json,
         expires: 1.year,
         domain: :all
       }
