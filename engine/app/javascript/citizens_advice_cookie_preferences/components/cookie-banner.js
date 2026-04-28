@@ -57,13 +57,13 @@ const acceptCookies = () => {
 };
 
 const rejectCookies = () => {
-  deleteUnconsentedCookies();
-
   setCookie(
     "cookie_preference",
     encodeURIComponent(JSON.stringify(ESSENTIAL_COOKIE_CONSENT)),
     365,
   );
+
+  deleteUnconsentedCookies();
 
   var cookie_current_version = document
     .getElementsByClassName("js-cookie-banner")[0]

@@ -15,7 +15,6 @@ const consentedCategories = () => {
 function permittedCookie(cookie) {
   let consented = consentedCategories();
 
-  console.log(consented, 'consented categirues');
   if (Object.prototype.hasOwnProperty.call(COOKIE_CATEGORIES, cookie)) {
     return consented.includes(COOKIE_CATEGORIES[cookie]);
   }
@@ -26,9 +25,7 @@ function permittedCookie(cookie) {
   });
 
   if (wildcardMatch) {
-    console.log(wildcardMatch, 'wildcard match');
     const category = COOKIE_CATEGORIES[wildcardMatch];
-    console.log(category, 'category');
     return consented.includes(category);
   }
 
@@ -58,10 +55,7 @@ export function deleteUnconsentedCookies() {
       // Split name from value safely
       const cookieName = cookieString.split("=")[0];
 
-      console.log(cookieName, 'cookie name');
-      console.log(permittedCookie())
       if (!permittedCookie(cookieName)) {
-        console.log(cookieName, 'cookie to expire');
         expireCookie(cookieName);
       }
     });
