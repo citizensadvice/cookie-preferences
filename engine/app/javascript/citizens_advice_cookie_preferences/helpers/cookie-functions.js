@@ -25,7 +25,9 @@ function permittedCookie(cookie) {
   });
 
   if (wildcardMatch) {
+    console.log(wildcardMatch, 'wildcard match');
     const category = COOKIE_CATEGORIES[wildcardMatch];
+    console.log(category, 'category');
     return consented.includes(category);
   }
 
@@ -55,7 +57,9 @@ export function deleteUnconsentedCookies() {
       // Split name from value safely
       const cookieName = cookieString.split("=")[0];
 
+      console.log(cookieName, 'cookie name');
       if (!permittedCookie(cookieName)) {
+        console.log(cookieName, 'cookie to expire');
         expireCookie(cookieName);
       }
     });
