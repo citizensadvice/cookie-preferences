@@ -15,6 +15,7 @@ const consentedCategories = () => {
 function permittedCookie(cookie) {
   let consented = consentedCategories();
 
+  console.log(consented, 'consented categirues');
   if (Object.prototype.hasOwnProperty.call(COOKIE_CATEGORIES, cookie)) {
     return consented.includes(COOKIE_CATEGORIES[cookie]);
   }
@@ -58,6 +59,7 @@ export function deleteUnconsentedCookies() {
       const cookieName = cookieString.split("=")[0];
 
       console.log(cookieName, 'cookie name');
+      console.log(permittedCookie())
       if (!permittedCookie(cookieName)) {
         console.log(cookieName, 'cookie to expire');
         expireCookie(cookieName);
