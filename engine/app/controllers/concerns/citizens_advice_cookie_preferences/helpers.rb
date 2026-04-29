@@ -11,7 +11,7 @@ module CitizensAdviceCookiePreferences
 
     # rubocop:disable Metrics/BlockLength
     included do
-      before_action :set_cookie_preferences, :check_cookie_version
+      before_action :check_cookie_version, :set_cookie_preferences
       helper_method :cookies_preference_page?, :allow_analytics_cookies?, :allow_video_players_cookies?, :how_we_use_cookies_url,
                     :pref_page_url
 
