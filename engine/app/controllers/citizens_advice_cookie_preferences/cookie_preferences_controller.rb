@@ -6,7 +6,7 @@ module CitizensAdviceCookiePreferences
   class CookiePreferencesController < ApplicationController
     default_form_builder CitizensAdviceComponents::FormBuilder
 
-    DEFAULT_PREFERENCES = { essential: true, analytics: false, video_players: false }.freeze
+    DEFAULT_PREFERENCES = { essential: true, analytics: true, video_players: false }.freeze
     include Rails.application.routes.url_helpers
 
     before_action :set_default_cookie, only: :edit
