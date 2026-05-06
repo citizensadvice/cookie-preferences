@@ -1,5 +1,6 @@
 import { acceptCookiesGTMEvent } from "../helpers/analytics";
-import { setCookie, getCookie } from "../helpers/cookie-functions"
+import { setCookie, getCookie } from "../helpers/cookie-functions";
+import { DEFAULT_COOKIE_CONSENT, ESSENTIAL_COOKIE_CONSENT, ALL_COOKIES_CONSENT } from "../constants/consent-settings"
 
 const selectors = {
   cookieBanner: ".js-cookie-banner",
@@ -12,21 +13,11 @@ const selectors = {
   hideBannerBtn: "#js-cookie-banner__button-hide",
 };
 
-const DEFAULT_COOKIE_CONSENT = {
-  essential: true,
-  analytics: false,
-  video_players: false,
-};
-
 const acceptCookies = () => {
   setCookie(
     "cookie_preference",
     encodeURIComponent(
-      JSON.stringify({
-        essential: true,
-        analytics: true,
-        video_players: true,
-      }),
+      JSON.stringify(ALL_COOKIES_CONSENT),
     ),
     365,
   );
@@ -42,7 +33,7 @@ const acceptCookies = () => {
 const rejectCookies = () => {
   setCookie(
     "cookie_preference",
-    encodeURIComponent(JSON.stringify(DEFAULT_COOKIE_CONSENT)),
+    encodeURIComponent(JSON.stringify(ESSENTIAL_COOKIE_CONSENT)),
     365,
   );
 
