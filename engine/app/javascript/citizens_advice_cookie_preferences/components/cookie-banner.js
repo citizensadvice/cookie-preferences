@@ -1,8 +1,4 @@
-import {
-  loadAnalytics,
-  acceptCookiesGTMEvent,
-  analyticsCookiesAcceptedDlv,
-} from "../helpers/analytics";
+import { acceptCookiesGTMEvent } from "../helpers/analytics";
 
 const selectors = {
   cookieBanner: ".js-cookie-banner",
@@ -129,9 +125,7 @@ function setDefaultCookies() {
 function addCookieBannerEventHandlers() {
   document.querySelector(selectors.acceptBtn).addEventListener("click", () => {
     acceptCookies();
-    loadAnalytics();
     acceptCookiesGTMEvent();
-    analyticsCookiesAcceptedDlv();
   });
 
   document.querySelector(selectors.rejectBtn).addEventListener("click", () => {
