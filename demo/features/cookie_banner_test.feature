@@ -6,7 +6,7 @@ Feature: Cookie Banner
   Scenario: Default cookies are set
     I visit the site and haven't interacted with the cookie banner
     Then the essential cookies are accepted
-    And the analytics cookies are rejected
+    And the analytics cookies are accepted
     And the video player cookies are rejected
     And my cookie preferences are not set
     And the javascript cookie banner is rendered

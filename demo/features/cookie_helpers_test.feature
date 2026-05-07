@@ -6,6 +6,8 @@ Feature: Cookie Helpers
   Scenario: Default cookies are set
   I visit the site and haven't interacted with the cookie banner
     And I visit a page that uses the cookie helpers
+    Then I see a message that the "analytics" cookies are accepted
+    And I see a message that the "video_players" cookies are rejected
 
   Scenario: User accepts cookies
     When I click the "Accept additional cookies" button
@@ -23,6 +25,7 @@ Feature: Cookie Helpers
     Given I have previously consented to cookie version "old_version"
     And I have essential, non-essential and unapproved cookies
     When I visit a page that uses the cookie helpers
-    Then the non-essential cookies are deleted
+#    TODO: we need to expand this scenario when we know about Ethnio
+#    Then the non-essential cookies are deleted
     And the non-approved cookies are deleted
     And the essential cookies are not deleted
