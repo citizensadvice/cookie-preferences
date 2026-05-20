@@ -66,7 +66,7 @@ RSpec.describe "Preference page", type: :request do
       before { get "/cookie-preferences/edit?ReturnUrl=https%3A%2F%2Fsmartmetercheck.citizensadvice.org.uk%2F" }
 
       it "includes the subdomain as in the value of the hidden ReturnUrl field" do
-        expect(response.body).to include "<input value=\"https://smartmetercheck.citizensadvice.org.uk/\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+        expect(response.body).to include "<input autocomplete=\"off\" value=\"https://smartmetercheck.citizensadvice.org.uk/\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end
 
@@ -74,7 +74,7 @@ RSpec.describe "Preference page", type: :request do
       before { get "/cookie-preferences/edit?ReturnUrl=https%3A%2F%2Fwww.citizensadvice.org.uk%2Fimmigration" }
 
       it "includes the citizensadvice domain in the value of the hidden ReturnUrl field" do
-        expect(response.body).to include "<input value=\"https://www.citizensadvice.org.uk/immigration\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+        expect(response.body).to include "<input autocomplete=\"off\" value=\"https://www.citizensadvice.org.uk/immigration\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end
 
@@ -82,7 +82,7 @@ RSpec.describe "Preference page", type: :request do
       before { get "/cookie-preferences/edit?ReturnUrl=http%3A%2F%2Flocalhost%3A3000%2Fimmigration" }
 
       it "includes the localhost domain in the value of the hidden ReturnUrl field" do
-        expect(response.body).to include "<input value=\"http://localhost:3000/immigration\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+        expect(response.body).to include "<input autocomplete=\"off\" value=\"http://localhost:3000/immigration\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end
 
@@ -99,7 +99,7 @@ RSpec.describe "Preference page", type: :request do
       before { get "/cookie-preferences/edit", params: { ReturnUrl: "https://example.citizensadvice.org.uk/cysylltwch-\u00E2-ni/" } }
 
       it "includes a correctly-encoded URL to link back to" do
-        expect(response.body).to include "<input value=\"https://example.citizensadvice.org.uk/cysylltwch-%C3%A2-ni/\" autocomplete=\"off\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
+        expect(response.body).to include "<input autocomplete=\"off\" value=\"https://example.citizensadvice.org.uk/cysylltwch-%C3%A2-ni/\" type=\"hidden\" name=\"cookie_preference[ReturnUrl]\" id=\"cookie_preference_ReturnUrl\" />"
       end
     end
 
