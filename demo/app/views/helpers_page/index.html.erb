@@ -3,9 +3,10 @@
     <h1 class="cads-page-title">This is a page that uses the cookie helpers</h1>
 
     <div class="cads-prose">
-      <p>We have two cookie helpers:</p>
+      <p>We have three cookie helpers:</p>
       <ul>
         <li>allow_analytics_cookies?</li>
+        <li>allow_survey_cookies?</li>
         <li>allow_video_players_cookies?</li>
       </ul>
 
@@ -13,6 +14,12 @@
         <p>This text appears if the analytics cookies have been accepted.</p>
       <% else %>
         <p>This text appears if the analytics cookies have been rejected.</p>
+      <% end %>
+
+      <% if allow_survey_cookies? %>
+        <p>This text appears if the survey cookies have been accepted.</p>
+      <% else %>
+        <p>This text appears if the survey cookies have been rejected.</p>
       <% end %>
 
       <% if allow_video_players_cookies? %>

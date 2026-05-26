@@ -8,6 +8,10 @@ module CitizensAdviceCookiePreferences
       preference ? preference.fetch("analytics", false) : false
     end
 
+    def survey?
+      preference ? preference.fetch("survey", false) : false
+    end
+
     def video_players?
       preference ? preference.fetch("video_players", false) : false
     end

@@ -72,6 +72,11 @@ en:
         <p>We use these cookies so you can watch videos on our site from places like YouTube.</p> 
         <p>If you accept these cookies, you can watch videos and the player will remember your preferences, like the volume. The cookies will also remember which videos you've watched and how many times you watched them. If you don’t accept these cookies, you won’t be able to watch videos on our site.</p>
         <p>YouTube adds their own analytics cookies to your device even if you’ve rejected our analytics cookies.</p>
+      survey_cookies_header_html: >
+        <h3>Survey cookies</h3>
+      survey_cookies_options:
+        accept: Accept survey cookies
+        reject: Reject survey cookies
       button_text: Save changes
     update:
       success: Your cookie settings have been saved

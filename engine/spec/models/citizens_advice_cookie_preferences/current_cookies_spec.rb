@@ -17,7 +17,7 @@ RSpec.describe CitizensAdviceCookiePreferences::CurrentCookies do
     end
 
     context "with analytics cookies accepted" do
-      let(:preference) { { "essential" => true, "analytics" => true, "video_players" => false } }
+      let(:preference) { { "essential" => true, "analytics" => true, "survey" => false, "video_players" => false } }
 
       it "returns true when the analytics cookie is true" do
         expect(current_cookies.analytics?).to be true
@@ -25,10 +25,32 @@ RSpec.describe CitizensAdviceCookiePreferences::CurrentCookies do
     end
 
     context "with analytics cookies rejected" do
-      let(:preference) { { "essential" => true, "analytics" => false, "video_players" => false } }
+      let(:preference) { { "essential" => true, "analytics" => false, "survey" => false, "video_players" => false } }
 
       it "returns false when the analytics cookie is false" do
         expect(current_cookies.analytics?).to be false
+      end
+    end
+  end
+
+  describe "#survey?" do
+    it "returns false when no cookies are set" do
+      expect(current_cookies.survey?).to be false
+    end
+
+    context "with survey cookies accepted" do
+      let(:preference) { { "essential" => true, "analytics" => false, "survey" => true, "video_players" => false } }
+
+      it "returns true when the survey cookie is true" do
+        expect(current_cookies.survey?).to be true
+      end
+    end
+
+    context "with survey cookies rejected" do
+      let(:preference) { { "essential" => true, "analytics" => false, "survey" => false, "video_players" => false } }
+
+      it "returns false when the survey cookie is false" do
+        expect(current_cookies.survey?).to be false
       end
     end
   end
@@ -39,7 +61,7 @@ RSpec.describe CitizensAdviceCookiePreferences::CurrentCookies do
     end
 
     context "with video_players cookies accepted" do
-      let(:preference) { { "essential" => true, "analytics" => false, "video_players" => true } }
+      let(:preference) { { "essential" => true, "analytics" => false, "survey" => false, "video_players" => true } }
 
       it "returns true when the video_players cookie is true" do
         expect(current_cookies.video_players?).to be true
@@ -47,7 +69,7 @@ RSpec.describe CitizensAdviceCookiePreferences::CurrentCookies do
     end
 
     context "with video_players cookies rejected" do
-      let(:preference) { { "essential" => true, "analytics" => false, "video_players" => false } }
+      let(:preference) { { "essential" => true, "analytics" => false, "survey" => false, "video_players" => false } }
 
       it "returns false when the video_players cookie is false" do
         expect(current_cookies.video_players?).to be false
