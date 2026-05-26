@@ -10,12 +10,20 @@ module CitizensAdviceCookiePreferences
 
     attribute :essential, :boolean, default: true
     attribute :analytics, :boolean, default: false
+    attribute :survey, :boolean, default: false
     attribute :video_players, :boolean, default: false
 
     def analytics_cookies_options
       [
         FormOption.new(id: "true", name: I18n.t("cookie_preferences.form.analytic_cookies_options.accept")),
         FormOption.new(id: "false", name: I18n.t("cookie_preferences.form.analytic_cookies_options.reject"))
+      ]
+    end
+
+    def survey_cookies_options
+      [
+        FormOption.new(id: "true", name: I18n.t("cookie_preferences.form.survey_cookies_options.accept")),
+        FormOption.new(id: "false", name: I18n.t("cookie_preferences.form.survey_cookies_options.reject"))
       ]
     end
 

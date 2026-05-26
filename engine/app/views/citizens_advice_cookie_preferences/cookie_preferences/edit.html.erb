@@ -33,6 +33,20 @@
         <div class="cads-form-field">
           <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
             <legend>
+              <%= t("cookie_preferences.form.survey_cookies_header_html") %>
+            </legend>
+            <%= form.collection_radio_buttons :survey, @cookie_preferences.survey_cookies_options, :id, :name, required: true, label: "" do |b| %>
+              <div class="cads-form-group__item">
+                <%= b.radio_button(class: "cads-form-group__input") %>
+                <%= b.label(class: "cads-form-group__label") %>
+              </div>
+            <% end %>
+          </fieldset>
+        </div>
+
+        <div class="cads-form-field">
+          <fieldset class="cads-form-field__content cads-form-group cads-form-group--radio">
+            <legend>
               <%= t("cookie_preferences.form.video_player_cookies_header_html") %>
             </legend>
             <%= t("cookie_preferences.form.video_player_cookies_summmary_html") %>

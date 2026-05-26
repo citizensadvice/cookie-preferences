@@ -25,7 +25,7 @@ export const COOKIE_CATEGORIES = {
   _ga: "analytics",
   "_ga_*": "analytics",
   ar_debug: "analytics",
-  ethnio_displayed: "analytics",
+  ethnio_displayed: "survey",
   geo: "analytics",
   "mf_*": "analytics",
   mf_initialDomQueue: "analytics",

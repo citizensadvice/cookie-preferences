@@ -7,6 +7,7 @@ Feature: Cookie Banner
     I visit the site and haven't interacted with the cookie banner
     Then the essential cookies are accepted
     And the analytics cookies are accepted
+    And the survey cookies are rejected
     And the video player cookies are rejected
     And my cookie preferences are not set
     And the javascript cookie banner is rendered
@@ -17,6 +18,7 @@ Feature: Cookie Banner
     And the version number is set
     Then the essential cookies are accepted
     And the analytics cookies are accepted
+    And the survey cookies are accepted
     And the video player cookies are accepted
 
   Scenario: User rejects cookies
@@ -25,6 +27,7 @@ Feature: Cookie Banner
     And the version number is set
     And the essential cookies are accepted
     And the analytics cookies are rejected
+    And the survey cookies are rejected
     And the video player cookies are rejected
 
   Scenario: User hides the cookie banner
