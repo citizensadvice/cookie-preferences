@@ -12,8 +12,8 @@ module CitizensAdviceCookiePreferences
     # rubocop:disable Metrics/BlockLength
     included do
       before_action :check_cookie_version, :set_cookie_preferences
-      helper_method :cookies_preference_page?, :allow_analytics_cookies?, :allow_video_players_cookies?, :how_we_use_cookies_url,
-                    :pref_page_url
+      helper_method :cookies_preference_page?, :allow_analytics_cookies?, :allow_survey_cookies?, :allow_video_players_cookies?,
+                    :how_we_use_cookies_url, :pref_page_url
 
       def cookies_preference_page?
         false
@@ -21,6 +21,10 @@ module CitizensAdviceCookiePreferences
 
       def allow_analytics_cookies?
         CitizensAdviceCookiePreferences::CurrentCookies.analytics?
+      end
+
+      def allow_survey_cookies?
+        CitizensAdviceCookiePreferences::CurrentCookies.survey?
       end
 
       def allow_video_players_cookies?
@@ -75,7 +79,7 @@ module CitizensAdviceCookiePreferences
 
     def reset_cookie_consent
       cookies[:cookie_preference] = {
-        value: { essential: true, analytics: true, video_players: false }.to_json,
+        value: { essential: true, analytics: true, survey: false, video_players: false }.to_json,
         expires: 1.year,
         domain: :all
       }

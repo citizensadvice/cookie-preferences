@@ -1,17 +1,20 @@
 export const DEFAULT_COOKIE_CONSENT = {
   essential: true,
   analytics: true,
+  survey: false,
   video_players: false,
 };
 
 export const ESSENTIAL_COOKIE_CONSENT = {
   essential: true,
   analytics: false,
+  survey: false,
   video_players: false,
 };
 
 export const ALL_COOKIES_CONSENT = {
   essential: true,
   analytics: true,
+  survey: true,
   video_players: true,
 };

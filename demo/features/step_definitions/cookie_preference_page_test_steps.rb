@@ -39,12 +39,12 @@ Then("the cookie banner is not visible") do
 end
 
 Then("the reject {string} radio button is checked") do |text|
-  label = text == "analytics" ? "Reject analytics cookies" : "Reject video players cookies"
+  label = "Reject #{text.humanize.downcase} cookies"
   expect(page).to have_checked_field(label, visible: :hidden)
 end
 
 Then("the accept {string} radio button is checked") do |text|
-  label = text == "analytics" ? "Accept analytics cookies" : "Accept video players cookies"
+  label = "Accept #{text.humanize.downcase} cookies"
   expect(page).to have_checked_field(label, visible: :hidden)
 end
 

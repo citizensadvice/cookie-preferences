@@ -13,7 +13,7 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
       _demo_session: "something",
       ethnio_displayed: "something",
       _ga_wildcard: "something",
-      cookie_preference: { essential: true, analytics: false }.to_json,
+      cookie_preference: { essential: true, analytics: false, survey: false }.to_json,
       evil_tracking_cookie: "muhaha",
       "16%20Sep%202026%2009:50:40%20GMT": "ouch",
       "cookie[consent]": "1"
@@ -25,7 +25,11 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
   end
 
   it "deletes analytics cookies" do
-    expect(cookie_management).not_to include("ethnio_displayed", "_ga_wildcard")
+    expect(cookie_management).not_to include("_ga_wildcard")
+  end
+
+  it "deletes survey cookies" do
+    expect(cookie_management).not_to include("ethnio_displayed")
   end
 
   it "deletes unexpected cookies" do
@@ -44,11 +48,24 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieManagement do
     let(:cookies) do
       {
         cookie_preference: { analytics: true }.to_json,
-        ethnio_displayed: "something"
+        _ga_wildcard: "something"
       }
     end
 
     it "does not delete analytics cookies" do
+      expect(cookie_management).to include("_ga_wildcard")
+    end
+  end
+
+  context "when a user has consented to survey cookies" do
+    let(:cookies) do
+      {
+        cookie_preference: { survey: true }.to_json,
+        ethnio_displayed: "something"
+      }
+    end
+
+    it "does not delete survey cookies" do
       expect(cookie_management).to include("ethnio_displayed")
     end
   end
