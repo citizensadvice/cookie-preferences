@@ -1,3 +1,14 @@
+## v1.0.0
+
+**Breaking changes**
+
+- Making "analytics" cookie category enabled by default
+
+**New**
+
+- Adding "survey" cookie category
+- Updated cookie banner and cookie preferences page text
+
 ## v0.5.0
 
 #### _Aug. 04, 2026_
