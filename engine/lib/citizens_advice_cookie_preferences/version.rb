@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module CitizensAdviceCookiePreferences
-  VERSION = "0.4.2"
-  COOKIE_CURRENT_VERSION = "1"
+  VERSION = "1.0.0"
+  COOKIE_CURRENT_VERSION = "2"
 
   COOKIE_CATEGORIES = {
     "_public_website_frontend_session" => "essential",
