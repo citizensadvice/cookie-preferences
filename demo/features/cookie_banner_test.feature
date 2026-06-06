@@ -6,7 +6,8 @@ Feature: Cookie Banner
   Scenario: Default cookies are set
     I visit the site and haven't interacted with the cookie banner
     Then the essential cookies are accepted
-    And the analytics cookies are rejected
+    And the analytics cookies are accepted
+    And the survey cookies are rejected
     And the video player cookies are rejected
     And my cookie preferences are not set
     And the javascript cookie banner is rendered
@@ -17,6 +18,7 @@ Feature: Cookie Banner
     And the version number is set
     Then the essential cookies are accepted
     And the analytics cookies are accepted
+    And the survey cookies are accepted
     And the video player cookies are accepted
 
   Scenario: User rejects cookies
@@ -25,6 +27,7 @@ Feature: Cookie Banner
     And the version number is set
     And the essential cookies are accepted
     And the analytics cookies are rejected
+    And the survey cookies are rejected
     And the video player cookies are rejected
 
   Scenario: User hides the cookie banner
@@ -52,7 +55,7 @@ Feature: Cookie Banner
     Then the cookie banner is visible
 
   Scenario: User does not have to re-consent when the current cookie version stays the same
-    Given I have previously consented to cookie version "1"
+    Given I have previously consented to cookie version "2"
     Then I visit another page
     Then the cookie banner is no longer visible
 

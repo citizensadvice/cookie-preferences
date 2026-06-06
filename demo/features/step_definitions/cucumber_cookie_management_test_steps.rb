@@ -47,6 +47,16 @@ Then("the analytics cookies are rejected") do
   expect(cookie_preference["analytics"]).to be false
 end
 
+Then("the survey cookies are accepted") do
+  cookie_preference = cookie_value_helper("cookie_preference")
+  expect(cookie_preference["survey"]).to be true
+end
+
+Then("the survey cookies are rejected") do
+  cookie_preference = cookie_value_helper("cookie_preference")
+  expect(cookie_preference["survey"]).to be false
+end
+
 Then("the video player cookies are accepted") do
   cookie_preference = cookie_value_helper("cookie_preference")
   expect(cookie_preference["video_players"]).to be true
