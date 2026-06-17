@@ -20,7 +20,7 @@ RSpec.describe CitizensAdviceCookiePreferences::CookieBanner, type: :component d
     context "when Welsh language" do
       around { |example| I18n.with_locale(:cy) { example.run } }
 
-      it { is_expected.to have_text "Cwcis ar ein gwefan" }
+      it { is_expected.to have_text "Sut rydym yn defnyddio cwcis i'ch helpu chi" }
     end
   end
 end

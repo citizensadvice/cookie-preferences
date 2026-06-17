@@ -35,6 +35,7 @@
             <legend>
               <%= t("cookie_preferences.form.survey_cookies_header_html") %>
             </legend>
+            <%= t("cookie_preferences.form.survey_cookies_summmary_html") %>
             <%= form.collection_radio_buttons :survey, @cookie_preferences.survey_cookies_options, :id, :name, required: true, label: "" do |b| %>
               <div class="cads-form-group__item">
                 <%= b.radio_button(class: "cads-form-group__input") %>
@@ -61,10 +62,8 @@
 
         <%= form.hidden_field :ReturnUrl, value: @return_url %>
         <%= form.cads_button t("cookie_preferences.form.button_text") %>
-        <%= t("cookie_preferences.change_your_mind_html") %>
       <% end %>
     </div>
-    <%= t("cookie_preferences.ico_info_html") %>
     </div>
   <% end %>
 <% end %>
