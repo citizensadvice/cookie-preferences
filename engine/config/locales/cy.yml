@@ -1,7 +1,7 @@
 ---
 cy:
   cookie_banner:
-    title: Cwcis ar ein gwefan
+    title: Sut rydym yn defnyddio cwcis i'ch helpu chi
     accept_button: Derbyn pob cwci ychwanegol
     hide_button: Cuddio’r neges yma
     reject_button: Gwrthod pob cwci ychwanegol
@@ -19,10 +19,15 @@ cy:
 
     description:
       html: >
-        <p>Rydym yn defnyddio cwcis hanfodol i sicrhau bod ein gwefan yn gweithio'n iawn.</p>
-        <p>Hoffem hefyd ddefnyddio cwcis ychwanegol er mwyn cofio eich gosodiadau a deall sut rydych chi'n defnyddio ein gwefan. Mae hyn yn ein helpu ni i wella ein gwasanaethau ar eich cyfer chi.</p>
-        <p>Mae cwcis ychwanegol yn dod o wefannau eraill. Mae'r cwcis hyn yn ein helpu i ddangos pethau i chi o'r gwefannau hynny, fel fideos.</p>
-        <p>Gallwch <a href="%{page_url}">ddysgu mwy am y cwcis rydym yn eu defnyddio</a>.</p>
+        <p>Rydym yn defnyddio cwcis hanfodol i wneud i'n gwefan weithio.</p>
+        <p>Hoffem hefyd ddefnyddio rhai cwcis ychwanegol ar gyfer y canlynol:</p>
+        <ul>
+          <li>gweld pa gymorth sydd ei angen fwyaf ar bobl, fel y gallwn wneud ein gwefan yn well</li>
+          <li>ein helpu ni i ymgyrchu dros newidiadau sy'n gwneud pethau'n decach i bawb</li>
+          <li>eich gadael i chi wylio fideos ar y wefan</li>
+        </ul>
+        <p><a href="%{page_url}">Dysgwch fwy am sut rydym yn defnyddio cwcis ac yn cadw eich data yn ddiogel</a>.</p>
+        <p>Dywedwch wrthym os ydych chi am dderbyn neu wrthod cwcis ychwanegol. Os na wnewch ddewis, bydd rhai cwcis ychwanegol yn cael eu troi ymlaen yn ddiofyn.</p>
     no_js_banner_html: >
       <p>Mae'n ymddangos bod JavaScript i ffwrdd gennych. Mae angen i chi dderbyn neu wrthod cwcis ar ein gwefan.</p>
       <p>Gan ei fod i ffwrdd, byddwn ddim ond yn defnyddio'r cwcis hanfodol y mae ein gwefan eu hangen i weithio. Mae hyn yn golygu y gallai rhai pethau, fel fideos, ddim gweithio i chi.</p>
@@ -37,9 +42,10 @@ cy:
       <p>Rydym yn defnyddio 2 fath o gwcis:</p>
       <ul>
         <li>cwcis hanfodol - mae'n rhaid i ni eu defnyddio er mwyn i'n gwefan weithio</li>
-        <li>cwcis ychwanegol - dim ond os byddwch chi'n rhoi caniatâd i ni y byddwn ni'n defnyddio'r rhain</li>
+        <li>cwcis ychwanegol - rydym yn defnyddio'r rhain i wella ein gwefan</li>
       </ul>
       <p>Mae modd i chi <a href="%{page_url}">weld rhestr lawn o'r holl gwcis rydym yn eu defnyddio</a>.</p>
+      <p>Gallwch <a href="https://cy.ico.org.uk/for-the-public/online/cookies/">ddod o hyd i fwy o wybodaeth am gwcis a sut i'w dileu ar wefan Swyddfa'r Comisiynydd Gwybodaeth</a>.</p>
       <h2>Cwcis hanfodol</h2>
       <p>Rydym yn ychwanegu cwcis hanfodol at eich dyfais cyn gynted ag y byddwch chi'n defnyddio ein gwefan. Hebddyn nhw, fydd ein gwefan ddim yn gweithio'n iawn.</p>
       <p>Gallwch rwystro cwcis hanfodol yn eich gosodiadau porwr, ond ni fyddwch yn gallu:</p>
@@ -50,7 +56,9 @@ cy:
         <li>mewngofnodi, os ydych chi'n gweithio neu'n gwirfoddoli i ni</li>
       </ul>
       <h2>Cwcis ychwanegol</h2>
-      <p>Fyddwn ni ddim yn ychwanegu cwcis ychwanegol heb eich caniatâd chi.</p>
+      <p>Rydym hefyd yn defnyddio cwcis ychwanegol i'n helpu i wella'r wefan.</p>
+      <p>Gallwch ddefnyddio'r dudalen hon i ddewis pa gwcis ychwanegol rydych chi eu heisiau. Ar ôl i chi ddewis, pwyswch y botwm 'Cadw Newidiadau'.</p>
+      <p>Gallwch newid eich meddwl am gwcis ychwanegol ar unrhyw adeg drwy ddychwelyd i'r dudalen hon.</p>
     form:
       analytic_cookies_header_html: >
         <h3>Cwcis dadansoddi</h3>
@@ -59,14 +67,27 @@ cy:
         reject: Gwrthod cwcis dadansoddi
       analytic_cookies_summary_html: >
         <p>Mae'r cwcis hyn yn ein helpu ni i wella ein gwefan drwy ddangos sut mae pobl yn ei defnyddio. Er enghraifft, pa dudalennau sydd fwyaf poblogaidd neu lle mae pobl yn cael trafferth.</p> 
-        <p>Rydym yn defnyddio teclynnau fel Google Analytics a Mouseflow i weld sut mae pobl yn defnyddio ein gwefan.</p>
+        <p>Rydym yn defnyddio teclynnau fel Google Analytics a Mouseflow i weld sut mae pobl yn defnyddio ein gwefan. Rydym yn defnyddio'r data hwn i edrych ar sut mae pobl yn defnyddio'r wefan yn gyffredinol. Nid oes gennym ddiddordeb mewn teithiau unigol.</p>
+        <p>Mae rhai cwcis dadansoddeg wedi'u troi ymlaen yn ddiofyn. Os byddwch yn gwrthod cwcis dadansoddol byddant yn cael eu diffodd.</p>
+        <ul>
+          <li>Derbyn cwcis dadansoddi</li>
+          <li>Gwrthod cwcis dadansoddi</li>
+        </ul>
+      survey_cookies_header_html: >
+        <h3>Cwcis arolwg</h3>
+      survey_cookies_options:
+        accept: Derbyn cwcis arolwg
+        reject: Gwrthod cwcis arolwg
+      survey_cookies_summmary_html: >
+        <p>Weithiau byddwn yn gofyn i chi gymryd rhan mewn arolwg am ein gwefan. Mae'r cwcis hyn yn sicrhau nad ydym yn gofyn i chi yn rhy aml.</p>
+        <p>Caiff cwcis arolwg eu troi i ffwrdd yn ddiofyn.</p>
       video_player_cookies_header_html: >
         <h3>Cwcis chwaraewyr fideo</h3>
       video_player_cookies_options:
         accept: Derbyn cwcis chwaraewr fideo
         reject: Gwrthod cwcis chwaraewr fideo
       video_player_cookies_summmary_html: >
-        <p>Rydyn ni'n defnyddio'r cwcis hyn fel bod modd i chi wylio fideos ar ein gwefan o leoedd fel YouTube.</p> 
+        <p>Rydyn ni'n defnyddio'r cwcis hyn fel bod modd i chi wylio fideos ar ein gwefan o leoedd fel YouTube. Caiff cwcis fideo eu troi i ffwrdd yn ddiofyn.</p> 
         <p>Os byddwch chi'n derbyn y cwcis hyn, gallwch wylio fideos a bydd y chwaraewr yn cofio eich dewisiadau, fel y lefel sain. Bydd y cwcis hefyd yn cofio pa fideos rydych chi wedi eu gwylio a faint o weithiau rydych chi wedi eu gwylio. Os na dderbyniwch y cwcis hyn, fyddwch chi ddim yn gallu gwylio fideos ar ein gwefan.</p>
         <p>Mae YouTube yn ychwanegu cwcis dadansoddi eu hunain at eich dyfais hyd yn oed os ydych chi wedi gwrthod ein cwcis dadansoddi.</p>
       button_text: Arbed newidiadau
