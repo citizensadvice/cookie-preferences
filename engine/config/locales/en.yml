@@ -27,6 +27,7 @@ en:
           <li>let you watch videos on the site</li>
         </ul>
         <p><a href="%{page_url}">Find out more about how we use cookies and keep your data safe</a>.</p>
+        <p>Tell us if you want to accept or reject additional cookies. If you don’t make a choice, some additional cookies will be turned on by default.</p>
     no_js_banner_html: >
       <p>It looks like you have JavaScript turned off. You need it to accept or reject cookies on our site.</p>
       <p>As it’s turned off, we’ll only use the essential cookies our website needs to work. This means some things, like videos, might not work for you.</p>
@@ -43,6 +44,8 @@ en:
         <li>additional cookies - we’ll only use these if you give us your permission</li>
       </ul>
       <p>You can <a href="%{page_url}">see a full list of all the cookies we use</a>.</p>
+      <p>You can <a href="https://ico.org.uk/for-the-public/online/cookies/">find out more about cookies and how to delete them on the Information Commissioner's Office (ICO) website.</a></p>
+
       <h2>Essential cookies</h2>
       <p>We add essential cookies to your device as soon as you use our website. Without them our website won’t work properly.</p>
       <p>You can block essential cookies in your browser settings, but you won’t be able to:</p>
@@ -53,7 +56,9 @@ en:
         <li>log in, if you work or volunteer for us</li>
       </ul>
       <h2>Additional cookies</h2>
-      <p>We won't add additional cookies unless you give us permission.</p>
+      <p>We also use additional cookies to help us improve the website.</p>
+      <p>You can use this page to choose which additional cookies you want. After you choose, press the ‘Save Changes’ button.</p>
+      <p>You can change your mind about additional cookies at any time by coming back to this page.</p>
     form:
       analytic_cookies_header_html: >
         <h3>Analytics cookies</h3>
@@ -62,7 +67,16 @@ en:
         reject: Reject analytics cookies
       analytic_cookies_summary_html: >
         <p>These cookies help us improve our website by showing us how people use it. For example, which pages are most popular or where people are having problems.</p> 
-        <p>We use tools like Google Analytics and Mouseflow to see how people are using our site.</p>
+        <p>We use tools like Google Analytics and Mouseflow to see how people are using our site as a whole. We don’t follow your personal activity.</p>
+        <p>Some analytics cookies are turned on by default. If you reject analytics cookies they will be turned off.</p>
+      survey_cookies_header_html: >
+        <h3>Survey cookies</h3>
+      survey_cookies_options:
+        accept: Accept survey cookies
+        reject: Reject survey cookies
+      survey_cookies_summmary_html: >
+        <p>Sometimes we’ll ask you to take part in a survey about our website. These cookies make sure that we don’t ask you too often.</p>
+        <p>Survey cookies are turned off by default.</p>
       video_player_cookies_header_html: >
         <h3>Video player cookies</h3>
       video_player_cookies_options:
@@ -81,7 +95,3 @@ en:
     no_js_callout_content_html: >
       <p>You need JavaScript turned on to accept or reject additional cookies. We’ll only use essential cookies on your device.</p>
       <p>Some parts of our site might not work, including videos. We'll give you links to watch videos on another website, like YouTube.</p>
-    change_your_mind_html: >
-      <p>You can change your mind about additional cookies at any time by coming back to this page.</p>
-    ico_info_html: >
-      <p>You can <a href="https://ico.org.uk/for-the-public/online/cookies/">find out more about cookies and how to delete them on the Information Commissioner's Office (ICO) website.</a></p>

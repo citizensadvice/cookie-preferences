@@ -5,8 +5,8 @@ Given("I am on the Demo App Welsh Home page") do
 end
 
 Then("the Welsh cookie banner is visible") do
-  expect(page).to have_text("Rydym yn defnyddio cwcis hanfodol i sicrhau bod ein gwefan yn gweithio'n iawn")
-  expect(page).to have_link("ddysgu mwy am y cwcis rydym yn eu defnyddio",
+  expect(page).to have_text("Rydym yn defnyddio cwcis hanfodol i wneud i'n gwefan weithio.")
+  expect(page).to have_link("Dysgwch fwy am sut rydym yn defnyddio cwcis ac yn cadw eich data yn ddiogel",
                             href: "/cymraeg/amdanom-ni/gwybodaeth/sut-rydym-yn-defnyddio-cwcis/")
   expect(page).to have_link("Dewiswch gwcis",
                             href: "/cymraeg/cookie-preferences/?ReturnUrl=http%3A%2F%2Flocalhost%3A3000%2Fcymraeg")

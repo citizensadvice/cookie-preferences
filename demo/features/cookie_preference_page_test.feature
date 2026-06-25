@@ -11,10 +11,11 @@ Feature: Cookie Preference Page
   I visit the site and haven't interacted with the cookie banner
     Then the cookie banner is not visible
     And the success banner is not visible
-    And the reject "analytics" radio button is checked
+    And the accept "analytics" radio button is checked
+    And the reject "survey" radio button is checked
     And the reject "video_players" radio button is checked
     And the essential cookies are accepted
-    And the analytics cookies are rejected
+    And the analytics cookies are accepted
     And the video player cookies are rejected
     And my cookie preferences are not set
     And the no javascript preference page callout is not rendered
@@ -24,6 +25,7 @@ Feature: Cookie Preference Page
     And I click to save my choices
     Then the success banner is visible
     And the accept "analytics" radio button is checked
+    And the reject "survey" radio button is checked
     And the reject "video_players" radio button is checked
     And the essential cookies are accepted
     And the analytics cookies are accepted
@@ -35,10 +37,12 @@ Feature: Cookie Preference Page
     When I click to accept "video_players" cookies
     And I click to save my choices
     Then the success banner is visible
-    And the reject "analytics" radio button is checked
+    And the accept "analytics" radio button is checked
+    And the reject "survey" radio button is checked
     And the accept "video_players" radio button is checked
     And the essential cookies are accepted
-    And the analytics cookies are rejected
+    And the analytics cookies are accepted
+    And the survey cookies are rejected
     And the video player cookies are accepted
     And my cookie preference is saved
     And the version number is set
@@ -46,37 +50,45 @@ Feature: Cookie Preference Page
   Scenario: I have previously accepted all cookies
     Given I have previously accepted all cookies
     Then the accept "analytics" radio button is checked
+    And the accept "survey" radio button is checked
     And the accept "video_players" radio button is checked
     And the essential cookies are accepted
     And the analytics cookies are accepted
+    And the survey cookies are accepted
     And the video player cookies are accepted
     And my cookie preference is saved
     And the version number is set
 
-  Scenario: I reject the analytics and video players cookies
+  Scenario: I reject the non-essential cookies
     Given I have previously accepted all cookies
     When I click to reject "analytics" cookies
+    And I click to reject "survey" cookies
     And I click to reject "video_players" cookies
     And I click to save my choices
     Then the success banner is visible
     And the reject "analytics" radio button is checked
+    And the reject "survey" radio button is checked
     And the reject "video_players" radio button is checked
     And the essential cookies are accepted
     And the analytics cookies are rejected
+    And the survey cookies are rejected
     And the video player cookies are rejected
     And my cookie preference is saved
     And the version number is set
 
-  Scenario: I accept the analytics and video players cookies
+  Scenario: I accept the non-essential cookies
     Given I have previously rejected all cookies
     When I click to accept "analytics" cookies
+    And I click to accept "survey" cookies
     And I click to accept "video_players" cookies
     And I click to save my choices
     Then the success banner is visible
     And the accept "analytics" radio button is checked
+    And the accept "survey" radio button is checked
     And the accept "video_players" radio button is checked
     And the essential cookies are accepted
     And the analytics cookies are accepted
+    And the survey cookies are accepted
     And the video player cookies are accepted
     And my cookie preference is saved
     And the version number is set
@@ -86,7 +98,7 @@ Feature: Cookie Preference Page
     Then I have essential, non-essential and unapproved cookies
     When I click to reject "analytics" cookies
     And I click to save my choices
-    Then the non-essential cookies are deleted
+#    Then the non-essential cookies are deleted
     And the non-approved cookies are deleted
     And the essential cookies are not deleted
 

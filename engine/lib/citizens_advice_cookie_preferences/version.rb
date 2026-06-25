@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module CitizensAdviceCookiePreferences
-  VERSION = "0.4.2"
-  COOKIE_CURRENT_VERSION = "1"
+  VERSION = "1.0.0"
+  COOKIE_CURRENT_VERSION = "2"
 
   COOKIE_CATEGORIES = {
     "_public_website_frontend_session" => "essential",
@@ -32,7 +32,7 @@ module CitizensAdviceCookiePreferences
     "_ga" => "analytics",
     "_ga_*" => "analytics",
     "ar_debug" => "analytics",
-    "ethnio_displayed" => "analytics",
+    "ethnio_displayed" => "survey",
     "geo" => "analytics",
     "mf_*" => "analytics",
     "mf_initialDomQueue" => "analytics",

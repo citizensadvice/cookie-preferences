@@ -5,7 +5,7 @@ A rails engine for managing cookie consent in Citizens Advice websites and appli
 ## Usage
 
 This engine can be integrated into host apps and used to manage cookies
-based on the consent types of `essential`, `analytics` and `video players`
+based on the consent types of `essential`, `analytics`, `survey` and `video players`
 
 The engine provides a cookie preferences page, cookie banner, cookie confirmation
 banner and cookie management logic.
@@ -116,8 +116,10 @@ def default_data_layer_properties
     #data layer properties go here
   }
 
-  if  allow_analytics_cookies?
-    properties.merge({ analyticsCookiesAccepted: "True" })
+  if  allow_analytics_cookies? && cookies[:cookie_preference_set].present?
+    properties.merge({ analyticsCookiesAccepted: "explicit" })
+  elsif allow_analytics_cookies? && cookies[:cookie_preference_set].nil?
+    properties.merge({ analyticsCookiesAccepted: "default" })
   else
     properties
   end
