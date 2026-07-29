@@ -67,6 +67,13 @@ function expireCookie(cookieName, value = "") {
   let thePast = new Date(0).toUTCString(); // 0 = 0 seconds since UTC started (1970/01/01)
   document.cookie = `${cookieName}=${value};expires=${thePast};path=/;`;
   document.cookie = `${cookieName}=${value};expires=${thePast};domain=${cookieDomain};path=/;`;
+
+  // Stops _ga_<container-id> cookies from appearing when the user rejects cookies and navigates to a differnt page
+  if (cookieName.startsWith("_ga") && cookieName != "_ga") {
+    const gaId = cookieName.slice(4);
+    // Force GA to stop sending data
+    window[`ga-disable-G-${gaId}`] = true;
+  }
 }
 
 export function deleteUnconsentedCookies() {
