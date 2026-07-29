@@ -68,6 +68,10 @@ function expireCookie(cookieName, value = "") {
   document.cookie = `${cookieName}=${value};expires=${thePast};path=/;`;
   document.cookie = `${cookieName}=${value};expires=${thePast};domain=${cookieDomain};path=/;`;
 
+  turnOffGa(cookieName);
+}
+
+export function turnOffGa(cookieName) {
   // Stops _ga_<container-id> cookies from appearing when the user rejects cookies and navigates to a differnt page
   if (cookieName.startsWith("_ga") && cookieName != "_ga") {
     const gaId = cookieName.slice(4);
