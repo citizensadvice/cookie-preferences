@@ -62,17 +62,11 @@ function permittedCookie(cookie) {
   return false;
 }
 
-function expireCookie(cookie, value = "") {
+function expireCookie(cookieName, value = "") {
   // We need to handle deleting cookies on the domain and the .domain
-  let thePast = new Date(0); // 0 = 0 seconds since UTC started (1970/01/01)
-  document.cookie = cookie + "=" + value + ";expires=" + thePast + ";";
-  document.cookie =
-    cookie +
-    "=" +
-    value +
-    ";expires=" +
-    thePast +
-    `;domain=${cookieDomain};path=/`;
+  let thePast = new Date(0).toUTCString(); // 0 = 0 seconds since UTC started (1970/01/01)
+  document.cookie = `${cookieName}=${value};expires=${thePast};path=/;`;
+  document.cookie = `${cookieName}=${value};expires=${thePast};domain=${cookieDomain};path=/;`;
 }
 
 export function deleteUnconsentedCookies() {
