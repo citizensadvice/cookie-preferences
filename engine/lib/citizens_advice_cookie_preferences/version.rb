@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CitizensAdviceCookiePreferences
-  VERSION = "0.4.2"
+  VERSION = "0.5.0"
   COOKIE_CURRENT_VERSION = "1"
 
   COOKIE_CATEGORIES = {

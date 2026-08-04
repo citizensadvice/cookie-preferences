@@ -1,3 +1,9 @@
+## v0.5.0
+
+#### _Aug. 04, 2026_
+
+- Only resetting the cookies if the cookie_preference_set version is older than the current
+
 ## v0.4.2
 
 #### _Nov. 25, 2025_
