@@ -67,7 +67,20 @@ Then("the cookie_preference expiry is set for 1 year") do
 end
 
 Given("I have previously consented to cookie version {string}") do |version|
-  page.driver.browser.manage.add_cookie({ name: "cookie_preference_set", value: version })
+  current_version = CitizensAdviceCookiePreferences::COOKIE_CURRENT_VERSION.to_i
+
+  version_num = case version
+                when "current_version"
+                  current_version
+                when "old_version"
+                  current_version - 1
+                when "new_version"
+                  current_version + 1
+                else
+                  version
+                end
+
+  page.driver.browser.manage.add_cookie({ name: "cookie_preference_set", value: version_num.to_s })
 end
 
 Then("the no javascript cookie banner is rendered") do
