@@ -52,7 +52,12 @@ Feature: Cookie Banner
     Then the cookie banner is visible
 
   Scenario: User does not have to re-consent when the current cookie version stays the same
-    Given I have previously consented to cookie version "1"
+    Given I have previously consented to cookie version "current_version"
+    Then I visit another page
+    Then the cookie banner is no longer visible
+
+  Scenario: User does not have to re-consent when the current cookie version downgrades
+    Given I have previously consented to cookie version "new_version"
     Then I visit another page
     Then the cookie banner is no longer visible
 
