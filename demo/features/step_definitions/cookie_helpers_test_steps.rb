@@ -18,8 +18,7 @@ And("I have essential, non-essential and unapproved cookies") do
   page.driver.browser.manage.add_cookie({ name: ".CitizensAdviceLogin", value: "legacy_login_cookie" })
 end
 
-Then("the non-essential cookies are deleted") do
-  expect(page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == "ethnio_displayed" }).to be_nil
+Then("the analytics cookies are deleted") do
   expect(page.driver.browser.manage.all_cookies.find { |cookie| cookie[:name] == "_ga_wildcard" }).to be_nil
 end
 

@@ -98,7 +98,7 @@ Feature: Cookie Preference Page
     Then I have essential, non-essential and unapproved cookies
     When I click to reject "analytics" cookies
     And I click to save my choices
-#    Then the non-essential cookies are deleted
+    Then the analytics cookies are deleted
     And the non-approved cookies are deleted
     And the essential cookies are not deleted
 
