@@ -6,7 +6,7 @@ module CitizensAdviceCookiePreferences
   class CookiePreferencesController < ApplicationController
     default_form_builder CitizensAdviceComponents::FormBuilder
 
-    DEFAULT_PREFERENCES = { essential: true, analytics: false, video_players: false }.freeze
+    DEFAULT_PREFERENCES = { essential: true, analytics: true, survey: false, video_players: false }.freeze
     include Rails.application.routes.url_helpers
 
     before_action :set_default_cookie, only: :edit
@@ -28,7 +28,8 @@ module CitizensAdviceCookiePreferences
 
     # rubocop:disable Metrics/AbcSize
     def update
-      @cookie_preferences = CookiePreference.new(analytics: prefs_from_form["analytics"], video_players: prefs_from_form["video_players"])
+      @cookie_preferences = CookiePreference.new(analytics: prefs_from_form["analytics"], survey: prefs_from_form["survey"],
+                                                 video_players: prefs_from_form["video_players"])
 
       if @cookie_preferences.valid?
         update_cookie_preferences
@@ -46,7 +47,7 @@ module CitizensAdviceCookiePreferences
     private
 
     def prefs_from_form
-      params.fetch(:cookie_preference).permit(:analytics, :video_players, :ReturnUrl)
+      params.fetch(:cookie_preference).permit(:analytics, :survey, :video_players, :ReturnUrl)
     end
 
     def prefs_from_cookie
