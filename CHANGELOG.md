@@ -1,3 +1,11 @@
+## v1.1.0
+
+#### _Aug. 17, 2026_
+
+**New**
+
+- Adding siteType and pageType to the cookie preferences page
+
 ## v1.0.0
 
 **Breaking changes**
