@@ -46,6 +46,15 @@ module CitizensAdviceCookiePreferences
 
     private
 
+    # This assumes we are only poining to the citizensadvice cookies page
+    # If we need to extend it to other products, we need to review the datalayer
+    def custom_data_layer_properties
+      {
+        siteType: "Corporate Website",
+        pageType: "Cookie preferences page"
+      }
+    end
+
     def prefs_from_form
       params.fetch(:cookie_preference).permit(:analytics, :survey, :video_players, :ReturnUrl)
     end
