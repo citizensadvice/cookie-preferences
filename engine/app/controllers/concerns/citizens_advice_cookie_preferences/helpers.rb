@@ -68,6 +68,9 @@ module CitizensAdviceCookiePreferences
         CurrentCookies.preference = JSON.parse(cookies[:cookie_preference])
       rescue JSON::ParserError
         reset_cookie_consent
+        # The reset_cookie_consent has replaced the malformed cookie value with the default cookie value
+        # so we can pass it to the current cookies model
+        CurrentCookies.preference = JSON.parse(cookies[:cookie_preference])
       end
     end
 

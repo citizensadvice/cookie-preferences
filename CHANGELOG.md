@@ -1,3 +1,9 @@
+## v1.2.0
+
+#### _Oct. 22, 2026_
+
+- Fix for CurrentCookies.preference not being re-evaluated if cookie_preference cookie is malformed
+
 ## v1.1.0
 
 #### _Aug. 17, 2026_

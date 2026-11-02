@@ -7,6 +7,8 @@ RSpec.describe "CitizensAdviceCookiePreferences::Helpers" do
     include CitizensAdviceCookiePreferences::Helpers
 
     def test_action
+      # We need to set the variable here because the CurrentCookies.preference attribute resets after the request finishes
+      @analytics_value = allow_analytics_cookies?
       head :ok
     end
   end
@@ -16,16 +18,19 @@ RSpec.describe "CitizensAdviceCookiePreferences::Helpers" do
   end
 
   describe "#allow_analytics_cookies?" do
-    subject { controller.helpers.allow_analytics_cookies? }
-
     context "when the cookie is malformed" do
       before do
         controller.request.cookies[:cookie_preference] = "I am not valid JSON"
+        # We need to set cookie_preference_set so that check_cookie_version id skipped
+        # otherwise it will run reset_cookie_consent, and we won't react the rescue block of set_cookie_preferences
+        controller.request.cookies[:cookie_preference_set] = "2"
 
         get :test_action
       end
 
-      it { is_expected.to be(false) }
+      it "returns true after resetting to default preferences" do
+        expect(controller.instance_variable_get(:@analytics_value)).to be(true)
+      end
     end
   end
 end
