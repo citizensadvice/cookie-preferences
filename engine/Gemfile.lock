@@ -173,9 +173,9 @@ GEM
       actionpack (>= 6.0.0)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    minitest (6.0.6)
+    minitest (6.1.0)
       drb (~> 2.0)
-      prism (~> 1.5)
+      prism (>= 1.5, < 3)
     net-imap (0.6.8)
       date
       net-protocol
@@ -347,9 +347,10 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.2)
     useragent (0.16.11)
-    view_component (4.19.0)
+    view_component (4.20.0)
       actionview (>= 7.1.0)
       activesupport (>= 7.1.0)
+      prism (>= 1.0)
     websocket-driver (0.8.2)
       base64
       websocket-extensions (>= 0.1.0)
